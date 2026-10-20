@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+<title>XML to CSV: The Complete Guide | BunnyConvert</title>
+<meta name="description" content="The complete guide to converting XML to CSV. Covers XML structure, attributes, namespaces, nested elements, RSS/Atom, SOAP, and best practices. 2026 edition." />
+<meta name="keywords" content="xml to csv guide, xml csv tutorial, convert xml to csv explained, xml parser, xml namespaces, rss to csv, soap to csv" />
+<link rel="canonical" href="https://bunnyconvert.com/xml-to-csv-guide.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="BunnyConvert" />
+<meta property="og:title" content="XML to CSV: The Complete Guide" />
+<meta property="og:description" content="Everything you need to know about XML, the conversion to CSV, and how to handle attributes, namespaces, and nested elements." />
+<meta property="og:url" content="https://bunnyconvert.com/xml-to-csv-guide.html" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="XML to CSV: The Complete Guide" />
+<meta name="twitter:description" content="Everything you need to know about XML and the conversion to CSV." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "XML to CSV: The Complete Guide",
+  "description": "Everything you need to know about XML and the conversion to CSV.",
+  "author": { "@type": "Organization", "name": "BunnyConvert" },
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-10-19"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bunnyconvert.com/" },
+    { "@type": "ListItem", "position": 2, "name": "XML to CSV Converter", "item": "https://bunnyconvert.com/xml-to-csv.html" },
+    { "@type": "ListItem", "position": 3, "name": "XML to CSV Guide", "item": "https://bunnyconvert.com/xml-to-csv-guide.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="BunnyConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+        <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+        <ellipse cx="35" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <ellipse cx="65" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+        <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+        <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+      </svg>
+      <span>BunnyConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html" class="current">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="xml-to-csv.html#faq">FAQ</a>
+      <a href="xml-to-csv.html#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding: 56px 0 40px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      The complete guide
+    </span>
+    <h1>XML to CSV: <span class="accent">the complete guide</span></h1>
+    <p class="lede">Everything you need to know about the XML format, the CSV output, and how to handle real-world documents.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px;">
+      <a href="xml-to-csv.html#convert" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Try the Converter
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#structure">XML structure</a>
+        <a href="#row">Choosing the row element</a>
+        <a href="#attrs">Attributes</a>
+        <a href="#nested">Nested elements</a>
+        <a href="#namespaces">Namespaces</a>
+        <a href="#formats">Common XML formats</a>
+        <a href="#edge">Edge cases</a>
+      </div>
+
+      <div class="content-block">
+        <h2 id="structure">How is XML structured?</h2>
+        <p>XML is a tree of nested elements, each with optional attributes and text content. A document always has exactly one root element; everything else is a descendant of the root. Here's a minimal example:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+  &lt;book id="1"&gt;
+    &lt;title&gt;The Pragmatic Programmer&lt;/title&gt;
+    &lt;author&gt;Andy Hunt&lt;/author&gt;
+    &lt;year&gt;1999&lt;/year&gt;
+    &lt;price&gt;42.50&lt;/price&gt;
+  &lt;/book&gt;
+  &lt;book id="2"&gt;
+    &lt;title&gt;Clean Code&lt;/title&gt;
+    &lt;author&gt;Robert Martin&lt;/author&gt;
+    &lt;year&gt;2008&lt;/year&gt;
+    &lt;price&gt;38.00&lt;/price&gt;
+  &lt;/book&gt;
+&lt;/catalog&gt;</code></pre>
+        <p>The tree structure is what makes XML powerful — you can represent arbitrary relationships — but it's also what makes it hard to fit into a flat spreadsheet. The conversion collapses the tree into rows and columns.</p>
+
+        <h2 id="row">How is the "row element" chosen?</h2>
+        <p>Every XML to CSV conversion has to pick a "row element" — the element whose repeated instances become the rows of the CSV. The converter auto-detects this by looking for the most common direct child of the root element. In the example above, <code>&lt;book&gt;</code> is the obvious choice because <code>&lt;catalog&gt;</code> has two <code>&lt;book&gt;</code> children.</p>
+        <p>Sometimes the choice isn't obvious. An RSS feed has a single <code>&lt;channel&gt;</code> with many <code>&lt;item&gt;</code> children — the items are the rows. A SOAP response may have a single root with nested arrays — the deepest repeating element is usually the row. If auto-detect picks the wrong element, override it in the settings.</p>
+        <p>Common row element names to expect: <code>item</code>, <code>entry</code>, <code>row</code>, <code>record</code>, <code>product</code>, <code>order</code>, <code>customer</code>, <code>user</code>. If your XML uses something obscure, just type the element name in settings.</p>
+
+        <h2 id="attrs">How are attributes handled?</h2>
+        <p>XML attributes are key-value pairs on the opening tag of an element, like <code>&lt;book id="1"&gt;</code> where <code>id</code> is the attribute. They are first-class in XML and often carry the most important identifiers (IDs, types, references).</p>
+        <p>By default, attributes are included as columns prefixed with <code>@</code>. The example above becomes:</p>
+<pre><code>@id,title,author,year,price
+1,The Pragmatic Programmer,Andy Hunt,1999,42.50
+2,Clean Code,Robert Martin,2008,38.00
+</code></pre>
+        <p>The <code>@</code> prefix makes attributes visually distinct from child elements, especially when an attribute and a child element share the same name (which is legal in XML). You can change the prefix to anything you like in settings, or disable attribute inclusion entirely.</p>
+
+        <h2 id="nested">How are nested elements flattened?</h2>
+        <p>When a row element contains nested children, those become columns. By default, nesting is flattened with a separator — <code>&lt;address&gt;&lt;city&gt;NYC&lt;/city&gt;&lt;/address&gt;</code> becomes the column <code>address__city</code>. The separator is configurable (__, ., /, etc.).</p>
+        <p>For deeper nesting, the rule applies recursively: <code>&lt;author&gt;&lt;name&gt;&lt;first&gt;Andy&lt;/first&gt;&lt;last&gt;Hunt&lt;/last&gt;&lt;/name&gt;&lt;/author&gt;</code> becomes <code>author__name__first</code> and <code>author__name__last</code>. If a column name gets unwieldy, you can also use a "concatenate" strategy that joins all leaf values into a single column per row.</p>
+
+        <h2 id="namespaces">What about XML namespaces?</h2>
+        <p>Namespaces are XML's way of avoiding element name collisions — <code>&lt;ns:title&gt;</code> and <code>&lt;atom:title&gt;</code> can coexist in the same document. By default, the converter strips namespace prefixes for cleaner column names (<code>title</code> instead of <code>ns:title</code>). If you need the prefix preserved, enable it in settings.</p>
+        <p>SOAP responses are heavily namespaced (<code>&lt;soap:Envelope&gt;</code>, <code>&lt;soap:Body&gt;</code>, etc.). The converter handles them without special configuration — the prefixes are stripped, and the underlying element names become the column names.</p>
+
+        <h2 id="formats">Common XML formats</h2>
+        <p>These formats all work out of the box with auto-detect:</p>
+        <ul>
+          <li><strong>RSS 2.0:</strong> <code>&lt;rss&gt;&lt;channel&gt;&lt;item&gt;...&lt;/item&gt;&lt;/channel&gt;&lt;/rss&gt;</code> — row element is <code>item</code>, columns include <code>title</code>, <code>link</code>, <code>description</code>, <code>pubDate</code>.</li>
+          <li><strong>Atom 1.0:</strong> <code>&lt;feed&gt;&lt;entry&gt;...&lt;/entry&gt;&lt;/feed&gt;</code> — row element is <code>entry</code>, columns include <code>title</code>, <code>updated</code>, <code>summary</code>, <code>author/name</code>.</li>
+          <li><strong>SOAP responses:</strong> <code>&lt;soap:Envelope&gt;&lt;soap:Body&gt;&lt;GetProductsResponse&gt;&lt;Product&gt;...&lt;/Product&gt;&lt;/GetProductsResponse&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</code> — the deepest repeating element is auto-detected as the row.</li>
+          <li><strong>Sitemaps:</strong> <code>&lt;urlset&gt;&lt;url&gt;...&lt;/url&gt;&lt;/urlset&gt;</code> — row element is <code>url</code>, columns include <code>loc</code>, <code>lastmod</code>, <code>changefreq</code>, <code>priority</code>.</li>
+          <li><strong>SVG:</strong> <code>&lt;svg&gt;&lt;path&gt;...&lt;/path&gt;&lt;/svg&gt;</code> — useful for extracting geometry data from vector graphics.</li>
+          <li><strong>KML (geographic):</strong> <code>&lt;kml&gt;&lt;Placemark&gt;...&lt;/Placemark&gt;&lt;/kml&gt;</code> — row element is <code>Placemark</code>, columns include <code>name</code>, <code>description</code>, and <code>Point/coordinates</code>.</li>
+        </ul>
+
+        <h2 id="edge">Common edge cases</h2>
+        <p>Real-world XML is rarely as tidy as the textbook example. Here are the most common gotchas and how the converter handles them:</p>
+        <ul>
+          <li><strong>Mixed content (text + child elements):</strong> <code>&lt;p&gt;Hello &lt;em&gt;world&lt;/em&gt;!&lt;/p&gt;</code> — the text is concatenated and the child element is added as a separate column.</li>
+          <li><strong>Repeated children with the same name:</strong> <code>&lt;person&gt;&lt;phone&gt;555-1234&lt;/phone&gt;&lt;phone&gt;555-5678&lt;/phone&gt;&lt;/person&gt;</code> — joined with a delimiter (default <code> | </code>) into a single <code>phone</code> column.</li>
+          <li><strong>Empty elements:</strong> <code>&lt;description&gt;&lt;/description&gt;</code> — output as an empty cell.</li>
+          <li><strong>Self-closing tags:</strong> <code>&lt;br/&gt;</code> — output as an empty cell or, if attributes are present, an <code>@attr</code> column.</li>
+          <li><strong>CDATA sections:</strong> <code>&lt;![CDATA[&lt;raw html&gt;]]&gt;</code> — the raw content is preserved as the cell value, with the angle brackets escaped for CSV.</li>
+          <li><strong>XML declaration and DOCTYPE:</strong> Stripped before parsing. The <code>&lt;?xml ?&gt;</code> header and any <code>&lt;!DOCTYPE&gt;</code> declarations are removed automatically.</li>
+          <li><strong>Namespaces in tags:</strong> <code>&lt;ns:title xmlns:ns="..."&gt;</code> — the prefix is stripped (or preserved, per settings) and the local name is used as the column header.</li>
+          <li><strong>Comments and processing instructions:</strong> Stripped before parsing. Comments (<code>&lt;!-- --&gt;</code>) and processing instructions (<code>&lt;? ?&gt;</code>) are ignored.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>What is an XML to CSV converter?</summary>
+        <div class="answer">An XML to CSV converter parses a well-formed XML document and produces a CSV file where each repeating element becomes one row and each child element or attribute becomes a column. XML's hierarchy is flattened into a table that opens directly in Excel or Google Sheets.</div>
+      </details>
+      <details><summary>Is XML to CSV conversion free?</summary>
+        <div class="answer">Yes. BunnyConvert's XML to CSV converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Parsing happens in your browser so we don't pay for servers and we don't charge you.</div>
+      </details>
+      <details><summary>Which XML element becomes the row?</summary>
+        <div class="answer">The converter auto-detects the most common repeating direct child of the root element. For RSS feeds that's item, for SOAP responses it's the operation-specific element, for arbitrary XML it's whichever child element appears most often. You can override the choice in settings.</div>
+      </details>
+      <details><summary>Does the converter work with RSS and Atom feeds?</summary>
+        <div class="answer">Yes. RSS 2.0 and Atom 1.0 are both well-supported. The auto-detect logic identifies item and entry elements as the row source. Standard fields like title, link, pubDate, and description all become columns.</div>
+      </details>
+      <details><summary>What about SOAP or API responses?</summary>
+        <div class="answer">Yes. SOAP envelopes, REST API responses wrapped in XML, and arbitrary enterprise formats all parse correctly. The auto-detect logic finds the repeating element regardless of namespace prefix.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Try the converter</h2>
+      <p>Paste your XML, get a clean CSV file ready for Excel, Google Sheets, or any spreadsheet app.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="xml-to-csv.html#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Open the XML to CSV Converter
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="BunnyConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="logoGradF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+            <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <circle cx="50" cy="60" r="25" fill="url(#logoGradF)"/>
+            <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+            <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+            <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+          </svg>
+          <span style="color: white;">BunnyConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, and YAML. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024–2026 BunnyConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

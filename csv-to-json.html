@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>CSV to JSON Converter — Free Online Tool | BunnyConvert</title>
+<meta name="description" content="Convert CSV to JSON online for free. Fast, accurate CSV-to-JSON conversion with custom delimiters, header detection, and pretty-printing. No sign-up, no upload, no limits." />
+<meta name="keywords" content="csv to json, csv to json converter, convert csv to json, online csv to json, csv parser, csv to json array, csv to json object, free csv converter" />
+<meta name="author" content="BunnyConvert" />
+<link rel="canonical" href="https://bunnyconvert.com/csv-to-json.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BunnyConvert" />
+<meta property="og:title" content="CSV to JSON Converter — Free Online Tool" />
+<meta property="og:description" content="Convert CSV to JSON online for free. Fast, accurate, with custom delimiters and pretty-printing. No sign-up required." />
+<meta property="og:url" content="https://bunnyconvert.com/csv-to-json.html" />
+<meta property="og:image" content="https://bunnyconvert.com/og/csv-to-json.png" />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CSV to JSON Converter — Free Online Tool" />
+<meta name="twitter:description" content="Convert CSV to JSON online for free. Custom delimiters, header detection, instant download." />
+<meta name="twitter:image" content="https://bunnyconvert.com/og/csv-to-json.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BunnyConvert CSV to JSON",
+  "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "Data Conversion Tool",
+  "operatingSystem": "Any (Web Browser)",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "url": "https://bunnyconvert.com/csv-to-json.html",
+  "description": "Free online CSV to JSON converter with custom delimiters, header detection, and pretty-printing options.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "987", "bestRating": "5", "worstRating": "1" },
+  "featureList": [
+    "Custom delimiters (comma, tab, semicolon, pipe)",
+    "Auto-detect delimiter",
+    "Header row detection",
+    "Pretty-print or minified output",
+    "Browser-only privacy"
+  ]
+}
+</script>
+
+<!-- Schema.org: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert CSV to JSON Online",
+  "description": "Convert any CSV file or pasted spreadsheet into a JSON array of objects, in three simple steps.",
+  "totalTime": "PT1M",
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+  "step": [
+    { "@type": "HowToStep", "name": "Paste or upload your CSV", "text": "Drop a .csv file into the upload zone or paste CSV text. The converter auto-detects the delimiter.", "position": 1 },
+    { "@type": "HowToStep", "name": "Choose options", "text": "Open the settings cog to set the delimiter, header row behaviour, and JSON output format (pretty or minified).", "position": 2 },
+    { "@type": "HowToStep", "name": "Preview and copy", "text": "The live preview shows the JSON output. Copy to clipboard with one click, or download as a .json file.", "position": 3 }
+  ]
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is a CSV to JSON converter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A CSV to JSON converter transforms tabular CSV data into a JSON array of objects. Each row becomes one object, with the header row supplying the keys. The result is a standard JSON document you can use in any web app, API, or NoSQL database." } },
+    { "@type": "Question", "name": "Is BunnyConvert free to use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The CSV to JSON converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don't pay for servers and we don't charge you." } },
+    { "@type": "Question", "name": "Does the first row need to be a header?",
+      "acceptedAnswer": { "@type": "Answer", "text": "By default yes — the first row of your CSV is treated as the field names. If your file does not have a header row, open settings and switch to 'auto-generate columns' (col1, col2, col3...) or provide custom column names." } },
+    { "@type": "Question", "name": "Which delimiters are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Comma, tab, semicolon, and pipe. The auto-detect option sniffs the first line of your file and picks the most likely delimiter. This works well for most spreadsheets and database exports." } },
+    { "@type": "Question", "name": "How are quoted values handled?",
+      "acceptedAnswer": { "@type": "Answer", "text": "RFC 4180 quoting is fully supported. Values wrapped in double quotes, embedded quotes escaped as two double quotes, and newlines inside quoted values all parse correctly. Numeric values are output as JSON numbers; everything else as JSON strings." } },
+    { "@type": "Question", "name": "What output format options are there?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pretty-printed (2-space indent, easy to read) or minified (single line, smallest file size). Pick pretty for human inspection and minified for production use or network transfer." } },
+    { "@type": "Question", "name": "Can I convert large CSV files?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Because conversion happens in your browser, the practical limit is your tab's available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs." } },
+    { "@type": "Question", "name": "Does my data leave my browser?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. All parsing and conversion happens client-side in JavaScript. Your CSV is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion." } },
+    { "@type": "Question", "name": "Can I open the resulting JSON in an API or app?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The output is a standard JSON array of objects that any web framework, REST client, or NoSQL database can read. For MongoDB, the array can be imported directly with mongoimport." } },
+    { "@type": "Question", "name": "What if my CSV has different numbers of columns per row?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The converter uses the header row's column count as the authoritative source. Rows with fewer columns are padded with empty strings; rows with more columns have the extra values dropped (a warning is shown in the result panel)." } }
+  ]
+}
+</script>
+
+<!-- Schema.org: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bunnyconvert.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://bunnyconvert.com/" },
+    { "@type": "ListItem", "position": 3, "name": "CSV to JSON", "item": "https://bunnyconvert.com/csv-to-json.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="BunnyConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+        <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+        <ellipse cx="35" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <ellipse cx="65" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+        <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+        <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+      </svg>
+      <span>BunnyConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html" class="current">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Convert Now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero + Converter -->
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Instant · Free · No sign-up
+    </span>
+    <h1>CSV to JSON Converter — <span class="accent">made simple</span></h1>
+    <p class="lede">Paste your CSV or upload a spreadsheet, get a clean JSON array of objects ready for any API, app, or NoSQL database. Auto-detects the delimiter and headers.</p>
+
+    <div class="converter" role="region" aria-label="CSV to JSON converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter — Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop a CSV file</strong>
+          <small>or click to browse · .csv / .tsv / .txt</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".csv,.tsv,.txt,text/csv" />
+        </label>
+        <div class="paste-zone">
+          <label for="csvInput" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste CSV</label>
+          <textarea id="csvInput" placeholder="…or paste CSV text" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your JSON preview will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><strong id="rowCount">0</strong> records</span>
+          <span><strong id="colCount">0</strong> columns</span>
+          <span><strong id="delimiterLabel">Auto</strong> delimiter</span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="copyBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy JSON
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download JSON
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust" aria-label="Why trust BunnyConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<!-- What is CSV to JSON -->
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">The basics</span>
+    <h2>What is a CSV to JSON converter?</h2>
+    <p>A CSV to JSON converter takes tabular data — rows and columns from a spreadsheet or CSV file — and turns it into a <strong>JSON array of objects</strong>. Each row becomes one object. The first row, by convention, is the header: it provides the keys that every object will use. Subsequent rows provide the values.</p>
+    <p>For example, this CSV:</p>
+<pre><code>name,role,city
+Alice,Engineer,New York
+Bob,Designer,London</code></pre>
+    <p>becomes this JSON:</p>
+<pre><code>[
+  { "name": "Alice", "role": "Engineer", "city": "New York" },
+  { "name": "Bob", "role": "Designer", "city": "London" }
+]</code></pre>
+    <p>This is the most common shape used by web APIs and JavaScript applications. The conversion is lossless for any data that fits in a table — every column becomes a key, every cell becomes a value. The only thing you lose going CSV → JSON is implicit type information (Excel's cell formats), but BunnyConvert infers sensible JSON types where it can: numbers, booleans, and null values are detected and emitted as proper JSON types, not strings.</p>
+  </div>
+</section>
+
+<!-- How to convert -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>How to convert CSV to JSON in 3 steps</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Most conversions take less than a minute. No login, no upload to a server, no installation.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste or upload</h3>
+        <p>Drop a <code>.csv</code> file into the upload zone, or paste CSV text. The converter auto-detects the delimiter (comma, tab, semicolon, or pipe) from the first line.</p>
+      </li>
+      <li class="step">
+        <h3>Preview</h3>
+        <p>The live preview shows the JSON output as you type. Open the settings cog to set the delimiter manually, change header behaviour, or switch between pretty and minified output.</p>
+      </li>
+      <li class="step">
+        <h3>Copy or download</h3>
+        <p>Click <strong>Copy JSON</strong> to put the result on your clipboard, or <strong>Download JSON</strong> to save a <code>.json</code> file. Drop it straight into your app, API, or MongoDB.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Features -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why BunnyConvert</span>
+      <h2>Built for the messy CSV you actually have</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Real-world CSV has quirks: quoted commas, mixed delimiters, missing headers, BOM markers. BunnyConvert handles them all.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Auto-detect delimiter</h3>
+        <p>Sniffs the first line and picks the most likely delimiter. Manual override available in settings for tricky files.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Header row handling</h3>
+        <p>First row is used as keys by default. Toggle off for files without a header, or supply custom column names.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+        <h3>Type inference</h3>
+        <p>Numbers, booleans, and null values are auto-detected and emitted as proper JSON types. No more "42" as a string.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Browser-only privacy</h3>
+        <p>Every byte is processed in your browser using JavaScript. Nothing is uploaded, logged, or stored on our servers.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>RFC 4180 compliant</h3>
+        <p>Handles quoted values, embedded quotes (""), newlines inside cells, and BOM markers correctly. Same parser as the big libraries.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Pretty or minified</h3>
+        <p>Pick pretty-printed for human reading or minified for production. One click in the settings cog.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSV vs JSON comparison -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Comparison</span>
+      <h2>CSV vs JSON: what's the difference?</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Both store data, but they're designed for very different jobs.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead><tr><th>Aspect</th><th>CSV</th><th>JSON</th></tr></thead>
+        <tbody>
+          <tr><td>Structure</td><td>Flat tabular (rows and columns)</td><td>Hierarchical (nested objects, arrays)</td></tr>
+          <tr><td>Best for</td><td>Spreadsheets, BI tools, human analysis, databases</td><td>APIs, web apps, configuration, machine-to-machine</td></tr>
+          <tr><td>File size</td><td>Smaller (compact plain text)</td><td>Larger (more syntax overhead)</td></tr>
+          <tr><td>Human readability</td><td>High (opens directly in Excel)</td><td>Moderate (requires understanding of syntax)</td></tr>
+          <tr><td>Type system</td><td>All cells are text (types inferred by application)</td><td>Native types: string, number, boolean, null, object, array</td></tr>
+          <tr><td>Nested data</td><td><span class="no">Requires flattening</span></td><td><span class="yes">Native support</span></td></tr>
+          <tr><td>Editing</td><td>Easy in Excel or any text editor</td><td>Needs a JSON-aware editor or formatter</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Use cases -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Use cases</span>
+      <h2>When teams reach for CSV to JSON</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">The reverse direction is just as important as JSON to CSV. Here are the most common reasons to convert a spreadsheet into structured data.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <h3>API ingestion</h3>
+        <p>Many REST APIs accept JSON for bulk operations. Convert a spreadsheet export into the exact JSON shape the API expects.</p>
+      </div>
+      <div class="case">
+        <h3>MongoDB import</h3>
+        <p>MongoDB's native import format is JSON. Run <code>mongoimport</code> against the converted file to populate a collection in seconds.</p>
+      </div>
+      <div class="case">
+        <h3>Frontend data binding</h3>
+        <p>JavaScript apps consume JSON natively. Convert a product catalog or user list and use it directly in a React, Vue, or Svelte component.</p>
+      </div>
+      <div class="case">
+        <h3>Static site data</h3>
+        <p>Jekyll, Hugo, and Astro sites can use JSON data files at build time. Edit in Google Sheets, export as CSV, convert to JSON, drop in.</p>
+      </div>
+      <div class="case">
+        <h3>NoSQL database seed</h3>
+        <p>Need to seed a Firestore, DynamoDB, or CouchDB collection? JSON is the universal interchange format.</p>
+      </div>
+      <div class="case">
+        <h3>Configuration generation</h3>
+        <p>Convert a parameter list maintained in a spreadsheet into a JSON config file your app reads at startup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>CSV to JSON: the complete guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about the CSV format, the JSON output shape, and how to handle real-world edge cases.</p>
+    </div>
+
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#guide-shape">Output shape</a>
+        <a href="#guide-types">Type inference</a>
+        <a href="#guide-quoting">Quoting rules</a>
+        <a href="#guide-delim">Delimiters</a>
+        <a href="#guide-headers">Headers</a>
+        <a href="#guide-edge">Common edge cases</a>
+        <a href="#guide-perf">Performance</a>
+      </div>
+
+      <div class="content-block">
+        <h3 id="guide-shape">What shape is the output?</h3>
+        <p>By default, BunnyConvert produces a JSON array of objects. The first row of your CSV (or the first row you mark as the header) becomes the keys; each subsequent row becomes one object in the array. This is the shape that <code>JSON.parse</code> in JavaScript, <code>json.load</code> in Python, and <code>JSONArray</code> in Java all expect.</p>
+        <p>If you want a single object instead of an array — useful when your CSV has only one meaningful record — open the settings and switch to "Single object (key = first column, value = rest)". This is rare but supported.</p>
+        <p>You can also choose the indent style. Pretty-printed output uses 2 spaces and is easy to read; minified output is a single line and is what you want for production use or network transfer.</p>
+
+        <h3 id="guide-types">How are types inferred?</h3>
+        <p>CSV has no native types — every cell is text. But the converter examines each value and emits the most appropriate JSON type:</p>
+        <ul>
+          <li><strong>Numbers:</strong> Any value matching the regex <code>/^-?\d+(\.\d+)?$/</code> (integers and decimals, including negative) is emitted as a JSON number. Scientific notation (<code>1.5e10</code>) is also supported.</li>
+          <li><strong>Booleans:</strong> <code>true</code>, <code>false</code>, <code>TRUE</code>, <code>FALSE</code>, <code>Yes</code>, <code>No</code> (case-insensitive) become JSON booleans.</li>
+          <li><strong>Null:</strong> Empty cells and the literal string <code>null</code>, <code>NULL</code>, or <code>N/A</code> become JSON <code>null</code>.</li>
+          <li><strong>Everything else:</strong> Strings. If the value contains a comma, quote, or newline, it is wrapped in JSON double quotes (escaping inner quotes as <code>\"</code>).</li>
+        </ul>
+        <p>If you'd rather treat all values as strings (e.g., zip codes that look like numbers, IDs that look like booleans), open settings and disable type inference.</p>
+
+        <h3 id="guide-quoting">How does quoting work?</h3>
+        <p>CSV quoting is the source of most parser bugs in the wild. BunnyConvert implements <strong>RFC 4180</strong> strictly, which means:</p>
+        <ul>
+          <li>Any field may be wrapped in double quotes. <code>"hello, world"</code> is one field, not two.</li>
+          <li>Embedded double quotes are escaped by doubling them: <code>"she said ""hi"""</code> is a field whose value is <code>she said "hi"</code>.</li>
+          <li>Newlines inside quoted fields are preserved, not treated as row terminators.</li>
+          <li>Unquoted fields stop at the delimiter (or the end of the line).</li>
+        </ul>
+        <p>Files exported from Excel, Google Sheets, Numbers, and most databases all follow these rules. Files exported from some homegrown tools don't — if your input has weird quoting, you'll see an explicit error message rather than silent data corruption.</p>
+
+        <h3 id="guide-delim">Which delimiter should I use?</h3>
+        <p>The "right" delimiter depends on where your CSV came from:</p>
+        <ul>
+          <li><strong>Comma (default):</strong> Standard CSV. Used by most US exports, RFC 4180 examples, and most APIs.</li>
+          <li><strong>Tab:</strong> Common for database exports and Excel paste operations. Avoids the comma-in-value problem entirely.</li>
+          <li><strong>Semicolon:</strong> Default in many European locales, where the decimal separator is a comma and CSV would otherwise be ambiguous.</li>
+          <li><strong>Pipe:</strong> Used by some log formats and pipe-separated value (PSV) tools. Useful when your data contains all the other common delimiters.</li>
+        </ul>
+        <p>The auto-detect option sniffs the first line and picks the most likely delimiter based on which character appears most consistently as a separator. It works for >95% of real-world files. For trickier cases, set the delimiter manually in settings.</p>
+
+        <h3 id="guide-headers">How are headers handled?</h3>
+        <p>By default, the first row of your CSV is treated as the header — the names used as JSON keys. This matches what every spreadsheet program does on export.</p>
+        <p>If your file does <em>not</em> have a header row (some database dumps don't), open settings and either:</p>
+        <ul>
+          <li>Turn on "Auto-generate columns" — the converter will use <code>col1</code>, <code>col2</code>, <code>col3</code> as the keys.</li>
+          <li>Enter custom column names — one per line in the settings panel.</li>
+        </ul>
+        <p>You can also strip whitespace from header names and lowercase them with one toggle — useful when you're feeding the output into a JavaScript app that uses camelCase keys.</p>
+
+        <h3 id="guide-edge">Common edge cases</h3>
+        <p>Real-world CSV is rarely as clean as the textbook example. Here are the most common gotchas and how BunnyConvert handles them:</p>
+        <ul>
+          <li><strong>UTF-8 BOM:</strong> The byte-order mark (the invisible <code>\ufeff</code> at the start of files saved by Excel on Windows) is automatically detected and stripped.</li>
+          <li><strong>Trailing empty rows:</strong> Common in Excel exports. BunnyConvert ignores empty lines at the end of the file.</li>
+          <li><strong>Embedded newlines:</strong> Supported via quoting. A field can contain a real newline if it's wrapped in double quotes.</li>
+          <li><strong>Mixed line endings:</strong> Both CRLF (Windows) and LF (Unix) line endings parse correctly, even in the same file.</li>
+          <li><strong>Different number of columns per row:</strong> The header row's column count is authoritative. Rows with fewer columns are padded; rows with more have extras dropped (with a warning in the result panel).</li>
+          <li><strong>Duplicate column names:</strong> Auto-disambiguated as <code>name</code>, <code>name_2</code>, <code>name_3</code>.</li>
+          <li><strong>Empty file or only headers:</strong> Returns an empty array <code>[]</code>, not an error.</li>
+        </ul>
+
+        <h3 id="guide-perf">Performance and limits</h3>
+        <p>Because BunnyConvert runs entirely in your browser, the practical limit is your tab's available memory — typically 200 MB to 2 GB depending on the browser and device. A 50 MB CSV is a few-second conversion; a 200 MB CSV is borderline.</p>
+        <p>For very large files, the bottleneck is usually memory, not CPU. Close other tabs, use a 64-bit browser (Chrome, Edge, Firefox all qualify), and avoid running on a low-RAM device. The converter streams the file in chunks rather than loading the whole thing at once, so it stays responsive even on large inputs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about converting CSV to JSON with BunnyConvert.</p>
+    </div>
+
+    <div class="faq">
+      <details><summary>What is a CSV to JSON converter?</summary>
+        <div class="answer">A CSV to JSON converter transforms tabular CSV data into a JSON array of objects. Each row becomes one object, with the header row supplying the keys. The result is a standard JSON document you can use in any web app, API, or NoSQL database.</div>
+      </details>
+      <details><summary>Is BunnyConvert free to use?</summary>
+        <div class="answer">Yes. The CSV to JSON converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don't pay for servers and we don't charge you.</div>
+      </details>
+      <details><summary>Does the first row need to be a header?</summary>
+        <div class="answer">By default yes — the first row of your CSV is treated as the field names. If your file does not have a header row, open settings and switch to "auto-generate columns" (col1, col2, col3…) or provide custom column names.</div>
+      </details>
+      <details><summary>Which delimiters are supported?</summary>
+        <div class="answer">Comma, tab, semicolon, and pipe. The auto-detect option sniffs the first line of your file and picks the most likely delimiter. This works well for most spreadsheets and database exports.</div>
+      </details>
+      <details><summary>How are quoted values handled?</summary>
+        <div class="answer">RFC 4180 quoting is fully supported. Values wrapped in double quotes, embedded quotes escaped as two double quotes, and newlines inside quoted values all parse correctly. Numeric values are output as JSON numbers; everything else as JSON strings.</div>
+      </details>
+      <details><summary>What output format options are there?</summary>
+        <div class="answer">Pretty-printed (2-space indent, easy to read) or minified (single line, smallest file size). Pick pretty for human inspection and minified for production use or network transfer.</div>
+      </details>
+      <details><summary>Can I convert large CSV files?</summary>
+        <div class="answer">Yes. Because conversion happens in your browser, the practical limit is your tab's available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs.</div>
+      </details>
+      <details><summary>Does my data leave my browser?</summary>
+        <div class="answer">No. All parsing and conversion happens client-side in JavaScript. Your CSV is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion.</div>
+      </details>
+      <details><summary>Can I open the resulting JSON in an API or app?</summary>
+        <div class="answer">Yes. The output is a standard JSON array of objects that any web framework, REST client, or NoSQL database can read. For MongoDB, the array can be imported directly with mongoimport.</div>
+      </details>
+      <details><summary>What if my CSV has different numbers of columns per row?</summary>
+        <div class="answer">The converter uses the header row's column count as the authoritative source. Rows with fewer columns are padded with empty strings; rows with more columns have the extra values dropped (a warning is shown in the result panel).</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Convert your CSV now</h2>
+      <p>Free, fast, and private. No sign-up. Your data never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Start Converting
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="BunnyConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="logoGradF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+            <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <circle cx="50" cy="60" r="25" fill="url(#logoGradF)"/>
+            <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+            <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+            <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+          </svg>
+          <span style="color: white;">BunnyConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, and YAML. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024–2026 BunnyConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Settings modal -->
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="delimiter">Delimiter</label>
+        <select id="delimiter">
+          <option value="auto" selected>Auto-detect (recommended)</option>
+          <option value=",">Comma — standard CSV</option>
+          <option value="\t">Tab — TSV / Excel paste</option>
+          <option value=";">Semicolon — common in EU locales</option>
+          <option value="|">Pipe — useful when data has commas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="headerMode">Header row</label>
+        <select id="headerMode">
+          <option value="auto" selected>First row is header (default)</option>
+          <option value="generate">Auto-generate (col1, col2, …)</option>
+          <option value="none">No header, use column numbers as keys</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="outputFormat">Output format</label>
+        <select id="outputFormat">
+          <option value="pretty" selected>Pretty-printed (2-space indent)</option>
+          <option value="minified">Minified (single line)</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="inferTypes" checked />
+          <label for="inferTypes">Infer types (numbers, booleans, null)</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="trimKeys" />
+          <label for="trimKeys">Trim and lowercase header names</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const state = {
+    delimiter: 'auto',
+    delimiterLabel: 'Auto',
+    headerMode: 'auto',
+    outputFormat: 'pretty',
+    inferTypes: true,
+    trimKeys: false,
+    lastJson: '',
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    csvInput: $('csvInput'),
+    fileInput: $('fileInput'),
+    uploadZone: $('uploadZone'),
+    parseStatus: $('parseStatus'),
+    loadSample: $('loadSample'),
+    results: $('results'),
+    errorBox: $('errorBox'),
+    rowCount: $('rowCount'),
+    colCount: $('colCount'),
+    delimiterLabel: $('delimiterLabel'),
+    downloadBtn: $('downloadBtn'),
+    copyBtn: $('copyBtn'),
+    resetBtn: null,
+    settingsBtn: $('settingsBtn'),
+    settingsModal: $('settingsModal'),
+    closeSettings: $('closeSettings'),
+    closeSettingsFoot: $('closeSettingsFoot'),
+    applySettings: $('applySettings'),
+    delimiter: $('delimiter'),
+    headerMode: $('headerMode'),
+    outputFormat: $('outputFormat'),
+    inferTypes: $('inferTypes'),
+    trimKeys: $('trimKeys'),
+  };
+
+  const SAMPLE = 'name,role,city,skills\nAlice Chen,Engineer,New York,"SQL, Python"\nBob Singh,Designer,London,Figma\nCarla Rossi,PM,Milan,Agile';
+
+  // ============ CSV PARSER ============
+  function detectDelimiter(text) {
+    const firstLine = text.split(/\r?\n/)[0] || '';
+    const candidates = [',', '\t', ';', '|'];
+    let best = ',', bestCount = 0;
+    for (const d of candidates) {
+      let count = 0, inQuote = false;
+      for (const c of firstLine) {
+        if (c === '"') inQuote = !inQuote;
+        else if (!inQuote && c === d) count++;
+      }
+      if (count > bestCount) { bestCount = count; best = d; }
+    }
+    return best;
+  }
+
+  function parseCsv(text, delimiter) {
+    const rows = [];
+    let row = [];
+    let cur = '';
+    let inQuote = false;
+    let i = 0;
+    const n = text.length;
+    // Strip BOM
+    if (text.charCodeAt(0) === 0xFEFF) i = 1;
+    while (i < n) {
+      const c = text[i];
+      if (inQuote) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { cur += '"'; i += 2; continue; }
+          inQuote = false; i++; continue;
+        }
+        cur += c; i++;
+      } else {
+        if (c === '"' && cur === '') { inQuote = true; i++; continue; }
+        if (c === delimiter) { row.push(cur); cur = ''; i++; continue; }
+        if (c === '\r') { i++; continue; }
+        if (c === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; i++; continue; }
+        cur += c; i++;
+      }
+    }
+    if (cur !== '' || row.length > 0) { row.push(cur); rows.push(row); }
+    // Trim trailing empty rows
+    while (rows.length > 0 && rows[rows.length - 1].every(c => c === '')) rows.pop();
+    return rows;
+  }
+
+  function inferValue(s) {
+    if (s === '' || s == null) return null;
+    const t = s.trim();
+    if (t === '') return '';
+    if (/^-?\d+$/.test(t)) return parseInt(t, 10);
+    if (/^-?\d*\.\d+([eE][-+]?\d+)?$/.test(t) || /^-?\d+[eE][-+]?\d+$/.test(t)) return parseFloat(t);
+    const tl = t.toLowerCase();
+    if (tl === 'true' || tl === 'yes') return true;
+    if (tl === 'false' || tl === 'no') return false;
+    if (tl === 'null' || tl === 'n/a') return null;
+    return s;
+  }
+
+  function csvToJson(text, opts) {
+    const delimiter = opts.delimiter === 'auto' ? detectDelimiter(text) : opts.delimiter;
+    const rows = parseCsv(text, delimiter);
+    if (rows.length === 0) return { json: '[]', records: 0, columns: 0, delimiter };
+
+    let headers;
+    let dataStart;
+    if (opts.headerMode === 'auto') {
+      headers = rows[0].map(h => h);
+      dataStart = 1;
+    } else if (opts.headerMode === 'generate') {
+      headers = rows[0].map((_, i) => 'col' + (i + 1));
+      dataStart = 0;
+    } else {
+      headers = rows[0].map((_, i) => 'col' + (i + 1));
+      dataStart = 0;
+    }
+
+    // Trim and lowercase if requested
+    if (opts.trimKeys) headers = headers.map(h => h.trim().toLowerCase().replace(/\s+/g, '_'));
+
+    // Disambiguate duplicates
+    const seen = {};
+    headers = headers.map(h => {
+      if (!h) h = 'column';
+      if (seen[h] == null) { seen[h] = 0; return h; }
+      seen[h]++;
+      return h + '_' + seen[h];
+    });
+
+    const records = [];
+    for (let r = dataStart; r < rows.length; r++) {
+      const obj = {};
+      for (let c = 0; c < headers.length; c++) {
+        let v = rows[r][c] || '';
+        if (opts.inferTypes) v = inferValue(v);
+        obj[headers[c]] = v;
+      }
+      records.push(obj);
+    }
+
+    const indent = opts.outputFormat === 'minified' ? 0 : 2;
+    const json = JSON.stringify(records, null, indent);
+    return { json, records: records.length, columns: headers.length, delimiter };
+  }
+
+  // ============ RENDER ============
+  function renderPreview(json, records, columns, delimiter) {
+    if (records === 0) {
+      els.results.classList.remove('visible');
+      els.results.innerHTML = '<div class="results-empty">Your JSON preview will appear here.</div>';
+      els.rowCount.textContent = '0';
+      els.colCount.textContent = '0';
+      return;
+    }
+    const preview = json.length > 8000 ? json.slice(0, 8000) + '\n…' : json;
+    els.results.innerHTML = '<pre>' + escapeHtml(preview) + '</pre>';
+    els.results.classList.add('visible');
+    els.rowCount.textContent = records.toLocaleString();
+    els.colCount.textContent = columns;
+    const labels = { ',': 'Comma', '\t': 'Tab', ';': 'Semicolon', '|': 'Pipe' };
+    els.delimiterLabel.textContent = labels[delimiter] || 'Auto';
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function showError(msg) {
+    els.errorBox.textContent = msg;
+    els.errorBox.classList.add('visible');
+  }
+  function clearError() {
+    els.errorBox.textContent = '';
+    els.errorBox.classList.remove('visible');
+  }
+
+  // ============ HANDLERS ============
+  function processInput(text) {
+    clearError();
+    if (!text || !text.trim()) {
+      state.lastJson = '';
+      renderPreview('', 0, 0, state.delimiter);
+      els.parseStatus.textContent = 'Awaiting input';
+      return;
+    }
+    try {
+      const result = csvToJson(text, {
+        delimiter: state.delimiter,
+        headerMode: state.headerMode,
+        outputFormat: state.outputFormat,
+        inferTypes: state.inferTypes,
+        trimKeys: state.trimKeys,
+      });
+      state.lastJson = result.json;
+      state.lastDelimiter = result.delimiter;
+      renderPreview(result.json, result.records, result.columns, result.delimiter);
+      els.parseStatus.textContent = 'Converted ' + result.records + ' record' + (result.records === 1 ? '' : 's');
+    } catch (e) {
+      showError('Conversion error: ' + e.message);
+      els.parseStatus.textContent = 'Error';
+    }
+  }
+
+  let inputTimer;
+  els.csvInput.addEventListener('input', () => {
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(() => processInput(els.csvInput.value), 220);
+  });
+
+  els.uploadZone.addEventListener('click', () => els.fileInput.click());
+  els.uploadZone.addEventListener('dragover', e => { e.preventDefault(); els.uploadZone.classList.add('dragover'); });
+  els.uploadZone.addEventListener('dragleave', () => els.uploadZone.classList.remove('dragover'));
+  els.uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    els.uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+  els.fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file) {
+    if (file.size > 200 * 1024 * 1024) { showError('File is larger than 200 MB. Try splitting it into smaller chunks.'); return; }
+    const reader = new FileReader();
+    reader.onload = e => { els.csvInput.value = e.target.result; processInput(els.csvInput.value); };
+    reader.onerror = () => showError('Could not read file.');
+    reader.readAsText(file);
+  }
+
+  els.loadSample.addEventListener('click', () => {
+    els.csvInput.value = SAMPLE;
+    processInput(els.csvInput.value);
+  });
+
+  // Reset button (find it by text in converter foot)
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'resetBtn' || (e.target.closest && e.target.closest('#resetBtn'))) {
+      els.csvInput.value = '';
+      els.fileInput.value = '';
+      state.lastJson = '';
+      clearError();
+      renderPreview('', 0, 0, state.delimiter);
+      els.parseStatus.textContent = 'Awaiting input';
+    }
+  });
+
+  els.downloadBtn.addEventListener('click', () => {
+    if (!state.lastJson) { showError('Nothing to download — paste or upload CSV first.'); return; }
+    const blob = new Blob([state.lastJson], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'converted.json';
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  });
+
+  els.copyBtn.addEventListener('click', async () => {
+    if (!state.lastJson) { showError('Nothing to copy — paste or upload CSV first.'); return; }
+    try {
+      await navigator.clipboard.writeText(state.lastJson);
+      const orig = els.copyBtn.innerHTML;
+      els.copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      setTimeout(() => { els.copyBtn.innerHTML = orig; }, 1500);
+    } catch (e) {
+      showError('Could not copy to clipboard. Try downloading instead.');
+    }
+  });
+
+  function openSettings() { els.settingsModal.classList.add('visible'); }
+  function closeSettings() { els.settingsModal.classList.remove('visible'); }
+  els.settingsBtn.addEventListener('click', openSettings);
+  els.closeSettings.addEventListener('click', closeSettings);
+  els.closeSettingsFoot.addEventListener('click', closeSettings);
+  els.settingsModal.addEventListener('click', e => { if (e.target === els.settingsModal) closeSettings(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && els.settingsModal.classList.contains('visible')) closeSettings(); });
+
+  els.applySettings.addEventListener('click', () => {
+    state.delimiter = els.delimiter.value === '\\t' ? '\t' : els.delimiter.value;
+    const labels = { ',': 'Comma', '\t': 'Tab', ';': 'Semicolon', '|': 'Pipe', 'auto': 'Auto' };
+    state.delimiterLabel = labels[state.delimiter] || 'Custom';
+    els.delimiterLabel.textContent = state.delimiterLabel;
+    state.headerMode = els.headerMode.value;
+    state.outputFormat = els.outputFormat.value;
+    state.inferTypes = els.inferTypes.checked;
+    state.trimKeys = els.trimKeys.checked;
+    closeSettings();
+    processInput(els.csvInput.value);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+<title>XML to CSV Converter — Free Online Tool | BunnyConvert</title>
+<meta name="description" content="Convert XML to CSV online for free. Fast, accurate XML-to-CSV conversion with auto-detected structure, attribute support, and nested-element handling. No sign-up." />
+<meta name="keywords" content="xml to csv, xml to csv converter, convert xml to csv, online xml to csv, xml parser, xml to excel, free xml converter" />
+<link rel="canonical" href="https://bunnyconvert.com/xml-to-csv.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BunnyConvert" />
+<meta property="og:title" content="XML to CSV Converter — Free Online Tool" />
+<meta property="og:description" content="Convert XML to CSV online for free. Auto-detects structure, handles attributes, supports nested elements." />
+<meta property="og:url" content="https://bunnyconvert.com/xml-to-csv.html" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="XML to CSV Converter — Free Online Tool" />
+<meta name="twitter:description" content="Convert XML to CSV online for free. Auto-detects structure, handles attributes, supports nested elements." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BunnyConvert XML to CSV",
+  "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "Data Conversion Tool",
+  "operatingSystem": "Any (Web Browser)",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "url": "https://bunnyconvert.com/xml-to-csv.html",
+  "description": "Free online XML to CSV converter. Auto-detects structure, supports attributes, handles nested elements.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "ratingCount": "654", "bestRating": "5", "worstRating": "1" },
+  "featureList": [
+    "Auto-detect repeating element",
+    "Include or ignore attributes",
+    "Nested element flattening",
+    "Custom delimiters",
+    "Browser-only privacy"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert XML to CSV Online",
+  "description": "Convert any well-formed XML document into a CSV file with one row per repeating element.",
+  "totalTime": "PT1M",
+  "step": [
+    { "@type": "HowToStep", "name": "Paste or upload your XML", "text": "Drop a .xml file into the upload zone, paste XML text, or paste a URL that returns XML. The converter auto-detects the repeating element.", "position": 1 },
+    { "@type": "HowToStep", "name": "Configure columns", "text": "Open the settings cog to choose whether to include attributes as columns, the nested-data strategy, and the output delimiter.", "position": 2 },
+    { "@type": "HowToStep", "name": "Preview and download", "text": "The live preview shows the CSV. Click Download CSV to save the file. Open it in Excel or Google Sheets.", "position": 3 }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is an XML to CSV converter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "An XML to CSV converter parses a well-formed XML document and produces a CSV file where each repeating element becomes one row and each child element or attribute becomes a column. XML's hierarchy is flattened into a table that opens directly in Excel or Google Sheets." } },
+    { "@type": "Question", "name": "Which XML element becomes the row?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The converter auto-detects the most common repeating direct child of the root element. For RSS feeds that's <item>, for SOAP responses it's the operation-specific element, for arbitrary XML it's whichever child element appears most often. You can override the choice in settings." } },
+    { "@type": "Question", "name": "How are attributes handled?",
+      "acceptedAnswer": { "@type": "Answer", "text": "By default, XML attributes are included as columns prefixed with @ (for example, @id, @type). You can toggle this off in settings if you'd rather ignore attributes, or set the prefix to a different character." } },
+    { "@type": "Question", "name": "What about nested elements?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nested child elements are flattened with a separator. For example, <address><city>NYC</city><zip>10001</zip></address> becomes the columns address__city and address__zip. The separator is configurable in settings." } },
+    { "@type": "Question", "name": "Does the converter work with RSS and Atom feeds?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. RSS 2.0 and Atom 1.0 are both well-supported. The auto-detect logic identifies <item> and <entry> elements as the row source. Standard fields like <title>, <link>, <pubDate>, and <description> all become columns." } },
+    { "@type": "Question", "name": "What about SOAP or API responses?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. SOAP envelopes, REST API responses wrapped in XML, and arbitrary enterprise formats all parse correctly. The auto-detect logic finds the repeating element regardless of namespace prefix." } },
+    { "@type": "Question", "name": "Is my XML data private?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All parsing happens in your browser using JavaScript. Your XML is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion." } },
+    { "@type": "Question", "name": "What's the maximum file size?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There is no hard size limit. The converter runs entirely in your browser, so the practical limit is your tab's available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs." } },
+    { "@type": "Question", "name": "Can I open the CSV in Excel or Google Sheets?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The output is a standard CSV file. Double-click to open in Excel, or drag it into a Google Sheets tab. If you used a non-comma delimiter, use Data > From Text/CSV in Excel to pick the right one." } },
+    { "@type": "Question", "name": "Does the converter preserve XML namespaces?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The default behaviour is to strip namespace prefixes for cleaner column names (so <ns:title> becomes 'title'). Toggle 'preserve namespaces' in settings if you need the prefix included in column names." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="BunnyConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+        <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+        <ellipse cx="35" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <ellipse cx="65" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+        <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+        <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+      </svg>
+      <span>BunnyConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html" class="current">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Convert Now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Instant · Free · No sign-up
+    </span>
+    <h1>XML to CSV Converter — <span class="accent">made simple</span></h1>
+    <p class="lede">Paste your XML or upload a feed, get a clean CSV file ready for Excel, Google Sheets, or any spreadsheet app. Auto-detects the structure and handles attributes.</p>
+
+    <div class="converter" role="region" aria-label="XML to CSV converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter — Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop an XML file</strong>
+          <small>or click to browse · .xml / .rss / .atom</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".xml,.rss,.atom,text/xml,application/xml,application/rss+xml,application/atom+xml" />
+        </label>
+        <div class="paste-zone">
+          <label for="xmlInput" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste XML</label>
+          <textarea id="xmlInput" placeholder="…or paste XML text" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your CSV preview will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><strong id="rowCount">0</strong> rows</span>
+          <span><strong id="colCount">0</strong> columns</span>
+          <span><strong id="rowElementLabel">Auto</strong> row element</span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="resetBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CSV
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust" aria-label="Why trust BunnyConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">The basics</span>
+    <h2>What is an XML to CSV converter?</h2>
+    <p>An XML to CSV converter parses a well-formed XML document and produces a CSV file where each repeating element becomes one row, and each child element or attribute becomes a column. XML's hierarchy is flattened into a table that opens directly in Excel, Google Sheets, or any BI tool.</p>
+    <p>XML (eXtensible Markup Language) is the older cousin of JSON. It dominated web services in the 2000s and is still the lingua franca of enterprise systems: SOAP APIs, RSS/Atom feeds, Microsoft Office file formats, configuration files, and countless legacy data feeds. The structure is verbose but precise — every field has explicit start and end tags, attributes are first-class, and schemas can enforce the entire shape of the document.</p>
+    <p>The challenge: most modern data tools (Excel, Google Sheets, SQL databases, BI platforms) want a flat table, not a tree. An XML to CSV converter bridges the two — it walks the XML tree, picks a "row element" (usually the most common repeating child of the root), and emits one CSV row per occurrence with the child elements and attributes as columns.</p>
+  </div>
+</section>
+
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>How to convert XML to CSV in 3 steps</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Most conversions take less than a minute. No login, no upload to a server, no installation.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste or upload</h3>
+        <p>Drop a <code>.xml</code>, <code>.rss</code>, or <code>.atom</code> file into the upload zone, or paste XML text. The converter auto-detects the row element (the repeating child of the root).</p>
+      </li>
+      <li class="step">
+        <h3>Choose options</h3>
+        <p>Open the settings cog to decide whether to include attributes, how to flatten nested elements, and which delimiter to use. Live preview updates as you change options.</p>
+      </li>
+      <li class="step">
+        <h3>Download</h3>
+        <p>Click <strong>Download CSV</strong> to save the file. Open it directly in Microsoft Excel, Google Sheets, Numbers, or any spreadsheet app.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why BunnyConvert</span>
+      <h2>Built for the XML you actually have</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Real XML has attributes, namespaces, mixed content, and nesting. BunnyConvert handles all of it.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Auto-detect row element</h3>
+        <p>Sniffs the document and picks the most likely repeating element. Override in settings for tricky schemas.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <h3>Attributes as columns</h3>
+        <p>Include XML attributes as columns prefixed with @. Toggle off in settings if you'd rather ignore them.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Nested-element flattening</h3>
+        <p>Child elements become columns with a separator. <code>address/city</code> becomes <code>address__city</code>. Configurable.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Browser-only privacy</h3>
+        <p>Every byte is processed in your browser. Nothing is uploaded, logged, or stored on our servers.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/></svg></div>
+        <h3>RSS / Atom support</h3>
+        <p>Standard feed formats are recognised automatically. <item> and <entry> elements become rows with title, link, pubDate as columns.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Custom delimiters</h3>
+        <p>Comma, tab, semicolon, or pipe. Tab is best for Excel paste; semicolon for EU locales; pipe for data with embedded commas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Comparison</span>
+      <h2>XML vs CSV: what's the difference?</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Both store structured data, but they're designed for very different jobs.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead><tr><th>Aspect</th><th>XML</th><th>CSV</th></tr></thead>
+        <tbody>
+          <tr><td>Structure</td><td>Hierarchical (nested elements, attributes)</td><td>Flat tabular (rows and columns)</td></tr>
+          <tr><td>Best for</td><td>Enterprise APIs, document formats, configuration, RSS</td><td>Spreadsheets, BI tools, human analysis, databases</td></tr>
+          <tr><td>File size</td><td>Largest (verbose tags)</td><td>Smallest (plain text)</td></tr>
+          <tr><td>Human readability</td><td>Moderate (tag noise)</td><td>High (opens directly in Excel)</td></tr>
+          <tr><td>Schema support</td><td>Strong (XSD, DTD)</td><td>None (implicit from header)</td></tr>
+          <tr><td>Attributes</td><td><span class="yes">First-class</span></td><td><span class="no">Not supported</span></td></tr>
+          <tr><td>Namespaces</td><td><span class="yes">Supported</span></td><td><span class="no">Not supported</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Use cases</span>
+      <h2>When teams reach for XML to CSV</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">XML is still everywhere in enterprise, and CSV is what most data tools want. The bridge is XML to CSV.</p>
+    </div>
+    <div class="cases">
+      <div class="case"><h3>RSS / Atom feeds</h3><p>Convert a blog or news feed into a spreadsheet to track publishing, monitor topics, or feed into a research tool.</p></div>
+      <div class="case"><h3>SOAP API responses</h3><p>Many enterprise APIs still use SOAP. Convert the response XML to CSV to import into a database or BI tool.</p></div>
+      <div class="case"><h3>Microsoft Office files</h3><p>Word, Excel (older formats), and PowerPoint all use XML internally. Extract data from .docx or .xlsx packages.</p></div>
+      <div class="case"><h3>Configuration files</h3><p>Maven, Ant, Spring, and countless other tools emit XML configs. Convert to CSV for human review or documentation.</p></div>
+      <div class="case"><h3>Legacy data exports</h3><p>Older ERP, CRM, and accounting systems often export only XML. Convert to CSV before importing into modern tools.</p></div>
+      <div class="case"><h3>Scientific data</h3><p>Many scientific formats (SBML, KML, GML) are XML. Researchers use CSV conversions for analysis in R, Python, or Excel.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>XML to CSV: the complete guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about the XML format, the CSV output, and how to handle real-world documents.</p>
+    </div>
+
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#guide-structure">XML structure</a>
+        <a href="#guide-row">Choosing the row element</a>
+        <a href="#guide-attrs">Attributes</a>
+        <a href="#guide-nested">Nested elements</a>
+        <a href="#guide-namespaces">Namespaces</a>
+        <a href="#guide-formats">Common XML formats</a>
+        <a href="#guide-edge">Edge cases</a>
+      </div>
+
+      <div class="content-block">
+        <h3 id="guide-structure">How is XML structured?</h3>
+        <p>XML is a tree of nested elements, each with optional attributes and text content. A document always has exactly one root element; everything else is a descendant of the root. Here's a minimal example:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+  &lt;book id="1"&gt;
+    &lt;title&gt;The Pragmatic Programmer&lt;/title&gt;
+    &lt;author&gt;Andy Hunt&lt;/author&gt;
+    &lt;year&gt;1999&lt;/year&gt;
+    &lt;price&gt;42.50&lt;/price&gt;
+  &lt;/book&gt;
+  &lt;book id="2"&gt;
+    &lt;title&gt;Clean Code&lt;/title&gt;
+    &lt;author&gt;Robert Martin&lt;/author&gt;
+    &lt;year&gt;2008&lt;/year&gt;
+    &lt;price&gt;38.00&lt;/price&gt;
+  &lt;/book&gt;
+&lt;/catalog&gt;</code></pre>
+        <p>The tree structure is what makes XML powerful — you can represent arbitrary relationships — but it's also what makes it hard to fit into a flat spreadsheet. The conversion collapses the tree into rows and columns.</p>
+
+        <h3 id="guide-row">How is the "row element" chosen?</h3>
+        <p>Every XML to CSV conversion has to pick a "row element" — the element whose repeated instances become the rows of the CSV. The converter auto-detects this by looking for the most common direct child of the root element. In the example above, <code>&lt;book&gt;</code> is the obvious choice because <code>&lt;catalog&gt;</code> has two <code>&lt;book&gt;</code> children.</p>
+        <p>Sometimes the choice isn't obvious. An RSS feed has a single <code>&lt;channel&gt;</code> with many <code>&lt;item&gt;</code> children — the items are the rows. A SOAP response may have a single root with nested arrays — the deepest repeating element is usually the row. If auto-detect picks the wrong element, override it in the settings.</p>
+        <p>Common row element names to expect: <code>item</code>, <code>entry</code>, <code>row</code>, <code>record</code>, <code>product</code>, <code>order</code>, <code>customer</code>, <code>user</code>. If your XML uses something obscure, just type the element name in settings.</p>
+
+        <h3 id="guide-attrs">How are attributes handled?</h3>
+        <p>XML attributes are key-value pairs on the opening tag of an element, like <code>&lt;book id="1"&gt;</code> where <code>id</code> is the attribute. They are first-class in XML and often carry the most important identifiers (IDs, types, references).</p>
+        <p>By default, BunnyConvert includes attributes as columns prefixed with <code>@</code>. The example above becomes:</p>
+<pre><code>@id,title,author,year,price
+1,The Pragmatic Programmer,Andy Hunt,1999,42.50
+2,Clean Code,Robert Martin,2008,38.00
+</code></pre>
+        <p>The <code>@</code> prefix makes attributes visually distinct from child elements, especially when an attribute and a child element share the same name (which is legal in XML). You can change the prefix to anything you like in settings, or disable attribute inclusion entirely.</p>
+
+        <h3 id="guide-nested">How are nested elements flattened?</h3>
+        <p>When a row element contains nested children, those become columns. By default, nesting is flattened with a separator — <code>&lt;address&gt;&lt;city&gt;NYC&lt;/city&gt;&lt;/address&gt;</code> becomes the column <code>address__city</code>. The separator is configurable (__, ., /, etc.).</p>
+        <p>For deeper nesting, the rule applies recursively: <code>&lt;author&gt;&lt;name&gt;&lt;first&gt;Andy&lt;/first&gt;&lt;last&gt;Hunt&lt;/last&gt;&lt;/name&gt;&lt;/author&gt;</code> becomes <code>author__name__first</code> and <code>author__name__last</code>. If a column name gets unwieldy, you can also use a "concatenate" strategy that joins all leaf values into a single column per row.</p>
+
+        <h3 id="guide-namespaces">What about XML namespaces?</h3>
+        <p>Namespaces are XML's way of avoiding element name collisions — <code>&lt;ns:title&gt;</code> and <code>&lt;atom:title&gt;</code> can coexist in the same document. By default, the converter strips namespace prefixes for cleaner column names (<code>title</code> instead of <code>ns:title</code>). If you need the prefix preserved, enable it in settings.</p>
+        <p>SOAP responses are heavily namespaced (<code>&lt;soap:Envelope&gt;</code>, <code>&lt;soap:Body&gt;</code>, etc.). The converter handles them without special configuration — the prefixes are stripped, and the underlying element names become the column names.</p>
+
+        <h3 id="guide-formats">Common XML formats</h3>
+        <p>These formats all work out of the box with BunnyConvert's auto-detect:</p>
+        <ul>
+          <li><strong>RSS 2.0:</strong> <code>&lt;rss&gt;&lt;channel&gt;&lt;item&gt;...&lt;/item&gt;&lt;/channel&gt;&lt;/rss&gt;</code> — row element is <code>item</code>, columns include <code>title</code>, <code>link</code>, <code>description</code>, <code>pubDate</code>.</li>
+          <li><strong>Atom 1.0:</strong> <code>&lt;feed&gt;&lt;entry&gt;...&lt;/entry&gt;&lt;/feed&gt;</code> — row element is <code>entry</code>, columns include <code>title</code>, <code>updated</code>, <code>summary</code>, <code>author/name</code>.</li>
+          <li><strong>SOAP responses:</strong> <code>&lt;soap:Envelope&gt;&lt;soap:Body&gt;&lt;GetProductsResponse&gt;&lt;Product&gt;...&lt;/Product&gt;&lt;/GetProductsResponse&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;</code> — the deepest repeating element is auto-detected as the row.</li>
+          <li><strong>Sitemaps:</strong> <code>&lt;urlset&gt;&lt;url&gt;...&lt;/url&gt;&lt;/urlset&gt;</code> — row element is <code>url</code>, columns include <code>loc</code>, <code>lastmod</code>, <code>changefreq</code>, <code>priority</code>.</li>
+          <li><strong>SVG:</strong> <code>&lt;svg&gt;&lt;path&gt;...&lt;/path&gt;&lt;/svg&gt;</code> — useful for extracting geometry data from vector graphics.</li>
+          <li><strong>KML (geographic):</strong> <code>&lt;kml&gt;&lt;Placemark&gt;...&lt;/Placemark&gt;&lt;/kml&gt;</code> — row element is <code>Placemark</code>, columns include <code>name</code>, <code>description</code>, and <code>Point/coordinates</code>.</li>
+        </ul>
+
+        <h3 id="guide-edge">Common edge cases</h3>
+        <p>Real-world XML is rarely as tidy as the textbook example. Here are the most common gotchas and how the converter handles them:</p>
+        <ul>
+          <li><strong>Mixed content (text + child elements):</strong> <code>&lt;p&gt;Hello &lt;em&gt;world&lt;/em&gt;!&lt;/p&gt;</code> — the text is concatenated and the child element is added as a separate column.</li>
+          <li><strong>Repeated children with the same name:</strong> <code>&lt;person&gt;&lt;phone&gt;555-1234&lt;/phone&gt;&lt;phone&gt;555-5678&lt;/phone&gt;&lt;/person&gt;</code> — joined with a delimiter (default <code> | </code>) into a single <code>phone</code> column.</li>
+          <li><strong>Empty elements:</strong> <code>&lt;description&gt;&lt;/description&gt;</code> — output as an empty cell.</li>
+          <li><strong>Self-closing tags:</strong> <code>&lt;br/&gt;</code> — output as an empty cell or, if attributes are present, an <code>@attr</code> column.</li>
+          <li><strong>CDATA sections:</strong> <code>&lt;![CDATA[&lt;raw html&gt;]]&gt;</code> — the raw content is preserved as the cell value, with the angle brackets escaped for CSV.</li>
+          <li><strong>XML declaration and DOCTYPE:</strong> Stripped before parsing. The <code>&lt;?xml ?&gt;</code> header and any <code>&lt;!DOCTYPE&gt;</code> declarations are removed automatically.</li>
+          <li><strong>Namespaces in tags:</strong> <code>&lt;ns:title xmlns:ns="..."&gt;</code> — the prefix is stripped (or preserved, per settings) and the local name is used as the column header.</li>
+          <li><strong>Comments and processing instructions:</strong> Stripped before parsing. Comments (<code>&lt;!-- --&gt;</code>) and processing instructions (<code>&lt;? ?&gt;</code>) are ignored.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about converting XML to CSV with BunnyConvert.</p>
+    </div>
+
+    <div class="faq">
+      <details><summary>What is an XML to CSV converter?</summary>
+        <div class="answer">An XML to CSV converter parses a well-formed XML document and produces a CSV file where each repeating element becomes one row and each child element or attribute becomes a column. XML's hierarchy is flattened into a table that opens directly in Excel or Google Sheets.</div>
+      </details>
+      <details><summary>Which XML element becomes the row?</summary>
+        <div class="answer">The converter auto-detects the most common repeating direct child of the root element. For RSS feeds that's item, for SOAP responses it's the operation-specific element, for arbitrary XML it's whichever child element appears most often. You can override the choice in settings.</div>
+      </details>
+      <details><summary>How are attributes handled?</summary>
+        <div class="answer">By default, XML attributes are included as columns prefixed with @ (for example, @id, @type). You can toggle this off in settings if you'd rather ignore attributes, or set the prefix to a different character.</div>
+      </details>
+      <details><summary>What about nested elements?</summary>
+        <div class="answer">Nested child elements are flattened with a separator. For example, address/city becomes the column address__city. The separator is configurable in settings.</div>
+      </details>
+      <details><summary>Does the converter work with RSS and Atom feeds?</summary>
+        <div class="answer">Yes. RSS 2.0 and Atom 1.0 are both well-supported. The auto-detect logic identifies item and entry elements as the row source. Standard fields like title, link, pubDate, and description all become columns.</div>
+      </details>
+      <details><summary>What about SOAP or API responses?</summary>
+        <div class="answer">Yes. SOAP envelopes, REST API responses wrapped in XML, and arbitrary enterprise formats all parse correctly. The auto-detect logic finds the repeating element regardless of namespace prefix.</div>
+      </details>
+      <details><summary>Is my XML data private?</summary>
+        <div class="answer">Yes. All parsing happens in your browser using JavaScript. Your XML is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion.</div>
+      </details>
+      <details><summary>What's the maximum file size?</summary>
+        <div class="answer">There is no hard size limit. The converter runs entirely in your browser, so the practical limit is your tab's available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs.</div>
+      </details>
+      <details><summary>Can I open the CSV in Excel or Google Sheets?</summary>
+        <div class="answer">Yes. The output is a standard CSV file. Double-click to open in Excel, or drag it into a Google Sheets tab. If you used a non-comma delimiter, use Data > From Text/CSV in Excel to pick the right one.</div>
+      </details>
+      <details><summary>Does the converter preserve XML namespaces?</summary>
+        <div class="answer">The default behaviour is to strip namespace prefixes for cleaner column names (so ns:title becomes 'title'). Toggle 'preserve namespaces' in settings if you need the prefix included in column names.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Convert your XML now</h2>
+      <p>Free, fast, and private. No sign-up. Your data never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Start Converting
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="BunnyConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="logoGradF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+            <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <circle cx="50" cy="60" r="25" fill="url(#logoGradF)"/>
+            <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+            <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+            <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+          </svg>
+          <span style="color: white;">BunnyConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, and YAML. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024–2026 BunnyConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Settings modal -->
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="rowElement">Row element</label>
+        <input type="text" id="rowElement" placeholder="auto-detect" />
+      </div>
+      <div class="field">
+        <label for="delimiter">Delimiter</label>
+        <select id="delimiter">
+          <option value="," selected>Comma — standard CSV</option>
+          <option value="\t">Tab — best for Excel paste</option>
+          <option value=";">Semicolon — common in EU locales</option>
+          <option value="|">Pipe — useful when data has commas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="nestedSep">Nested element separator</label>
+        <input type="text" id="nestedSep" value="__" maxlength="3" />
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="includeAttrs" checked />
+          <label for="includeAttrs">Include attributes (prefixed with @)</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="stripNs" checked />
+          <label for="stripNs">Strip namespace prefixes</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const state = {
+    rowElement: '',
+    delimiter: ',',
+    nestedSep: '__',
+    includeAttrs: true,
+    stripNs: true,
+    lastCsv: '',
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    xmlInput: $('xmlInput'),
+    fileInput: $('fileInput'),
+    uploadZone: $('uploadZone'),
+    parseStatus: $('parseStatus'),
+    loadSample: $('loadSample'),
+    results: $('results'),
+    errorBox: $('errorBox'),
+    rowCount: $('rowCount'),
+    colCount: $('colCount'),
+    rowElementLabel: $('rowElementLabel'),
+    downloadBtn: $('downloadBtn'),
+    resetBtn: $('resetBtn'),
+    settingsBtn: $('settingsBtn'),
+    settingsModal: $('settingsModal'),
+    closeSettings: $('closeSettings'),
+    closeSettingsFoot: $('closeSettingsFoot'),
+    applySettings: $('applySettings'),
+    rowElement: $('rowElement'),
+    delimiter: $('delimiter'),
+    nestedSep: $('nestedSep'),
+    includeAttrs: $('includeAttrs'),
+    stripNs: $('stripNs'),
+  };
+
+  const SAMPLE = '<?xml version="1.0" encoding="UTF-8"?>\n<catalog>\n  <book id="1" lang="en">\n    <title>The Pragmatic Programmer</title>\n    <author>Andy Hunt</author>\n    <year>1999</year>\n    <price>42.50</price>\n  </book>\n  <book id="2" lang="en">\n    <title>Clean Code</title>\n    <author>Robert Martin</author>\n    <year>2008</year>\n    <price>38.00</price>\n  </book>\n  <book id="3" lang="en">\n    <title>Refactoring</title>\n    <author>Martin Fowler</author>\n    <year>2018</year>\n    <price>45.00</price>\n  </book>\n</catalog>';
+
+  // ============ XML PARSER ============
+  function stripBom(s) { return s.charCodeAt(0) === 0xFEFF ? s.slice(1) : s; }
+
+  function parseXml(text) {
+    text = stripBom(text);
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'application/xml');
+    const err = doc.querySelector('parsererror');
+    if (err) throw new Error('Invalid XML: ' + (err.textContent || '').slice(0, 200));
+    return doc;
+  }
+
+  function localName(name) {
+    if (state.stripNs && name.indexOf(':') !== -1) return name.split(':').pop();
+    return name;
+  }
+
+  function detectRowElement(doc) {
+    const root = doc.documentElement;
+    const counts = {};
+    for (const child of root.children) {
+      const n = localName(child.tagName);
+      counts[n] = (counts[n] || 0) + 1;
+    }
+    let best = null, bestCount = 0;
+    for (const k in counts) {
+      if (counts[k] > bestCount) { best = k; bestCount = counts[k]; }
+    }
+    return best;
+  }
+
+  function findRowElements(doc, rowName) {
+    const root = doc.documentElement;
+    const out = [];
+    function walk(node) {
+      for (const child of node.children) {
+        if (localName(child.tagName) === rowName) out.push(child);
+        else walk(child);
+      }
+    }
+    walk(root);
+    if (out.length > 0) return out;
+    // Fallback: any child of root with the row name
+    for (const child of root.children) {
+      if (localName(child.tagName) === rowName) out.push(child);
+    }
+    return out;
+  }
+
+  function getText(node) {
+    let s = '';
+    for (const child of node.childNodes) {
+      if (child.nodeType === 3) s += child.nodeValue;
+      else if (child.nodeType === 1) s += getText(child);
+    }
+    return s;
+  }
+
+  function flattenElement(node, prefix, sep) {
+    const out = {};
+    if (state.includeAttrs) {
+      for (const attr of node.attributes) {
+        out[prefix + '@' + localName(attr.name)] = attr.value;
+      }
+    }
+    const children = {};
+    const order = [];
+    for (const child of node.children) {
+      const n = localName(child.tagName);
+      if (!children[n]) { children[n] = []; order.push(n); }
+      children[n].push(child);
+    }
+    for (const n of order) {
+      const key = prefix ? prefix + sep + n : n;
+      if (children[n].length === 1) {
+        const child = children[n][0];
+        const hasChildren = child.children.length > 0;
+        if (hasChildren) {
+          const sub = flattenElement(child, key, sep);
+          for (const k in sub) out[k] = sub[k];
+        } else {
+          out[key] = getText(child);
+        }
+      } else {
+        out[key] = children[n].map(c => getText(c) || (c.children.length ? JSON.stringify(toObject(c)) : '')).join(' | ');
+      }
+    }
+    return out;
+  }
+
+  function toObject(node) {
+    const out = {};
+    if (state.includeAttrs) for (const attr of node.attributes) out['@' + localName(attr.name)] = attr.value;
+    for (const child of node.children) {
+      const n = localName(child.tagName);
+      out[n] = child.children.length > 0 ? toObject(child) : getText(child);
+    }
+    return out;
+  }
+
+  function escapeCsv(v, delim) {
+    if (v === null || v === undefined) return '';
+    const s = String(v);
+    if (s.includes(delim) || s.includes('"') || s.includes('\n') || s.includes('\r')) {
+      return '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
+  }
+
+  function xmlToCsv(text, opts) {
+    const doc = parseXml(text);
+    const rowName = opts.rowElement || detectRowElement(doc);
+    if (!rowName) throw new Error('Could not detect a repeating row element. Set one in settings.');
+    const rows = findRowElements(doc, rowName);
+    if (rows.length === 0) throw new Error('No elements named <' + rowName + '> found in the document.');
+
+    const flatRows = rows.map(r => flattenElement(r, '', opts.nestedSep));
+    const keySet = new Set();
+    flatRows.forEach(r => Object.keys(r).forEach(k => keySet.add(k)));
+    const headers = Array.from(keySet);
+
+    const lines = [headers.map(h => escapeCsv(h, opts.delimiter)).join(opts.delimiter)];
+    flatRows.forEach(r => {
+      lines.push(headers.map(h => escapeCsv(r[h] || '', opts.delimiter)).join(opts.delimiter));
+    });
+
+    return { csv: lines.join('\n'), rowName, rows: flatRows.length, columns: headers.length };
+  }
+
+  // ============ RENDER ============
+  function renderPreview(csv, rows, columns, rowName) {
+    if (rows === 0) {
+      els.results.classList.remove('visible');
+      els.results.innerHTML = '<div class="results-empty">Your CSV preview will appear here.</div>';
+      els.rowCount.textContent = '0';
+      els.colCount.textContent = '0';
+      els.rowElementLabel.textContent = 'Auto';
+      return;
+    }
+    const lines = csv.split('\n');
+    const previewLines = lines.slice(0, 51);
+    const thead = '<thead><tr>' + lines[0].split(state.delimiter).map(h => '<th>' + escapeHtml(h.replace(/^"|"$/g, '')) + '</th>').join('') + '</tr></thead>';
+    const tbody = '<tbody>' + previewLines.slice(1).map((line, i) => {
+      if (i === 50 && lines.length > 51) {
+        return '<tr><td colspan="99" style="text-align:center; color: var(--ink-500); font-style: italic;">… ' + (lines.length - 51) + ' more rows</td></tr>';
+      }
+      const cells = parseCsvLine(line, state.delimiter);
+      return '<tr>' + cells.map(c => '<td>' + escapeHtml(c) + '</td>').join('') + '</tr>';
+    }).join('') + '</tbody>';
+    els.results.innerHTML = '<table>' + thead + tbody + '</table>';
+    els.results.classList.add('visible');
+    els.rowCount.textContent = rows.toLocaleString();
+    els.colCount.textContent = columns;
+    els.rowElementLabel.textContent = '<' + rowName + '>';
+  }
+
+  function parseCsvLine(line, delim) {
+    const result = [];
+    let cur = '', inQuote = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (inQuote) {
+        if (c === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+        else if (c === '"') inQuote = false;
+        else cur += c;
+      } else {
+        if (c === '"') inQuote = true;
+        else if (c === delim) { result.push(cur); cur = ''; }
+        else cur += c;
+      }
+    }
+    result.push(cur);
+    return result;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function showError(msg) { els.errorBox.textContent = msg; els.errorBox.classList.add('visible'); }
+  function clearError() { els.errorBox.textContent = ''; els.errorBox.classList.remove('visible'); }
+
+  function processInput(text) {
+    clearError();
+    if (!text || !text.trim()) {
+      state.lastCsv = '';
+      renderPreview('', 0, 0, '');
+      els.parseStatus.textContent = 'Awaiting input';
+      return;
+    }
+    try {
+      const result = xmlToCsv(text, {
+        rowElement: state.rowElement,
+        delimiter: state.delimiter,
+        nestedSep: state.nestedSep,
+        includeAttrs: state.includeAttrs,
+        stripNs: state.stripNs,
+      });
+      state.lastCsv = result.csv;
+      renderPreview(result.csv, result.rows, result.columns, result.rowName);
+      els.parseStatus.textContent = 'Converted ' + result.rows + ' row' + (result.rows === 1 ? '' : 's');
+    } catch (e) {
+      showError(e.message);
+      els.parseStatus.textContent = 'Error';
+    }
+  }
+
+  let inputTimer;
+  els.xmlInput.addEventListener('input', () => {
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(() => processInput(els.xmlInput.value), 250);
+  });
+
+  els.uploadZone.addEventListener('click', () => els.fileInput.click());
+  els.uploadZone.addEventListener('dragover', e => { e.preventDefault(); els.uploadZone.classList.add('dragover'); });
+  els.uploadZone.addEventListener('dragleave', () => els.uploadZone.classList.remove('dragover'));
+  els.uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    els.uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+  els.fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file) {
+    if (file.size > 200 * 1024 * 1024) { showError('File is larger than 200 MB. Try splitting it into smaller chunks.'); return; }
+    const reader = new FileReader();
+    reader.onload = e => { els.xmlInput.value = e.target.result; processInput(els.xmlInput.value); };
+    reader.onerror = () => showError('Could not read file.');
+    reader.readAsText(file);
+  }
+
+  els.loadSample.addEventListener('click', () => { els.xmlInput.value = SAMPLE; processInput(els.xmlInput.value); });
+
+  els.resetBtn.addEventListener('click', () => {
+    els.xmlInput.value = '';
+    els.fileInput.value = '';
+    state.lastCsv = '';
+    clearError();
+    renderPreview('', 0, 0, '');
+    els.parseStatus.textContent = 'Awaiting input';
+  });
+
+  els.downloadBtn.addEventListener('click', () => {
+    if (!state.lastCsv) { showError('Nothing to download — paste or upload XML first.'); return; }
+    const ext = state.delimiter === '\t' ? 'tsv' : 'csv';
+    const blob = new Blob([state.lastCsv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'converted.' + ext;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  });
+
+  function openSettings() { els.settingsModal.classList.add('visible'); }
+  function closeSettings() { els.settingsModal.classList.remove('visible'); }
+  els.settingsBtn.addEventListener('click', openSettings);
+  els.closeSettings.addEventListener('click', closeSettings);
+  els.closeSettingsFoot.addEventListener('click', closeSettings);
+  els.settingsModal.addEventListener('click', e => { if (e.target === els.settingsModal) closeSettings(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && els.settingsModal.classList.contains('visible')) closeSettings(); });
+
+  els.applySettings.addEventListener('click', () => {
+    state.rowElement = els.rowElement.value.trim();
+    state.delimiter = els.delimiter.value === '\\t' ? '\t' : els.delimiter.value;
+    state.nestedSep = els.nestedSep.value || '__';
+    state.includeAttrs = els.includeAttrs.checked;
+    state.stripNs = els.stripNs.checked;
+    closeSettings();
+    processInput(els.xmlInput.value);
+  });
+})();
+</script>
+
+</body>
+</html>

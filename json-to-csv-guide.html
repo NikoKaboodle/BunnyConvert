@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+<title>JSON to CSV: The Complete Guide | BunnyConvert</title>
+<meta name="description" content="The complete guide to converting JSON to CSV. Covers JSON syntax, CSV dialects, nested data strategies, common edge cases, and best practices. 2026 edition." />
+<meta name="keywords" content="json to csv guide, json csv tutorial, convert json to csv explained, nested json, csv dialects, excel json" />
+<link rel="canonical" href="https://bunnyconvert.com/json-to-csv-guide.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="BunnyConvert" />
+<meta property="og:title" content="JSON to CSV: The Complete Guide" />
+<meta property="og:description" content="Everything you need to know about JSON, CSV, and the conversion between them. Covers syntax, edge cases, and best practices." />
+<meta property="og:url" content="https://bunnyconvert.com/json-to-csv-guide.html" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="JSON to CSV: The Complete Guide" />
+<meta name="twitter:description" content="Everything you need to know about JSON, CSV, and the conversion between them." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "JSON to CSV: The Complete Guide",
+  "description": "Everything you need to know about JSON, CSV, and the conversion between them.",
+  "author": { "@type": "Organization", "name": "BunnyConvert" },
+  "publisher": { "@type": "Organization", "name": "BunnyConvert", "logo": { "@type": "ImageObject", "url": "https://bunnyconvert.com/logo.png" } },
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-10-19"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bunnyconvert.com/" },
+    { "@type": "ListItem", "position": 2, "name": "JSON to CSV Converter", "item": "https://bunnyconvert.com/" },
+    { "@type": "ListItem", "position": 3, "name": "JSON to CSV Guide", "item": "https://bunnyconvert.com/json-to-csv-guide.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="BunnyConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+        <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+        <ellipse cx="35" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <ellipse cx="65" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+        <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+        <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+      </svg>
+      <span>BunnyConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html" class="current">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html#">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding: 56px 0 40px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      The complete guide
+    </span>
+    <h1>JSON to CSV: <span class="accent">the complete guide</span></h1>
+    <p class="lede">Everything you need to know about JSON, CSV, and the conversions between them — from the basics to advanced edge cases.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px;">
+      <a href="index.html#convert" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Try the Converter
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#basics">What is JSON?</a>
+        <a href="#csv">What is CSV?</a>
+        <a href="#when">When to convert</a>
+        <a href="#edges">Common edge cases</a>
+        <a href="#best">Best practices</a>
+        <a href="#tools">Tool comparison</a>
+      </div>
+
+      <div class="content-block">
+        <h2 id="basics">What is JSON?</h2>
+        <p>JSON (JavaScript Object Notation) is a lightweight text-based format for structured data, derived from JavaScript object syntax. It was popularised by Douglas Crockford in the early 2000s and standardised as <strong>RFC 8259</strong> in 2017. Today it is the lingua franca of web APIs, mobile apps, configuration files, and inter-service communication.</p>
+        <p>A JSON document is built from two structures: a <em>collection of name/value pairs</em> (an object, written with curly braces) and an <em>ordered list of values</em> (an array, written with square brackets). Every value is one of: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>object</code>, or <code>array</code>. This minimalism is what makes JSON easy to parse in every programming language and human-readable enough to inspect with the naked eye.</p>
+        <p>Example JSON object:</p>
+<pre><code>{
+  "id": 42,
+  "name": "Alice Chen",
+  "email": "alice@example.com",
+  "skills": ["SQL", "Python", "Go"],
+  "address": { "city": "New York", "country": "US" },
+  "active": true,
+  "joined": 1672531200
+}</code></pre>
+        <p>The hierarchical nature of JSON — objects inside objects, arrays of objects, arrays of primitives — is what makes it powerful for representing real-world data, but it is also the main challenge when you want to put that data into a flat spreadsheet.</p>
+
+        <h2 id="csv">What is CSV?</h2>
+        <p>CSV (Comma-Separated Values) is the oldest and most widely supported tabular data format. It predates JSON by decades and is defined loosely — the closest thing to a formal spec is <strong>RFC 4180</strong> from 2005. A CSV file is plain text: one record per line, with each field separated by a delimiter (usually a comma, but tab, semicolon, and pipe are common).</p>
+        <p>Example CSV:</p>
+<pre><code>id,name,email,active
+42,Alice Chen,alice@example.com,true
+43,Bob Singh,bob@example.com,false
+</code></pre>
+        <p>CSV's strengths are its simplicity and its universal compatibility. Every spreadsheet program (Excel, Google Sheets, Numbers, LibreOffice Calc), every database (Postgres, MySQL, SQLite, BigQuery, Snowflake), and every data tool (Pandas, R, Tableau, Power BI) can read CSV without additional libraries. The downside is that CSV cannot represent nested data, and the lack of a single formal spec means dialects vary — especially around quoting, escaping, and which characters are valid delimiters.</p>
+        <p>The most common dialects you'll encounter:</p>
+        <ul>
+          <li><strong>RFC 4180 (Excel default):</strong> Comma delimiter, double-quote quoting, CRLF line endings, header row.</li>
+          <li><strong>Tab-separated (TSV):</strong> Tab delimiter, used by database exports and Excel paste-buffer.</li>
+          <li><strong>European CSV:</strong> Semicolon delimiter, because comma is the decimal separator in many EU locales.</li>
+          <li><strong>Pipe-separated (PSV):</strong> Pipe delimiter, used by log files and tools that need a delimiter unlikely to appear in data.</li>
+        </ul>
+
+        <h2 id="when">When should you convert JSON to CSV?</h2>
+        <p>JSON to CSV is the right tool whenever you need to take data from a system that emits JSON and put it somewhere that wants a table. The most common scenarios:</p>
+        <ul>
+          <li><strong>API analysis:</strong> Pull a REST API response, paste it into the converter, and open the result in Excel for ad-hoc analysis.</li>
+          <li><strong>Database ingestion:</strong> Many warehouses and databases accept CSV more readily than JSON, especially for one-time bulk loads.</li>
+          <li><strong>Reporting:</strong> Stakeholders who live in spreadsheets need CSV, not JSON.</li>
+          <li><strong>Data archival:</strong> CSV is more compact than JSON and is supported by long-term archival tools.</li>
+          <li><strong>Configuration migration:</strong> Some legacy systems only accept CSV imports.</li>
+        </ul>
+        <p>The reverse — CSV to JSON — is just as common, especially when you're piping a spreadsheet into an API or a NoSQL database like MongoDB.</p>
+
+        <h2 id="edges">Common edge cases (and how to handle them)</h2>
+        <p>Real-world JSON is messy. Here are the most common conversion pitfalls and how to handle each:</p>
+        <ul>
+          <li><strong>Nested objects:</strong> Flattened with a separator. <code>{"address": {"city": "NYC"}}</code> becomes the column <code>address__city</code>. The separator is configurable.</li>
+          <li><strong>Arrays of primitives:</strong> Joined with a delimiter. <code>["SQL", "Python"]</code> becomes <code>SQL | Python</code>. Useful for tags, skills, and categories.</li>
+          <li><strong>Arrays of objects (header/detail):</strong> One row per array element, with the parent fields duplicated. This is the default and works for most API responses with line-item data.</li>
+          <li><strong>Inconsistent keys across rows:</strong> The union of all keys is used for the column set; missing values become empty cells.</li>
+          <li><strong>Special characters in values:</strong> Commas, quotes, and newlines trigger automatic RFC-4180-style escaping. The cell is wrapped in double quotes and any embedded quote is doubled.</li>
+          <li><strong>Epoch timestamps:</strong> Optionally converted to ISO-8601 dates (<code>yyyy-mm-dd</code>) for easier reading in Excel.</li>
+          <li><strong>JSON Lines (one object per line):</strong> Detected and split into rows. Useful for log files.</li>
+          <li><strong>Top-level single object (not an array):</strong> Treated as a one-row CSV.</li>
+        </ul>
+
+        <h2 id="best">Best practices for JSON to CSV conversion</h2>
+        <ol>
+          <li><strong>Always use a header row.</strong> It documents your columns and makes downstream tools (Pandas, BigQuery, Excel) work correctly. Always emit a header row.</li>
+          <li><strong>Pick the right delimiter for your data.</strong> If your values contain commas, use tab or pipe. If your tool expects a specific delimiter (e.g., semicolon for EU Excel), use that.</li>
+          <li><strong>Be deliberate about nested data.</strong> There is no single "right" way to flatten a hierarchy into a table. The header/detail strategy works for most cases, but flattened or matrix modes may suit your analysis better.</li>
+          <li><strong>Convert dates to ISO-8601.</strong> Excel often mis-parses local date strings. <code>2024-12-31</code> is safer than <code>12/31/2024</code>.</li>
+          <li><strong>Spot-check the output.</strong> Open the first 5–10 rows in Excel and verify the structure before committing to a full download.</li>
+          <li><strong>Use UTF-8 encoding.</strong> Always emit UTF-8. If a downstream tool doesn't recognise it, open the CSV in a text editor and re-save with the right BOM.</li>
+        </ol>
+
+        <h2 id="tools">BunnyConvert vs other JSON to CSV tools</h2>
+        <p>There are dozens of JSON to CSV converters online. Here's how BunnyConvert compares on the dimensions that matter:</p>
+        <ul>
+          <li><strong>Privacy:</strong> BunnyConvert runs entirely in your browser. Other tools often upload your data to a server — fine for public APIs, risky for sensitive data.</li>
+          <li><strong>Cost:</strong> BunnyConvert is free, with no sign-up, no limits, and no premium tier.</li>
+          <li><strong>Nested data:</strong> BunnyConvert offers four strategies. Many competitors offer only one (usually flattened), which produces ugly output for the common header/detail case.</li>
+          <li><strong>Live preview:</strong> BunnyConvert shows the result table as you type. Most other tools require you to click "Convert" first.</li>
+          <li><strong>Settings:</strong> Custom delimiters, epoch conversion, smart column ordering — all available without an account.</li>
+        </ul>
+        <p>For quick, one-off conversions of non-sensitive data, any tool will do. For repeated use on real data — APIs, exports, logs — the privacy and depth of BunnyConvert make a real difference.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>What is a JSON to CSV converter?</summary>
+        <div class="answer">A JSON to CSV converter is a tool that transforms JSON (JavaScript Object Notation) data into CSV (Comma-Separated Values) format. CSV is the standard tabular format used by Excel, Google Sheets, and most database tools, while JSON is the standard for APIs and modern web applications. A converter bridges the two so you can analyse API data, application exports, and structured logs in a spreadsheet.</div>
+      </details>
+      <details><summary>Is JSON to CSV conversion free?</summary>
+        <div class="answer">Yes. BunnyConvert's JSON to CSV converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don't pay for servers and we don't charge you.</div>
+      </details>
+      <details><summary>Does the converter handle nested JSON?</summary>
+        <div class="answer">Yes. Open the settings cog to choose between four nested-data strategies: header/detail (one row per array element, with parent fields repeated), flattened (nested keys joined with a separator like <code>address__city</code>), concatenated (arrays joined with a delimiter), and matrix (full Cartesian expansion). The default header/detail mode works for most API responses.</div>
+      </details>
+      <details><summary>Which delimiters are supported?</summary>
+        <div class="answer">Comma, tab, semicolon, and pipe. Comma is the standard CSV default. Tab is ideal for pasting directly into Excel. Semicolon is the default in many European locales. Pipe is useful when your data contains commas (for example, exported from log files).</div>
+      </details>
+      <details><summary>Is my data private?</summary>
+        <div class="answer">Yes. All conversion happens client-side in your browser using JavaScript. Your JSON is never transmitted to a server. The page uses HTTPS, and no third-party tracking scripts run during conversion. The tool has no backend — there is literally no server that could see your data.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Try the converter</h2>
+      <p>Paste your JSON, get a clean CSV file ready for Excel, Google Sheets, or any spreadsheet app.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Open the JSON to CSV Converter
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="BunnyConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="logoGradF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+            <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <circle cx="50" cy="60" r="25" fill="url(#logoGradF)"/>
+            <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+            <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+            <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+          </svg>
+          <span style="color: white;">BunnyConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, and YAML. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024–2026 BunnyConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

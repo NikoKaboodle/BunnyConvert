@@ -1,0 +1,14 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Deploy keys — never commit
+*.pem
+bunnyconvert_deploy_key
+bunnyconvert_deploy_key.pub

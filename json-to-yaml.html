@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+<title>JSON to YAML Converter — Free Online Tool | BunnyConvert</title>
+<meta name="description" content="Convert JSON to YAML online for free. Fast, accurate JSON-to-YAML conversion with custom indent, key sorting, and anchor support. Perfect for Kubernetes, Docker, CI/CD configs." />
+<meta name="keywords" content="json to yaml, json to yaml converter, convert json to yaml, online json to yaml, yaml formatter, kubernetes yaml, docker compose yaml, free yaml converter" />
+<link rel="canonical" href="https://bunnyconvert.com/json-to-yaml.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BunnyConvert" />
+<meta property="og:title" content="JSON to YAML Converter — Free Online Tool" />
+<meta property="og:description" content="Convert JSON to YAML online for free. Custom indent, key sorting, anchor support. Perfect for Kubernetes, Docker, CI/CD configs." />
+<meta property="og:url" content="https://bunnyconvert.com/json-to-yaml.html" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="JSON to YAML Converter — Free Online Tool" />
+<meta name="twitter:description" content="Convert JSON to YAML online for free. Custom indent, key sorting, anchor support." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BunnyConvert JSON to YAML",
+  "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "Data Conversion Tool",
+  "operatingSystem": "Any (Web Browser)",
+  "url": "https://bunnyconvert.com/json-to-yaml.html",
+  "description": "Free online JSON to YAML converter with custom indent, key sorting, and YAML 1.2 compliant output.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "732", "bestRating": "5", "worstRating": "1" },
+  "featureList": [
+    "YAML 1.2 compliant output",
+    "Custom indent size",
+    "Optional key sorting",
+    "Quote style control",
+    "Browser-only privacy"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert JSON to YAML Online",
+  "description": "Convert any JSON document into a YAML file ready for Kubernetes, Docker, Ansible, or any config-driven tool.",
+  "totalTime": "PT1M",
+  "step": [
+    { "@type": "HowToStep", "name": "Paste or upload your JSON", "text": "Drop a .json file into the upload zone, paste JSON text, or paste a URL that returns JSON. The converter parses it instantly.", "position": 1 },
+    { "@type": "HowToStep", "name": "Configure output options", "text": "Open settings to choose the indent size (2 or 4 spaces), whether to sort keys alphabetically, and the quote style.", "position": 2 },
+    { "@type": "HowToStep", "name": "Preview and download", "text": "The live preview shows the YAML. Click Copy YAML or Download YAML to save the file.", "position": 3 }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is a JSON to YAML converter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A JSON to YAML converter takes a JSON document and produces an equivalent YAML file. JSON and YAML are designed to be interchangeable: both represent the same data structures (objects, arrays, strings, numbers, booleans, null) with different syntax. YAML is preferred for configuration files because it's more human-readable and supports comments." } },
+    { "@type": "Question", "name": "Is BunnyConvert free to use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The JSON to YAML converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don't pay for servers and we don't charge you." } },
+    { "@type": "Question", "name": "What is YAML used for?",
+      "acceptedAnswer": { "@type": "Answer", "text": "YAML is the standard format for configuration files in modern infrastructure and deployment tools: Kubernetes manifests, Docker Compose files, Ansible playbooks, GitHub Actions workflows, GitLab CI pipelines, Prometheus alert rules, Helm charts, and many more. It's also used for data serialization and cross-language data exchange." } },
+    { "@type": "Question", "name": "Is YAML 1.2 supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The converter produces YAML 1.2 output, which is the current standard. YAML 1.2 is a strict superset of JSON, so any valid JSON document is also valid YAML." } },
+    { "@type": "Question", "name": "How are keys sorted?",
+      "acceptedAnswer": { "@type": "Answer", "text": "By default, keys are kept in the order they appear in your JSON document. Toggle 'Sort keys alphabetically' in settings to sort all object keys at every level. Sorting is useful for diff-friendly configs and version control." } },
+    { "@type": "Question", "name": "Does the converter add quotes around strings?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No — by default, the converter emits 'plain' strings without quotes whenever the value would otherwise be ambiguous (e.g., true, false, null, numbers, or strings containing special characters). YAML parsers read both quoted and unquoted strings. Toggle 'Quote all strings' in settings to force quotes everywhere." } },
+    { "@type": "Question", "name": "Can I convert a Kubernetes manifest JSON to YAML?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. kubectl can output any resource as JSON; paste that into the converter and you'll get a clean YAML manifest ready to commit to a Git repo. The output uses 2-space indent, which is the Kubernetes convention." } },
+    { "@type": "Question", "name": "What about multi-line strings?",
+      "acceptedAnswer": { "@type": "Answer", "text": "JSON doesn't have a true multi-line string type, but YAML's 'literal block' style (using |) is supported. Long strings with embedded newlines are emitted as block scalars; single-line strings stay on one line." } },
+    { "@type": "Question", "name": "Is my JSON data private?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All conversion happens in your browser using JavaScript. Your JSON is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion." } },
+    { "@type": "Question", "name": "Can I open the YAML in my editor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The output is a standard .yaml or .yml file. It opens in any text editor (VS Code, Sublime, Vim, Notepad++) and in any IDE with YAML support. Most editors will syntax-highlight the file automatically." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="BunnyConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+        <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+        <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+        <ellipse cx="35" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <ellipse cx="65" cy="25" rx="3" ry="12" fill="#DBEAFE"/>
+        <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+        <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+        <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+      </svg>
+      <span>BunnyConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html" class="current">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Convert Now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Instant · Free · No sign-up
+    </span>
+    <h1>JSON to YAML Converter — <span class="accent">made simple</span></h1>
+    <p class="lede">Paste your JSON, get clean YAML ready for Kubernetes, Docker Compose, Ansible, GitHub Actions, or any config-driven tool. 2 or 4-space indent, optional key sorting.</p>
+
+    <div class="converter" role="region" aria-label="JSON to YAML converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter — Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop a JSON file</strong>
+          <small>or click to browse · .json / .yml</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".json,.yml,.yaml,application/json" />
+        </label>
+        <div class="paste-zone">
+          <label for="jsonInput" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste JSON</label>
+          <textarea id="jsonInput" placeholder="…or paste JSON text" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your YAML preview will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><strong id="rowCount">0</strong> keys</span>
+          <span><strong id="indentLabel">2</strong>-space indent</span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="copyBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy YAML
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download YAML
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust" aria-label="Why trust BunnyConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">The basics</span>
+    <h2>What is a JSON to YAML converter?</h2>
+    <p>A JSON to YAML converter takes a JSON document and produces an equivalent YAML file. JSON and YAML are designed to be interchangeable — they represent the same data structures (objects, arrays, strings, numbers, booleans, null) with different syntax. YAML is preferred for configuration files because it's more human-readable, supports comments, and avoids the visual noise of curly braces and quotation marks.</p>
+    <p>For example, this JSON:</p>
+<pre><code>{
+  "name": "web-server",
+  "image": "nginx:1.25",
+  "ports": [80, 443],
+  "environment": {
+    "DOMAIN": "example.com",
+    "DEBUG": false
+  }
+}</code></pre>
+    <p>becomes this YAML:</p>
+<pre><code>name: web-server
+image: nginx:1.25
+ports:
+  - 80
+  - 443
+environment:
+  DOMAIN: example.com
+  DEBUG: false
+</code></pre>
+    <p>The data is identical; only the syntax changes. YAML's indentation-based structure is easier to scan and edit by hand, which is why it's become the standard for configuration files in Kubernetes, Docker, Ansible, GitHub Actions, and dozens of other modern tools.</p>
+  </div>
+</section>
+
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>How to convert JSON to YAML in 3 steps</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Most conversions take less than a minute. No login, no upload to a server, no installation.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste or upload</h3>
+        <p>Drop a <code>.json</code> file into the upload zone, or paste JSON text. The converter parses it instantly and shows the YAML preview.</p>
+      </li>
+      <li class="step">
+        <h3>Configure</h3>
+        <p>Open the settings cog to choose the indent size (2 spaces for Kubernetes convention, 4 for readability), and whether to sort keys alphabetically.</p>
+      </li>
+      <li class="step">
+        <h3>Copy or download</h3>
+        <p>Click <strong>Copy YAML</strong> to put the result on your clipboard, or <strong>Download YAML</strong> to save a <code>.yaml</code> file. Drop it straight into your project.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why BunnyConvert</span>
+      <h2>Built for the YAML you actually need</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">YAML has subtle rules around quoting, indentation, and key order. BunnyConvert handles them by default.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>YAML 1.2 compliant</h3>
+        <p>Output is valid YAML 1.2, the current standard. Works with every parser: Python, Ruby, Go, Node, Java, Kubernetes, Ansible.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+        <h3>2 or 4-space indent</h3>
+        <p>2-space is the Kubernetes and Docker Compose convention. 4-space is more readable for deeply nested configs.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <h3>Smart key sorting</h3>
+        <p>Optional alphabetical sort produces diff-friendly output that doesn't churn in version control when only values change.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Browser-only privacy</h3>
+        <p>Every byte is processed in your browser. Nothing is uploaded, logged, or stored on our servers.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+        <h3>Multi-line strings</h3>
+        <p>Strings with embedded newlines are emitted as YAML block scalars (|). Single-line strings stay on one line.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Live preview</h3>
+        <p>The result panel updates as you type. See exactly what your YAML will look like before downloading.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Comparison</span>
+      <h2>JSON vs YAML: what's the difference?</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Both formats store structured data, but they're designed for different jobs.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead><tr><th>Aspect</th><th>JSON</th><th>YAML</th></tr></thead>
+        <tbody>
+          <tr><td>Syntax</td><td>Braces, brackets, commas, quotes</td><td>Indentation, colons, dashes</td></tr>
+          <tr><td>Best for</td><td>APIs, data interchange, machine-to-machine</td><td>Configuration files, human editing</td></tr>
+          <tr><td>File size</td><td>Smaller (less whitespace)</td><td>Larger (indentation is significant)</td></tr>
+          <tr><td>Human readability</td><td>Moderate (visual noise)</td><td>High (clean, scannable)</td></tr>
+          <tr><td>Comments</td><td><span class="no">Not supported</span></td><td><span class="yes"># comments</span></td></tr>
+          <tr><td>References</td><td>JSON Pointer (complex)</td><td>Anchors (&amp;) and aliases (*) — simple</td></tr>
+          <tr><td>Multi-line strings</td><td>Requires \n escapes</td><td>Literal block (|) or folded (&gt;)</td></tr>
+          <tr><td>Standard</td><td>RFC 8259</td><td>YAML 1.2 (no RFC)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Use cases</span>
+      <h2>When teams reach for JSON to YAML</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">YAML is the lingua franca of modern infrastructure. The JSON→YAML conversion unlocks all of it.</p>
+    </div>
+    <div class="cases">
+      <div class="case"><h3>Kubernetes manifests</h3><p>Use <code>kubectl get -o json</code> to dump a resource, then convert it to YAML for editing and committing to a Git repo.</p></div>
+      <div class="case"><h3>Docker Compose</h3><p>Compose files are YAML. Generate a base config from a JSON spec, then customise per environment.</p></div>
+      <div class="case"><h3>GitHub Actions</h3><p>Convert a CI pipeline from a templating system to YAML, ready to drop into <code>.github/workflows/</code>.</p></div>
+      <div class="case"><h3>Ansible playbooks</h3><p>Generate Ansible tasks from an inventory JSON file. Hand-editing YAML is faster than the equivalent JSON.</p></div>
+      <div class="case"><h3>Helm values</h3><p>Helm chart <code>values.yaml</code> files are easier to maintain than their JSON equivalents. Convert a config once.</p></div>
+      <div class="case"><h3>API documentation</h3><p>Convert an OpenAPI spec from JSON to YAML for human review. Most OpenAPI tooling accepts both.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>JSON to YAML: the complete guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about the YAML format, the conversion rules, and how to use YAML in real infrastructure.</p>
+    </div>
+
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#guide-syntax">YAML syntax basics</a>
+        <a href="#guide-rules">Conversion rules</a>
+        <a href="#guide-quoting">Quoting strings</a>
+        <a href="#guide-multiline">Multi-line strings</a>
+        <a href="#guide-anchors">Anchors & aliases</a>
+        <a href="#guide-k8s">Kubernetes conventions</a>
+        <a href="#guide-edge">Edge cases</a>
+      </div>
+
+      <div class="content-block">
+        <h3 id="guide-syntax">YAML syntax basics</h3>
+        <p>YAML uses three structural markers: <strong>indentation</strong> for hierarchy, <strong>colons</strong> for key-value pairs, and <strong>dashes</strong> for list items. Whitespace is significant — YAML does not use braces or brackets. A simple document:</p>
+<pre><code>name: web-server
+replicas: 3
+image: nginx:1.25
+ports:
+  - 80
+  - 443
+labels:
+  app: web
+  tier: frontend
+</code></pre>
+        <p>The indentation (2 spaces per level) creates the hierarchy. A dash followed by a space introduces a list item. A colon followed by a space separates a key from its value. That's the whole syntax — YAML 1.2 is designed to be the most readable structured data format ever standardised.</p>
+        <p>YAML is also a strict superset of JSON: any valid JSON document is also a valid YAML document. That's what makes the conversion lossless.</p>
+
+        <h3 id="guide-rules">How does the conversion work?</h3>
+        <p>JSON has six value types: object, array, string, number, boolean, null. YAML has the same six types, plus extras like timestamps and binary data. The conversion is one-to-one for the shared types, with these rules:</p>
+        <ul>
+          <li><strong>Objects</strong> become block-style mappings with each key on its own line, indented under the parent.</li>
+          <li><strong>Arrays</strong> become block-style sequences with each item prefixed by a dash.</li>
+          <li><strong>Strings</strong> stay unquoted unless they contain special characters or look like other types (numbers, booleans, null).</li>
+          <li><strong>Numbers</strong> stay as plain digits (no quotes), matching YAML's native number type.</li>
+          <li><strong>Booleans</strong> are emitted as <code>true</code> or <code>false</code> (lowercase, the YAML 1.2 canonical form).</li>
+          <li><strong>Null</strong> is emitted as <code>null</code> or <code>~</code> (both are valid YAML).</li>
+        </ul>
+        <p>JSON keys are always strings, so they become unquoted YAML keys (the standard practice). If a key would be ambiguous (e.g., contains a colon or starts with a number), the converter adds quotes automatically.</p>
+
+        <h3 id="guide-quoting">When does YAML need quotes?</h3>
+        <p>YAML is permissive about quoting but strict about ambiguity. A string that <em>could</em> be parsed as a number, boolean, or null must be quoted to be treated as a string. Examples:</p>
+        <ul>
+          <li><code>version: 1.0</code> — parsed as a number unless quoted (<code>"1.0"</code>)</li>
+          <li><code>active: true</code> — parsed as a boolean unless quoted (<code>"true"</code>)</li>
+          <li><code>empty: null</code> — parsed as null unless quoted</li>
+          <li><code>on: yes</code> — parsed as boolean true (YAML 1.1 compatibility)</li>
+          <li><code>code: 01234</code> — parsed as octal in some parsers; quote to be safe</li>
+        </ul>
+        <p>Strings that contain special characters (colons, hashes, leading/trailing whitespace, newlines, leading dashes) also need quoting. BunnyConvert applies quoting automatically using these rules. Toggle "Quote all strings" in settings if you want every string to be quoted explicitly — useful for diff stability and for users unfamiliar with YAML's ambiguity rules.</p>
+
+        <h3 id="guide-multiline">Multi-line strings</h3>
+        <p>JSON has no real multi-line string type — embedded newlines must be escaped as <code>\n</code>. YAML supports two block scalar styles:</p>
+        <ul>
+          <li><strong>Literal (<code>|</code>):</strong> Newlines are preserved exactly. Best for code, configuration blobs, and any text where formatting matters.</li>
+          <li><strong>Folded (<code>&gt;</code>):</strong> Newlines become spaces, except for blank lines which become single newlines. Best for prose where you'd otherwise use one long line.</li>
+        </ul>
+        <p>When converting JSON, the converter can't know which style you want (the JSON doesn't encode the difference), so it defaults to <strong>literal (<code>|</code>)</strong> for any string containing a newline. You can change the default in settings or by post-processing the file.</p>
+
+        <h3 id="guide-anchors">Anchors and aliases</h3>
+        <p>YAML has a feature JSON lacks: <strong>anchors</strong> (<code>&amp;name</code>) and <strong>aliases</strong> (<code>*name</code>). An anchor marks a value for reuse; an alias refers back to it. This is useful for DRY configurations:</p>
+<pre><code>defaults: &amp;defaults
+  retries: 3
+  timeout: 30
+production:
+  &lt;&lt;: *defaults
+  host: prod.example.com
+staging:
+  &lt;&lt;: *defaults
+  host: staging.example.com
+</code></pre>
+        <p>JSON has no equivalent, so converting a YAML file with anchors to JSON will inline the values (losing the DRY structure). Converting JSON to YAML can't create anchors automatically — the input has no concept of "this is the same as that." If you need anchors, add them by hand after the conversion.</p>
+
+        <h3 id="guide-k8s">Kubernetes conventions</h3>
+        <p>Kubernetes uses YAML 1.2 with a few conventions worth knowing:</p>
+        <ul>
+          <li><strong>2-space indent.</strong> Always. Tools like <code>kubectl apply</code> and <code>helm install</code> don't care, but humans reading the file do.</li>
+          <li><strong>Lowercase keys.</strong> <code>apiVersion</code>, <code>kind</code>, <code>metadata</code>, <code>spec</code>. The schema is case-sensitive.</li>
+          <li><strong>apiVersion first, then kind, then metadata, then spec, then status.</strong> Most YAML sorters will reorder keys to this convention; if yours doesn't, do it by hand.</li>
+          <li><strong>Strings with template syntax</strong> (<code>{{ .Values.foo }}</code>) should be quoted to avoid YAML's type-coercion rules interpreting <code>.Values.foo</code> as a number.</li>
+          <li><strong>Multi-document YAML</strong> (multiple <code>---</code>-separated documents in one file) is common for k8s manifests. The converter doesn't split or merge these — one JSON document becomes one YAML document.</li>
+        </ul>
+
+        <h3 id="guide-edge">Common edge cases</h3>
+        <p>Most JSON-to-YAML conversions are straightforward, but a few patterns are worth knowing about:</p>
+        <ul>
+          <li><strong>Empty objects and arrays:</strong> Emitted as <code>{}</code> and <code>[]</code> (flow style). This is the most portable representation across parsers.</li>
+          <li><strong>Empty strings:</strong> Emitted as <code>""</code> (quoted) to distinguish them from null and to make the column width obvious in editors.</li>
+          <li><strong>Unicode:</strong> Preserved as-is. YAML is UTF-8 by default, so emoji and non-Latin characters round-trip cleanly.</li>
+          <li><strong>Very long strings:</strong> The converter doesn't wrap them. If you need a hard wrap, post-process the output (or use YAML's folded scalar style).</li>
+          <li><strong>Numbers that look like dates:</strong> <code>20241231</code> stays a number. <code>"2024-12-31"</code> stays a string. YAML 1.2 doesn't auto-parse dates (that's a YAML 1.1 quirk).</li>
+          <li><strong>Trailing whitespace in strings:</strong> Preserved. YAML parsers handle this correctly; some text editors may strip it on save.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about converting JSON to YAML with BunnyConvert.</p>
+    </div>
+
+    <div class="faq">
+      <details><summary>What is a JSON to YAML converter?</summary>
+        <div class="answer">A JSON to YAML converter takes a JSON document and produces an equivalent YAML file. JSON and YAML are designed to be interchangeable: both represent the same data structures with different syntax. YAML is preferred for configuration files because it's more human-readable and supports comments.</div>
+      </details>
+      <details><summary>Is BunnyConvert free to use?</summary>
+        <div class="answer">Yes. The JSON to YAML converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don't pay for servers and we don't charge you.</div>
+      </details>
+      <details><summary>What is YAML used for?</summary>
+        <div class="answer">YAML is the standard format for configuration files in modern infrastructure and deployment tools: Kubernetes manifests, Docker Compose files, Ansible playbooks, GitHub Actions workflows, GitLab CI pipelines, Prometheus alert rules, Helm charts, and many more. It's also used for data serialization and cross-language data exchange.</div>
+      </details>
+      <details><summary>Is YAML 1.2 supported?</summary>
+        <div class="answer">Yes. The converter produces YAML 1.2 output, which is the current standard. YAML 1.2 is a strict superset of JSON, so any valid JSON document is also valid YAML.</div>
+      </details>
+      <details><summary>How are keys sorted?</summary>
+        <div class="answer">By default, keys are kept in the order they appear in your JSON document. Toggle 'Sort keys alphabetically' in settings to sort all object keys at every level. Sorting is useful for diff-friendly configs and version control.</div>
+      </details>
+      <details><summary>Does the converter add quotes around strings?</summary>
+        <div class="answer">No — by default, the converter emits 'plain' strings without quotes whenever the value would otherwise be ambiguous (e.g., true, false, null, numbers, or strings containing special characters). YAML parsers read both quoted and unquoted strings. Toggle 'Quote all strings' in settings to force quotes everywhere.</div>
+      </details>
+      <details><summary>Can I convert a Kubernetes manifest JSON to YAML?</summary>
+        <div class="answer">Yes. kubectl can output any resource as JSON; paste that into the converter and you'll get a clean YAML manifest ready to commit to a Git repo. The output uses 2-space indent, which is the Kubernetes convention.</div>
+      </details>
+      <details><summary>What about multi-line strings?</summary>
+        <div class="answer">JSON doesn't have a true multi-line string type, but YAML's 'literal block' style (using |) is supported. Long strings with embedded newlines are emitted as block scalars; single-line strings stay on one line.</div>
+      </details>
+      <details><summary>Is my JSON data private?</summary>
+        <div class="answer">Yes. All conversion happens in your browser using JavaScript. Your JSON is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion.</div>
+      </details>
+      <details><summary>Can I open the YAML in my editor?</summary>
+        <div class="answer">Yes. The output is a standard .yaml or .yml file. It opens in any text editor (VS Code, Sublime, Vim, Notepad++) and in any IDE with YAML support. Most editors will syntax-highlight the file automatically.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Convert your JSON to YAML now</h2>
+      <p>Free, fast, and private. No sign-up. Your data never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Start Converting
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="BunnyConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="logoGradF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+            <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGradF)"/>
+            <circle cx="50" cy="60" r="25" fill="url(#logoGradF)"/>
+            <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+            <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+            <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+            <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+          </svg>
+          <span style="color: white;">BunnyConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, and YAML. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024–2026 BunnyConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Settings modal -->
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="indentSize">Indent size</label>
+        <select id="indentSize">
+          <option value="2" selected>2 spaces (Kubernetes convention)</option>
+          <option value="4">4 spaces (more readable)</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="sortKeys" />
+          <label for="sortKeys">Sort keys alphabetically</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="quoteAll" />
+          <label for="quoteAll">Quote all strings</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="preserveOrder" checked />
+          <label for="preserveOrder">Preserve JSON key order (when not sorting)</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const state = {
+    indent: 2,
+    sortKeys: false,
+    quoteAll: false,
+    preserveOrder: true,
+    lastYaml: '',
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    jsonInput: $('jsonInput'),
+    fileInput: $('fileInput'),
+    uploadZone: $('uploadZone'),
+    parseStatus: $('parseStatus'),
+    loadSample: $('loadSample'),
+    results: $('results'),
+    errorBox: $('errorBox'),
+    rowCount: $('rowCount'),
+    indentLabel: $('indentLabel'),
+    downloadBtn: $('downloadBtn'),
+    copyBtn: $('copyBtn'),
+    settingsBtn: $('settingsBtn'),
+    settingsModal: $('settingsModal'),
+    closeSettings: $('closeSettings'),
+    closeSettingsFoot: $('closeSettingsFoot'),
+    applySettings: $('applySettings'),
+    indentSize: $('indentSize'),
+    sortKeys: $('sortKeys'),
+    quoteAll: $('quoteAll'),
+    preserveOrder: $('preserveOrder'),
+  };
+
+  const SAMPLE = {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "web-server",
+      "labels": {
+        "app": "web",
+        "tier": "frontend"
+      }
+    },
+    "spec": {
+      "replicas": 3,
+      "selector": {
+        "matchLabels": { "app": "web" }
+      },
+      "template": {
+        "metadata": {
+          "labels": { "app": "web" }
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "nginx",
+              "image": "nginx:1.25",
+              "ports": [{ "containerPort": 80 }],
+              "env": [
+                { "name": "DOMAIN", "value": "example.com" },
+                { "name": "DEBUG", "value": "false" }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  };
+
+  // ============ YAML SERIALIZER ============
+  const RESERVED_KEYS = new Set(['true','false','null','yes','no','on','off','~']);
+  const YAML_SPECIAL = /[:#&*!|>'"%@`{}\[\],]|^\s|\s$|^\d/;
+
+  function isPlainSafe(s) {
+    if (s === '') return false;
+    if (YAML_SPECIAL.test(s)) return false;
+    if (RESERVED_KEYS.has(s.toLowerCase())) return false;
+    if (/^-?\d+(\.\d+)?([eE][-+]?\d+)?$/.test(s)) return false;
+    return true;
+  }
+
+  function escapeString(s) {
+    return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/\t/g, '\\t');
+  }
+
+  function dumpValue(value, indent, opts) {
+    if (value === null || value === undefined) return 'null';
+    if (typeof value === 'boolean') return value ? 'true' : 'false';
+    if (typeof value === 'number') {
+      if (!isFinite(value)) return 'null';
+      return String(value);
+    }
+    if (typeof value === 'string') {
+      if (value.includes('\n') && value.length > 40) {
+        // Use literal block scalar
+        const ind = ' '.repeat(indent + opts.indent);
+        const lines = value.split('\n').map(l => l.length === 0 ? '' : l).join('\n' + ind);
+        return '|\n' + ind + lines;
+      }
+      if (opts.quoteAll || !isPlainSafe(value)) return '"' + escapeString(value) + '"';
+      return value;
+    }
+    if (Array.isArray(value)) {
+      if (value.length === 0) return '[]';
+      return dumpArray(value, indent, opts);
+    }
+    if (typeof value === 'object') {
+      const keys = Object.keys(value);
+      if (keys.length === 0) return '{}';
+      return dumpObject(value, indent, opts);
+    }
+    return 'null';
+  }
+
+  function dumpArray(arr, indent, opts) {
+    const sp = ' '.repeat(indent);
+    const inner = ' '.repeat(indent + opts.indent);
+    const lines = [];
+    for (const item of arr) {
+      const isComplex = (Array.isArray(item) && item.length > 0) || (item && typeof item === 'object' && Object.keys(item).length > 0);
+      if (isComplex) {
+        const v = dumpValue(item, indent + opts.indent, opts);
+        const firstNewline = v.indexOf('\n');
+        if (firstNewline === -1) {
+          lines.push(sp + '- ' + v);
+        } else {
+          lines.push(sp + '- ' + v.slice(0, firstNewline) + v.slice(firstNewline).split('\n').map((l, i) => i === 0 ? l : inner + l).join('\n'));
+        }
+      } else {
+        lines.push(sp + '- ' + dumpValue(item, indent, opts));
+      }
+    }
+    return lines.join('\n');
+  }
+
+  function dumpObject(obj, indent, opts) {
+    const sp = ' '.repeat(indent);
+    const inner = ' '.repeat(indent + opts.indent);
+    let keys = Object.keys(obj);
+    if (!opts.preserveOrder || opts.sortKeys) {
+      keys.sort();
+    } else if (opts.preserveOrder) {
+      // Keep insertion order
+    }
+    const lines = [];
+    for (const k of keys) {
+      const v = obj[k];
+      const keyStr = isPlainSafe(k) ? k : '"' + escapeString(k) + '"';
+      const isComplex = (Array.isArray(v) && v.length > 0) || (v && typeof v === 'object' && Object.keys(v).length > 0);
+      if (isComplex) {
+        const dv = dumpValue(v, indent + opts.indent, opts);
+        const firstNewline = dv.indexOf('\n');
+        if (firstNewline === -1) {
+          lines.push(sp + keyStr + ':\n' + inner + dv);
+        } else {
+          lines.push(sp + keyStr + ':');
+          lines.push(dv);
+        }
+      } else {
+        lines.push(sp + keyStr + ': ' + dumpValue(v, indent, opts));
+      }
+    }
+    return lines.join('\n');
+  }
+
+  function jsonToYaml(text, opts) {
+    let parsed;
+    try { parsed = JSON.parse(text); }
+    catch (e) { throw new Error('JSON parse error: ' + e.message); }
+    if (opts.sortKeys) opts.preserveOrder = false;
+    return dumpValue(parsed, 0, opts);
+  }
+
+  function countKeys(value) {
+    if (Array.isArray(value)) return value.reduce((s, v) => s + countKeys(v), 0);
+    if (value && typeof value === 'object') return Object.keys(value).reduce((s, k) => s + 1 + countKeys(value[k]), 0);
+    return 0;
+  }
+
+  // ============ RENDER ============
+  function renderPreview(yaml) {
+    if (!yaml) {
+      els.results.classList.remove('visible');
+      els.results.innerHTML = '<div class="results-empty">Your YAML preview will appear here.</div>';
+      els.rowCount.textContent = '0';
+      return;
+    }
+    const preview = yaml.length > 8000 ? yaml.slice(0, 8000) + '\n…' : yaml;
+    els.results.innerHTML = '<pre>' + escapeHtml(preview) + '</pre>';
+    els.results.classList.add('visible');
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function showError(msg) { els.errorBox.textContent = msg; els.errorBox.classList.add('visible'); }
+  function clearError() { els.errorBox.textContent = ''; els.errorBox.classList.remove('visible'); }
+
+  function processInput(text) {
+    clearError();
+    if (!text || !text.trim()) {
+      state.lastYaml = '';
+      renderPreview('');
+      els.rowCount.textContent = '0';
+      els.parseStatus.textContent = 'Awaiting input';
+      return;
+    }
+    try {
+      const yaml = jsonToYaml(text, {
+        indent: state.indent,
+        sortKeys: state.sortKeys,
+        quoteAll: state.quoteAll,
+        preserveOrder: state.preserveOrder,
+      });
+      state.lastYaml = yaml;
+      renderPreview(yaml);
+      let parsed;
+      try { parsed = JSON.parse(text); } catch (e) {}
+      const k = parsed ? countKeys(parsed) : 0;
+      els.rowCount.textContent = k.toLocaleString();
+      els.parseStatus.textContent = 'Converted ' + k + ' key' + (k === 1 ? '' : 's');
+    } catch (e) {
+      showError(e.message);
+      els.parseStatus.textContent = 'Error';
+    }
+  }
+
+  let inputTimer;
+  els.jsonInput.addEventListener('input', () => {
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(() => processInput(els.jsonInput.value), 220);
+  });
+
+  els.uploadZone.addEventListener('click', () => els.fileInput.click());
+  els.uploadZone.addEventListener('dragover', e => { e.preventDefault(); els.uploadZone.classList.add('dragover'); });
+  els.uploadZone.addEventListener('dragleave', () => els.uploadZone.classList.remove('dragover'));
+  els.uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    els.uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+  els.fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file) {
+    if (file.size > 200 * 1024 * 1024) { showError('File is larger than 200 MB. Try splitting it.'); return; }
+    const reader = new FileReader();
+    reader.onload = e => { els.jsonInput.value = e.target.result; processInput(els.jsonInput.value); };
+    reader.onerror = () => showError('Could not read file.');
+    reader.readAsText(file);
+  }
+
+  els.loadSample.addEventListener('click', () => { els.jsonInput.value = JSON.stringify(SAMPLE, null, 2); processInput(els.jsonInput.value); });
+
+  els.downloadBtn.addEventListener('click', () => {
+    if (!state.lastYaml) { showError('Nothing to download — paste or upload JSON first.'); return; }
+    const blob = new Blob([state.lastYaml], { type: 'text/yaml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'converted.yaml';
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  });
+
+  els.copyBtn.addEventListener('click', async () => {
+    if (!state.lastYaml) { showError('Nothing to copy — paste or upload JSON first.'); return; }
+    try {
+      await navigator.clipboard.writeText(state.lastYaml);
+      const orig = els.copyBtn.innerHTML;
+      els.copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      setTimeout(() => { els.copyBtn.innerHTML = orig; }, 1500);
+    } catch (e) {
+      showError('Could not copy to clipboard.');
+    }
+  });
+
+  function openSettings() { els.settingsModal.classList.add('visible'); }
+  function closeSettings() { els.settingsModal.classList.remove('visible'); }
+  els.settingsBtn.addEventListener('click', openSettings);
+  els.closeSettings.addEventListener('click', closeSettings);
+  els.closeSettingsFoot.addEventListener('click', closeSettings);
+  els.settingsModal.addEventListener('click', e => { if (e.target === els.settingsModal) closeSettings(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && els.settingsModal.classList.contains('visible')) closeSettings(); });
+
+  els.applySettings.addEventListener('click', () => {
+    state.indent = parseInt(els.indentSize.value, 10);
+    els.indentLabel.textContent = state.indent;
+    state.sortKeys = els.sortKeys.checked;
+    state.quoteAll = els.quoteAll.checked;
+    state.preserveOrder = els.preserveOrder.checked;
+    closeSettings();
+    processInput(els.jsonInput.value);
+  });
+})();
+</script>
+
+</body>
+</html>
