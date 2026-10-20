@@ -1,4 +1,4 @@
-// BunnyConvert nav
+// HopConvert nav
 // Loaded on every page. Handles:
 // - Converters dropdown (click + hover)
 // - Mobile menu toggle (hamburger)

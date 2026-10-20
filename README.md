@@ -1,4 +1,4 @@
-# BunnyConvert
+# HopConvert
 
 Free, client-side tools for converting JSON, CSV, XML, and YAML — built for developers, analysts, and data teams who care about speed and privacy.
 
