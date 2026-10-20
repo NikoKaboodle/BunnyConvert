@@ -431,6 +431,16 @@ section .lede { color: var(--ink-700); font-size: 1.05rem; max-width: 640px; mar
 }
 .guide-toc a:hover { background: var(--blue-600); color: var(--white); border-color: var(--blue-600); text-decoration: none; }
 
+/* Ad slots */
+.ad-slot {
+  margin: 28px auto;
+  max-width: 100%;
+  text-align: center;
+  min-height: 100px;
+  display: block;
+}
+.ad-slot ins.adsbygoogle { display: block; }
+
 /* FAQ */
 .faq { display: flex; flex-direction: column; gap: 10px; }
 .faq details {
