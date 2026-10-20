@@ -12,3 +12,7 @@ Thumbs.db
 *.pem
 bunnyconvert_deploy_key
 bunnyconvert_deploy_key.pub
+
+# Build-time generators (not part of the deployed site)
+gen-og.ps1
+inject-og.ps1
