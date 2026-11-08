@@ -1,1 +1,4 @@
+# HopConvert ads.txt - authorized digital sellers (IAB ads.txt v1.1)
 google.com, pub-2033283931778605, DIRECT, f08c47fec0942fa0
+contact=lamaul.vaught09@gmail.com
+ownerdomain=hopconvert.com
