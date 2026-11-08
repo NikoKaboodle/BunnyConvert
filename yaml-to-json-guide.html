@@ -7,6 +7,7 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 
 <title>YAML to JSON: The Complete Guide | HopConvert</title>
+<meta name="author" content="HopConvert" />
 <meta name="description" content="The complete guide to converting YAML to JSON. Covers YAML syntax, the type system, anchors and aliases, multi-document files, block scalars, tags, and best practices." />
 <meta name="keywords" content="yaml to json guide, yaml tutorial, convert yaml to json explained, yaml anchors, yaml 1.2, kubernetes yaml to json" />
 <link rel="canonical" href="https://hopconvert.com/yaml-to-json-guide.html" />
@@ -32,34 +33,131 @@
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "YAML to JSON: The Complete Guide",
-  "description": "Everything you need to know about YAML and the conversion to JSON.",
-  "author": { "@type": "Organization", "name": "HopConvert" },
-  "datePublished": "2024-01-15",
-  "dateModified": "2026-10-19"
+    "@context":  "https://schema.org",
+    "@type":  "Article",
+    "@id":  "https://hopconvert.com/yaml-to-json-guide.html#article",
+    "mainEntityOfPage":  {
+                             "@type":  "WebPage",
+                             "@id":  "https://hopconvert.com/yaml-to-json-guide.html"
+                         },
+    "headline":  "YAML to JSON Guide: The Complete Guide",
+    "description":  "The complete guide to converting YAML to JSON. Covers YAML syntax, the type system, anchors and aliases, multi-document files, block scalars, tags, and best practices.",
+    "image":  {
+                  "@type":  "ImageObject",
+                  "url":  "https://hopconvert.com/og/yaml-to-json-guide.png",
+                  "width":  1200,
+                  "height":  630
+              },
+    "author":  {
+                   "@type":  "Organization",
+                   "name":  "HopConvert",
+                   "url":  "https://hopconvert.com/"
+               },
+    "publisher":  {
+                      "@type":  "Organization",
+                      "name":  "HopConvert",
+                      "url":  "https://hopconvert.com/",
+                      "logo":  {
+                                   "@type":  "ImageObject",
+                                   "url":  "https://hopconvert.com/apple-touch-icon.png",
+                                   "width":  180,
+                                   "height":  180
+                               }
+                  },
+    "datePublished":  "2024-01-15",
+    "dateModified":  "2026-11-08",
+    "inLanguage":  "en-US",
+    "isAccessibleForFree":  true,
+    "about":  {
+                  "@type":  "Thing",
+                  "name":  "YAML to JSON Guide"
+              }
 }
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hopconvert.com/" },
-    { "@type": "ListItem", "position": 2, "name": "YAML to JSON Converter", "item": "https://hopconvert.com/yaml-to-json.html" },
-    { "@type": "ListItem", "position": 3, "name": "YAML to JSON Guide", "item": "https://hopconvert.com/yaml-to-json-guide.html" }
-  ]
-}
-</script>
-
+<meta property="og:locale" content="en_US" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image" content="https://hopconvert.com/og/yaml-to-json-guide.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML and YAML converters" />
 <meta name="twitter:image" content="https://hopconvert.com/og/yaml-to-json-guide.png" />
 <meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML and YAML converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "FAQPage",
+    "mainEntity":  [
+                       {
+                           "@type":  "Question",
+                           "name":  "What is a YAML to JSON converter?",
+                           "acceptedAnswer":  {
+                                                  "@type":  "Answer",
+                                                  "text":  "A YAML to JSON converter takes a YAML document and produces an equivalent JSON file. The two formats represent the same data structures with different syntax. YAML is more human-friendly; JSON is more machine-friendly. The converter lets you move between them losslessly."
+                                              }
+                       },
+                       {
+                           "@type":  "Question",
+                           "name":  "Is YAML to JSON conversion free?",
+                           "acceptedAnswer":  {
+                                                  "@type":  "Answer",
+                                                  "text":  "Yes. HopConvert\u0027s YAML to JSON converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Parsing happens in your browser so we don\u0027t pay for servers and we don\u0027t charge you."
+                                              }
+                       },
+                       {
+                           "@type":  "Question",
+                           "name":  "What happens to YAML anchors and aliases?",
+                           "acceptedAnswer":  {
+                                                  "@type":  "Answer",
+                                                  "text":  "YAML anchors (\u0026name) and aliases (*name) are fully supported. Aliases are inlined in the JSON output — the same value appears wherever the alias was used. This is the standard behaviour for JSON, which has no concept of shared references."
+                                              }
+                       },
+                       {
+                           "@type":  "Question",
+                           "name":  "Does the converter handle multi-document YAML?",
+                           "acceptedAnswer":  {
+                                                  "@type":  "Answer",
+                                                  "text":  "Yes. Files with multiple YAML documents separated by --- are parsed as a JSON array. Each document becomes one element. Single-document YAML files produce a single JSON object, not an array — toggle \u0027always wrap in array\u0027 in settings if you want a consistent shape."
+                                              }
+                       },
+                       {
+                           "@type":  "Question",
+                           "name":  "Can I convert a Kubernetes manifest YAML to JSON?",
+                           "acceptedAnswer":  {
+                                                  "@type":  "Answer",
+                                                  "text":  "Yes. Paste any Kubernetes YAML (Deployment, Service, ConfigMap, etc.) and you\u0027ll get clean JSON suitable for kubectl apply, HTTP APIs, or programmatic processing. Multi-document YAML files produce JSON arrays."
+                                              }
+                       }
+                   ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "BreadcrumbList",
+    "itemListElement":  [
+                            {
+                                "@type":  "ListItem",
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/"
+                            },
+                            {
+                                "@type":  "ListItem",
+                                "position":  2,
+                                "name":  "YAML to JSON Converter",
+                                "item":  "https://hopconvert.com/yaml-to-json.html"
+                            },
+                            {
+                                "@type":  "ListItem",
+                                "position":  3,
+                                "name":  "YAML to JSON Guide",
+                                "item":  "https://hopconvert.com/yaml-to-json-guide.html"
+                            }
+                        ]
+}
+</script>
 </head>
 <body>
 

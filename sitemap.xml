@@ -1,62 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hopconvert.com/</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/json-to-csv.png</image:loc>
+      <image:title>HopConvert - JSON to CSV Converter</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/csv-to-json.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/csv-to-json.png</image:loc>
+      <image:title>HopConvert - CSV to JSON Converter</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/xml-to-csv.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/xml-to-csv.png</image:loc>
+      <image:title>HopConvert - XML to CSV Converter</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/json-to-yaml.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/json-to-yaml.png</image:loc>
+      <image:title>HopConvert - JSON to YAML Converter</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/yaml-to-json.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/yaml-to-json.png</image:loc>
+      <image:title>HopConvert - YAML to JSON Converter</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/json-to-csv-guide.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/json-to-csv-guide.png</image:loc>
+      <image:title>HopConvert - JSON to CSV Guide</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/csv-to-json-guide.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/csv-to-json-guide.png</image:loc>
+      <image:title>HopConvert - CSV to JSON Guide</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/xml-to-csv-guide.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/xml-to-csv-guide.png</image:loc>
+      <image:title>HopConvert - XML to CSV Guide</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/json-to-yaml-guide.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/json-to-yaml-guide.png</image:loc>
+      <image:title>HopConvert - JSON to YAML Guide</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/yaml-to-json-guide.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hopconvert.com/og/yaml-to-json-guide.png</image:loc>
+      <image:title>HopConvert - YAML to JSON Guide</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://hopconvert.com/privacy.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://hopconvert.com/terms.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

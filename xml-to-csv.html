@@ -7,6 +7,7 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 
 <title>XML to CSV Converter — Free Online Tool | HopConvert</title>
+<meta name="author" content="HopConvert" />
 <meta name="description" content="Convert XML to CSV online for free. Fast, accurate XML-to-CSV conversion with auto-detected structure, attribute support, and nested-element handling. No sign-up." />
 <meta name="keywords" content="xml to csv, xml to csv converter, convert xml to csv, online xml to csv, xml parser, xml to excel, free xml converter" />
 <link rel="canonical" href="https://hopconvert.com/xml-to-csv.html" />
@@ -42,7 +43,6 @@
   "url": "https://hopconvert.com/xml-to-csv.html",
   "description": "Free online XML to CSV converter. Auto-detects structure, supports attributes, handles nested elements.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "ratingCount": "654", "bestRating": "5", "worstRating": "1" },
   "featureList": [
     "Auto-detect repeating element",
     "Include or ignore attributes",
@@ -68,41 +68,35 @@
 }
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What is an XML to CSV converter?",
-      "acceptedAnswer": { "@type": "Answer", "text": "An XML to CSV converter parses a well-formed XML document and produces a CSV file where each repeating element becomes one row and each child element or attribute becomes a column. XML's hierarchy is flattened into a table that opens directly in Excel or Google Sheets." } },
-    { "@type": "Question", "name": "Which XML element becomes the row?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The converter auto-detects the most common repeating direct child of the root element. For RSS feeds that's <item>, for SOAP responses it's the operation-specific element, for arbitrary XML it's whichever child element appears most often. You can override the choice in settings." } },
-    { "@type": "Question", "name": "How are attributes handled?",
-      "acceptedAnswer": { "@type": "Answer", "text": "By default, XML attributes are included as columns prefixed with @ (for example, @id, @type). You can toggle this off in settings if you'd rather ignore attributes, or set the prefix to a different character." } },
-    { "@type": "Question", "name": "What about nested elements?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Nested child elements are flattened with a separator. For example, <address><city>NYC</city><zip>10001</zip></address> becomes the columns address__city and address__zip. The separator is configurable in settings." } },
-    { "@type": "Question", "name": "Does the converter work with RSS and Atom feeds?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. RSS 2.0 and Atom 1.0 are both well-supported. The auto-detect logic identifies <item> and <entry> elements as the row source. Standard fields like <title>, <link>, <pubDate>, and <description> all become columns." } },
-    { "@type": "Question", "name": "What about SOAP or API responses?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. SOAP envelopes, REST API responses wrapped in XML, and arbitrary enterprise formats all parse correctly. The auto-detect logic finds the repeating element regardless of namespace prefix." } },
-    { "@type": "Question", "name": "Is my XML data private?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All parsing happens in your browser using JavaScript. Your XML is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion." } },
-    { "@type": "Question", "name": "What's the maximum file size?",
-      "acceptedAnswer": { "@type": "Answer", "text": "There is no hard size limit. The converter runs entirely in your browser, so the practical limit is your tab's available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs." } },
-    { "@type": "Question", "name": "Can I open the CSV in Excel or Google Sheets?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The output is a standard CSV file. Double-click to open in Excel, or drag it into a Google Sheets tab. If you used a non-comma delimiter, use Data > From Text/CSV in Excel to pick the right one." } },
-    { "@type": "Question", "name": "Does the converter preserve XML namespaces?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The default behaviour is to strip namespace prefixes for cleaner column names (so <ns:title> becomes 'title'). Toggle 'preserve namespaces' in settings if you need the prefix included in column names." } }
-  ]
-}
-</script>
-
+<meta property="og:locale" content="en_US" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image" content="https://hopconvert.com/og/xml-to-csv.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML and YAML converters" />
 <meta name="twitter:image" content="https://hopconvert.com/og/xml-to-csv.png" />
 <meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML and YAML converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "BreadcrumbList",
+    "itemListElement":  [
+                            {
+                                "@type":  "ListItem",
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/"
+                            },
+                            {
+                                "@type":  "ListItem",
+                                "position":  2,
+                                "name":  "XML to CSV Converter",
+                                "item":  "https://hopconvert.com/xml-to-csv.html"
+                            }
+                        ]
+}
+</script>
 </head>
 <body>
 
@@ -358,6 +352,11 @@
       <span class="section-eyebrow">The complete guide</span>
       <h2>XML to CSV: the complete guide</h2>
       <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about the XML format, the CSV output, and how to handle real-world documents.</p>
+      <p style="margin-top: 10px;">
+        <a href="xml-to-csv-guide.html" class="btn btn-secondary">
+          Read the full XML to CSV guide
+        </a>
+      </p>
     </div>
 
     <div class="container-narrow">

@@ -46,7 +46,6 @@
   "url": "https://hopconvert.com/csv-to-json.html",
   "description": "Free online CSV to JSON converter with custom delimiters, header detection, and pretty-printing options.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "987", "bestRating": "5", "worstRating": "1" },
   "featureList": [
     "Custom delimiters (comma, tab, semicolon, pipe)",
     "Auto-detect delimiter",
@@ -75,54 +74,35 @@
 </script>
 
 <!-- Schema.org: FAQPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What is a CSV to JSON converter?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A CSV to JSON converter transforms tabular CSV data into a JSON array of objects. Each row becomes one object, with the header row supplying the keys. The result is a standard JSON document you can use in any web app, API, or NoSQL database." } },
-    { "@type": "Question", "name": "Is HopConvert free to use?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The CSV to JSON converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don't pay for servers and we don't charge you." } },
-    { "@type": "Question", "name": "Does the first row need to be a header?",
-      "acceptedAnswer": { "@type": "Answer", "text": "By default yes — the first row of your CSV is treated as the field names. If your file does not have a header row, open settings and switch to 'auto-generate columns' (col1, col2, col3...) or provide custom column names." } },
-    { "@type": "Question", "name": "Which delimiters are supported?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Comma, tab, semicolon, and pipe. The auto-detect option sniffs the first line of your file and picks the most likely delimiter. This works well for most spreadsheets and database exports." } },
-    { "@type": "Question", "name": "How are quoted values handled?",
-      "acceptedAnswer": { "@type": "Answer", "text": "RFC 4180 quoting is fully supported. Values wrapped in double quotes, embedded quotes escaped as two double quotes, and newlines inside quoted values all parse correctly. Numeric values are output as JSON numbers; everything else as JSON strings." } },
-    { "@type": "Question", "name": "What output format options are there?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pretty-printed (2-space indent, easy to read) or minified (single line, smallest file size). Pick pretty for human inspection and minified for production use or network transfer." } },
-    { "@type": "Question", "name": "Can I convert large CSV files?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Because conversion happens in your browser, the practical limit is your tab's available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs." } },
-    { "@type": "Question", "name": "Does my data leave my browser?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. All parsing and conversion happens client-side in JavaScript. Your CSV is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion." } },
-    { "@type": "Question", "name": "Can I open the resulting JSON in an API or app?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The output is a standard JSON array of objects that any web framework, REST client, or NoSQL database can read. For MongoDB, the array can be imported directly with mongoimport." } },
-    { "@type": "Question", "name": "What if my CSV has different numbers of columns per row?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The converter uses the header row's column count as the authoritative source. Rows with fewer columns are padded with empty strings; rows with more columns have the extra values dropped (a warning is shown in the result panel)." } }
-  ]
-}
-</script>
-
 <!-- Schema.org: BreadcrumbList -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hopconvert.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://hopconvert.com/" },
-    { "@type": "ListItem", "position": 3, "name": "CSV to JSON", "item": "https://hopconvert.com/csv-to-json.html" }
-  ]
-}
-</script>
-
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image" content="https://hopconvert.com/og/csv-to-json.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML and YAML converters" />
 <meta name="twitter:image" content="https://hopconvert.com/og/csv-to-json.png" />
 <meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML and YAML converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "BreadcrumbList",
+    "itemListElement":  [
+                            {
+                                "@type":  "ListItem",
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/"
+                            },
+                            {
+                                "@type":  "ListItem",
+                                "position":  2,
+                                "name":  "CSV to JSON Converter",
+                                "item":  "https://hopconvert.com/csv-to-json.html"
+                            }
+                        ]
+}
+</script>
 </head>
 <body>
 
@@ -410,6 +390,11 @@ Bob,Designer,London</code></pre>
       <span class="section-eyebrow">The complete guide</span>
       <h2>CSV to JSON: the complete guide</h2>
       <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about the CSV format, the JSON output shape, and how to handle real-world edge cases.</p>
+      <p style="margin-top: 10px;">
+        <a href="csv-to-json-guide.html" class="btn btn-secondary">
+          Read the full CSV to JSON guide
+        </a>
+      </p>
     </div>
 
     <div class="container-narrow">

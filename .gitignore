@@ -16,3 +16,9 @@ bunnyconvert_deploy_key.pub
 # Build-time generators (not part of the deployed site)
 gen-og.ps1
 inject-og.ps1
+
+# SEO build/maintenance scripts (not part of the deployed site)
+seo-fix.ps1
+seo-upgrade.ps1
+seo-schema.ps1
+seo-links.ps1

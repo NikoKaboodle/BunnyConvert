@@ -1,4 +1,18 @@
+# HopConvert — robots.txt
+# All converters are free, no login required, and crawlable.
+
 User-agent: *
+Allow: /
+Disallow: /cdn-cgi/
+
+# Ad crawler hints (Google AdSense)
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
 Allow: /
 
 Sitemap: https://hopconvert.com/sitemap.xml
