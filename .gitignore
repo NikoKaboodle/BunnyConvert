@@ -42,3 +42,5 @@ _testout/
 verify-live.ps1
 fix-email-obfuscation.ps1
 _commitmsg.txt
+_server.log
+_server.err
