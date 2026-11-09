@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>JSONL to CSV Guide — JSON Lines Explained | HopConvert</title>
+<meta name="description" content="The complete JSONL to CSV guide: how JSON Lines differs from a JSON array, output shape, nested data strategies, sparse records, edge cases, and pipeline recipes." />
+<meta name="keywords" content="jsonl guide, json lines guide, ndjson guide, jsonl to csv guide, jsonl format, newline delimited json" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/jsonl-to-csv-guide.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="JSONL to CSV: the complete guide" />
+<meta property="og:description" content="How JSON Lines works, how to convert it to CSV, and how to handle nested, sparse, and malformed records." />
+<meta property="og:url" content="https://hopconvert.com/jsonl-to-csv-guide.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="JSONL to CSV: the complete guide" />
+<meta name="twitter:description" content="The complete JSON Lines (JSONL/NDJSON) guide — format, conversion, edge cases, and pipelines." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/jsonl-to-csv-guide.html",
+    "datePublished":  "2026-11-08",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-08",
+    "@context":  "https://schema.org",
+    "name":  "JSONL to CSV: the complete guide",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/jsonl-to-csv-guide.html#webpage"
+}
+</script>
+
+<!-- Schema.org: Article -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/jsonl-to-csv-guide.html",
+    "datePublished":  "2026-11-08",
+    "headline":  "JSONL to CSV: the complete guide",
+    "@type":  "Article",
+    "name":  "JSONL to CSV: the complete guide",
+    "description":  "The complete JSONL to CSV guide: how JSON Lines differs from a JSON array, output shape, nested data strategies, sparse records, edge cases, and pipeline recipes.",
+    "inLanguage":  "en-US",
+    "@context":  "https://schema.org",
+    "mainEntityOfPage":  {
+                             "@type":  "WebPage",
+                             "@id":  "https://hopconvert.com/jsonl-to-csv-guide.html#webpage"
+                         },
+    "author":  {
+                   "url":  "https://hopconvert.com/",
+                   "name":  "HopConvert",
+                   "@type":  "Organization"
+               },
+    "publisher":  {
+                      "url":  "https://hopconvert.com/",
+                      "name":  "HopConvert",
+                      "logo":  {
+                                   "height":  180,
+                                   "url":  "https://hopconvert.com/apple-touch-icon.png",
+                                   "width":  180,
+                                   "@type":  "ImageObject"
+                               },
+                      "@type":  "Organization"
+                  },
+    "image":  "https://hopconvert.com/og/jsonl-to-csv-guide.png",
+    "dateModified":  "2026-11-08"
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "JSON Lines is a text format where each line of the file is one complete, independent JSON value. It is also called NDJSON or newline-delimited JSON, and it is the standard format for log files, event streams, and bulk-insert APIs because each record can be processed independently.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is JSON Lines?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Open the JSONL to CSV converter, drop your .jsonl or .ndjson file into the upload zone (or paste the text), then click Download CSV. Each line becomes one row, and the header row contains every key found across the file.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How do I convert JSONL to CSV?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes — 100% free with no sign-up, no watermark, and no limits. There are no premium tiers and no feature gates. Conversion runs in your browser so there are no server costs to pass on.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is HopConvert free to use?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. Every line is parsed locally by JavaScript in your browser. The converter has no backend, so there is literally no server that could receive your file. You can verify this yourself with the \"Verify: nothing uploaded\" button, which shows a live audit of every network request the page makes.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is my data uploaded anywhere?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. If your input starts with an opening square bracket it is parsed as a standard JSON array and converted the same way, so the tool doubles as a general JSON-to-CSV converter.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I convert a JSON array instead of JSONL?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "They are skipped and listed by line number in a note above the preview. The remaining records still convert, so one bad line does not cost you the whole file.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What happens to malformed lines?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Nested objects are flattened into columns joined by a separator — for example \u003ccode\u003eprops.device\u003c/code\u003e becomes \u003ccode\u003eprops__device\u003c/code\u003e. Arrays of objects expand into one row per element with parent fields repeated. You can change the separator in settings.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How are nested objects handled?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "JSONL is a machine-readable stream with one JSON record per line, designed for appending and incremental processing. CSV is a flat table designed for humans and analytics tools — one row per record, one column per field, separated by a delimiter. Converting between them is how machine-generated data becomes analysable.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is the difference between JSONL and CSV?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/jsonl-to-csv-guide.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/jsonl-to-csv-guide.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "JSONL to CSV Guide",
+                                "item":  "https://hopconvert.com/jsonl-to-csv-guide.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html" class="current">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="jsonl-to-csv.html#faq">FAQ</a>
+      <a href="jsonl-to-csv.html#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding: 56px 0 40px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      The complete guide
+    </span>
+    <h1>JSONL to CSV: <span class="accent">the complete guide</span></h1>
+    <p class="lede">Everything you need to know about JSON Lines, how the format differs from a JSON array, and how to get clean, analysable CSV out of it.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px;">
+      <a href="jsonl-to-csv.html#convert" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Try the JSONL to CSV Converter
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<section>
+  <div class="container">
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#shape">Output shape</a>
+        <a href="#lines">JSON Lines basics</a>
+        <a href="#array">JSONL vs JSON array</a>
+        <a href="#nested">Nested data</a>
+        <a href="#sparse">Sparse records</a>
+        <a href="#filter">Filtering records</a>
+        <a href="#edge">Common edge cases</a>
+        <a href="#perf">Performance</a>
+      </div>
+
+      <div class="content-block">
+        <h2 id="shape">What shape is the output?</h2>
+        <p>A JSONL to CSV converter produces a standard CSV file: a single header row containing the union of keys found across every record, followed by one row per record. This is the shape that Excel, Google Sheets, pandas, and every database bulk loader expect, and it is why JSONL becomes immediately analysable once converted.</p>
+        <p>Values are written as text with RFC 4180 quoting. A field containing a comma, a double quote, or a newline is wrapped in double quotes and inner quotes are doubled. Line endings are CRLF, which is what Windows tools expect and what every other parser tolerates.</p>
+
+        <h2 id="lines">JSON Lines basics</h2>
+        <p><strong>JSON Lines</strong> — also called <code>.jsonl</code>, <code>.ndjson</code>, or newline-delimited JSON — is a text format where every line holds one complete JSON value. There is no enclosing array and no comma between records.</p>
+<pre><code>{"id": 1, "event": "page_view", "user": "alice"}
+{"id": 2, "event": "purchase", "user": "bob", "amount": 49.99}
+{"id": 3, "event": "signup", "user": "carol"}
+</code></pre>
+        <p>The rules are short:</p>
+        <ul>
+          <li>One JSON value per line, and the line ends after that value.</li>
+          <li>Each value is usually an object, but arrays and scalars are technically legal.</li>
+          <li>Blank lines are ignored by most readers.</li>
+          <li>UTF-8 is the expected encoding; a BOM is tolerated but not required.</li>
+          <li>There is no trailing comma between records — the newline <em>is</em> the separator.</li>
+        </ul>
+        <p>The format was popularised by <code>jsonlines.org</code> and is now standard in Elasticsearch's bulk API, MongoDB's <code>mongoexport</code>, CouchDB, BigQuery, and nearly every log shipper.</p>
+
+        <h2 id="array">JSONL vs a JSON array</h2>
+        <p>They hold the same data but behave completely differently, and choosing the right one matters when you are designing a pipeline.</p>
+        <div class="compare">
+          <table>
+            <thead><tr><th>Aspect</th><th>JSON array</th><th>JSON Lines</th></tr></thead>
+            <tbody>
+              <tr><td>Document model</td><td>One document</td><td>Stream of independent records</td></tr>
+              <tr><td>Appending</td><td>Requires rewriting the file</td><td>Add a line</td></tr>
+              <tr><td>Reading</td><td>Parse the whole document</td><td>Read line by line</td></tr>
+              <tr><td>One bad record</td><td>Breaks the entire file</td><td>Breaks only that line</td></tr>
+              <tr><td>File size</td><td>Smaller (shared brackets)</td><td>Larger</td></tr>
+              <tr><td>Tooling support</td><td>Universal</td><td>Universal for logs, strong for analytics</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>For anything that is written incrementally — logs, event streams, change-data-capture — JSONL is the correct choice. For anything read as a whole — configuration, API responses — a JSON array is usually simpler.</p>
+
+        <h2 id="nested">How is nested data handled?</h2>
+        <p>Records in a JSONL stream are often not flat. Two strategies are available in the converter:</p>
+        <ul>
+          <li><strong>Header / detail (default):</strong> A nested object <code>{"id": 1, "props": {"device": "mobile"}}</code> becomes two columns — <code>id</code> and <code>props__device</code>. An array of objects expands into one row per element, with the parent fields repeated on each row. This is the layout your BI tool expects for line-item data.</li>
+          <li><strong>Flatten:</strong> Nested objects are flattened into wider columns and arrays of objects are kept in a single cell rather than expanding the row count.</li>
+        </ul>
+        <p>Arrays of primitive values — <code>["sql", "python"]</code> — are joined with <code> | </code> so they stay legible in a cell. The separator used for nested keys is configurable in settings if <code>__</code> collides with a field name in your data.</p>
+
+        <h2 id="sparse">What about records with different keys?</h2>
+        <p>Sparse records are the norm, not an exception. A <code>purchase</code> event carries an amount; a <code>page_view</code> does not. The converter reads every record first, builds the column set from the union of all keys, then emits every row against that same column set. Missing values become empty cells.</p>
+        <p>Column order follows first appearance, so the leading columns reflect the order the producer writes them in rather than an alphabetical sort. If you need a specific order, reorder the columns in your spreadsheet after download.</p>
+
+        <h2 id="filter">Filtering records before conversion</h2>
+        <p>Most of the time you do not want every record. The converter's filter box accepts a small jq-style expression that runs before the CSV is generated:</p>
+<pre><code>select(.event == "purchase")     keep only purchase events
+select(.status &gt;= 500)          keep only server errors
+select(.amount &gt; 100)           keep only high-value orders
+.props                            extract only the nested payload
+.[]                               explode the array into separate rows
+</code></pre>
+        <p>The supported syntax is <code>.field</code>, <code>.a.b</code>, <code>.[0]</code>, <code>.[]</code>, <code>select(...)</code> with <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&lt;=</code>, and <code>|</code> to chain stages. Everything runs locally in your browser.</p>
+
+        <h2 id="edge">Common edge cases</h2>
+        <ul>
+          <li><strong>Malformed lines:</strong> Skipped and reported by line number; the rest of the file still converts.</li>
+          <li><strong>Blank lines and trailing newlines:</strong> Ignored.</li>
+          <li><strong>UTF-8 BOM:</strong> Stripped automatically.</li>
+          <li><strong>Mixed CRLF and LF:</strong> Both parse correctly.</li>
+          <li><strong>Arrays on a line:</strong> Treated as one record and stringified into a cell.</li>
+          <li><strong>Duplicate keys on one line:</strong> The last value wins, matching <code>JSON.parse</code>.</li>
+          <li><strong>Very long lines:</strong> No length limit — only your available memory.</li>
+          <li><strong>Unicode:</strong> Emitted as UTF-8, including emoji and non-Latin scripts.</li>
+        </ul>
+
+        <h2 id="perf">Performance and limits</h2>
+        <p>Conversion runs entirely in your browser, so the practical limit is your tab's available memory — typically 200 MB to 2 GB. On a modern laptop expect roughly 50 MB per second of throughput, which means a 100 MB log file converts in about two seconds.</p>
+        <p>For genuinely large files, the fastest path is to filter at the source with <code>jq</code> first so only the records you need are pasted into the converter. Because nothing is uploaded, there is no request-size limit to work around and no queue to wait in.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<section style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about the JSON Lines format and converting it to CSV.</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>What is JSON Lines?</summary>
+        <div class="answer">JSON Lines is a text format where each line of the file is one complete, independent JSON value. It is also called NDJSON or newline-delimited JSON, and it is the standard format for log files, event streams, and bulk-insert APIs because each record can be processed independently.</div>
+      </details>
+      <details>
+        <summary>How do I convert JSONL to CSV?</summary>
+        <div class="answer">Open the JSONL to CSV converter, drop your .jsonl or .ndjson file into the upload zone (or paste the text), then click Download CSV. Each line becomes one row, and the header row contains every key found across the file.</div>
+      </details>
+      <details>
+        <summary>Is HopConvert free to use?</summary>
+        <div class="answer">Yes — 100% free with no sign-up, no watermark, and no limits. There are no premium tiers and no feature gates. Conversion runs in your browser so there are no server costs to pass on.</div>
+      </details>
+      <details>
+        <summary>Is my data uploaded anywhere?</summary>
+        <div class="answer">No. Every line is parsed locally by JavaScript in your browser. The converter has no backend, so there is literally no server that could receive your file. You can verify this yourself with the "Verify: nothing uploaded" button, which shows a live audit of every network request the page makes.</div>
+      </details>
+      <details>
+        <summary>Can I convert a JSON array instead of JSONL?</summary>
+        <div class="answer">Yes. If your input starts with an opening square bracket it is parsed as a standard JSON array and converted the same way, so the tool doubles as a general JSON-to-CSV converter.</div>
+      </details>
+      <details>
+        <summary>What happens to malformed lines?</summary>
+        <div class="answer">They are skipped and listed by line number in a note above the preview. The remaining records still convert, so one bad line does not cost you the whole file.</div>
+      </details>
+      <details>
+        <summary>How are nested objects handled?</summary>
+        <div class="answer">Nested objects are flattened into columns joined by a separator — for example <code>props.device</code> becomes <code>props__device</code>. Arrays of objects expand into one row per element with parent fields repeated. You can change the separator in settings.</div>
+      </details>
+      <details>
+        <summary>What is the difference between JSONL and CSV?</summary>
+        <div class="answer">JSONL is a machine-readable stream with one JSON record per line, designed for appending and incremental processing. CSV is a flat table designed for humans and analytics tools — one row per record, one column per field, separated by a delimiter. Converting between them is how machine-generated data becomes analysable.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Convert your JSONL now</h2>
+      <p>Free, fast, and private. Your log data never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="jsonl-to-csv.html#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Open the JSONL to CSV Converter
+        </a>
+      </div>
+      <p style="margin-top: 18px; font-size: 0.9rem; color: var(--ink-700);">
+        More free tools: <a href="index.html">JSON to CSV</a> &middot; <a href="csv-to-json.html">CSV to JSON</a> &middot; <a href="xml-to-csv.html">XML to CSV</a> &middot; <a href="json-to-yaml.html">JSON to YAML</a> &middot; <a href="yaml-to-json.html">YAML to JSON</a> &middot; <a href="jsonl-to-csv.html">JSONL to CSV</a> &middot; <a href="json-to-sql.html">JSON to SQL</a> &middot; <a href="json-to-markdown.html">JSON to Markdown</a> &middot; <a href="json-to-excel.html">JSON to Excel</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>JSON to Excel Guide — Real .xlsx Workbooks Explained | HopConvert</title>
+<meta name="description" content="The complete JSON to Excel guide: how the .xlsx format works, why cell types matter, how columns are derived, and the practical limits." />
+<meta name="keywords" content="json to excel guide, xlsx format guide, excel cell types, json to xlsx guide" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/json-to-excel-guide.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="JSON to Excel: the complete guide" />
+<meta property="og:description" content="How the .xlsx format works, why cell types matter, and how to turn JSON into a workbook that sorts and sums correctly." />
+<meta property="og:url" content="https://hopconvert.com/json-to-excel-guide.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="JSON to Excel: the complete guide" />
+<meta name="twitter:description" content="The complete guide to JSON to Excel — the .xlsx format, cell types, column derivation, and limits." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/json-to-excel-guide.html",
+    "datePublished":  "2026-11-08",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-08",
+    "@context":  "https://schema.org",
+    "name":  "JSON to Excel: the complete guide",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/json-to-excel-guide.html#webpage"
+}
+</script>
+
+<!-- Schema.org: Article -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/json-to-excel-guide.html",
+    "datePublished":  "2026-11-08",
+    "headline":  "JSON to Excel: the complete guide",
+    "@type":  "Article",
+    "name":  "JSON to Excel: the complete guide",
+    "description":  "The complete JSON to Excel guide: how the .xlsx format works, why cell types matter, how columns are derived, and the practical limits.",
+    "inLanguage":  "en-US",
+    "@context":  "https://schema.org",
+    "mainEntityOfPage":  {
+                             "@type":  "WebPage",
+                             "@id":  "https://hopconvert.com/json-to-excel-guide.html#webpage"
+                         },
+    "author":  {
+                   "url":  "https://hopconvert.com/",
+                   "name":  "HopConvert",
+                   "@type":  "Organization"
+               },
+    "publisher":  {
+                      "url":  "https://hopconvert.com/",
+                      "name":  "HopConvert",
+                      "logo":  {
+                                   "height":  180,
+                                   "url":  "https://hopconvert.com/apple-touch-icon.png",
+                                   "width":  180,
+                                   "@type":  "ImageObject"
+                               },
+                      "@type":  "Organization"
+                  },
+    "image":  "https://hopconvert.com/og/json-to-excel-guide.png",
+    "dateModified":  "2026-11-08"
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A JSON to Excel converter builds a genuine Office Open XML (.xlsx) workbook from JSON data. Unlike renaming a CSV to .xls, the file contains typed cells, real column widths, and a styled header row, so it opens natively in Excel, Numbers, LibreOffice Calc, and Google Sheets.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is a JSON to Excel converter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A workbook is a ZIP archive of XML parts: the content-type manifest, the workbook definition, the relationships, the styles, and one worksheet per sheet. HopConvert writes those parts directly in JavaScript and packages them locally in your browser.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How does the .xlsx format work?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "CSV is typeless — every cell is text. In an .xlsx, numbers are stored as numbers and booleans as booleans, so sorting by a price column sorts numerically and a TRUE filter actually matches. That is the main practical difference between the two formats.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Why do cell types matter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes — 100% free with no sign-up, no watermark, and no premium tier. The workbook is generated locally, so there are no running costs to pass on.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is HopConvert free?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. The workbook is assembled entirely in your browser with JavaScript, so there is no backend that could receive your file. The \"Verify: nothing uploaded\" button shows a live audit of every network request the page makes.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is my JSON uploaded?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "There is no hard limit — the constraint is your browser tab\u0027s memory. Up to about 50,000 rows is instant; beyond 500,000 rows, CSV is a better choice because it is far more compact.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How large a file can it handle?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "They are flattened into column names joined by \u003ccode\u003e__\u003c/code\u003e, so \u003ccode\u003e{\"user\": {\"name\": \"Alice\"}}\u003c/code\u003e becomes the column \u003ccode\u003euser__name\u003c/code\u003e. Arrays of objects expand into one row per element.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How are nested objects handled?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "When a machine reads the file — database bulk loads, pipelines, and scripts all prefer CSV because it is smaller and trivially parseable. Use the workbook when a person will open it and work with it.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "When should I use CSV instead?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/json-to-excel-guide.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/json-to-excel-guide.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "JSON to Excel Guide",
+                                "item":  "https://hopconvert.com/json-to-excel-guide.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html" class="current">JSON to Excel guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="json-to-excel.html#faq">FAQ</a>
+      <a href="json-to-excel.html#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding: 56px 0 40px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      The complete guide
+    </span>
+    <h1>JSON to Excel: <span class="accent">the complete guide</span></h1>
+    <p class="lede">Everything about turning JSON into a real Excel workbook — how the .xlsx format works, why cell types change how your data behaves, and where the practical limits are.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px;">
+      <a href="json-to-excel.html#convert" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Try the JSON to Excel Converter
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<section>
+  <div class="container">
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#format">The .xlsx format</a>
+        <a href="#types">Cell types</a>
+        <a href="#csv">vs CSV</a>
+        <a href="#columns">Column set</a>
+        <a href="#nested">Nested data</a>
+        <a href="#limits">Limits</a>
+        <a href="#edge">Edge cases</a>
+      </div>
+
+      <div class="content-block">
+        <h2 id="format">What is a .xlsx file, really?</h2>
+        <p>An <code>.xlsx</code> workbook is a <strong>ZIP archive containing XML parts</strong>. When you unzip one, you find something like this:</p>
+<pre><code>[Content_Types].xml          describes what each part is
+_rels/.rels                  links the package to the workbook
+xl/workbook.xml              lists the sheets and their names
+xl/_rels/workbook.xml.rels   links the workbook to its parts
+xl/styles.xml                fonts, fills, borders, number formats
+xl/worksheets/sheet1.xml     the actual cell data
+</code></pre>
+        <p>That is the whole idea behind <strong>Office Open XML</strong>, the format Microsoft introduced with Excel 2007 and which every modern spreadsheet application now reads. Because it is XML rather than a proprietary binary blob, files are smaller, diffable, and — importantly — straightforward to generate.</p>
+        <p>HopConvert writes these parts directly in JavaScript, in your browser, and packages them with a small ZIP writer. There is no library download, no server round trip, and no file ever leaving your machine.</p>
+
+        <h2 id="types">Why cell types matter more than you would expect</h2>
+        <p>A CSV file is typeless. Every value is a string, and your spreadsheet application has to guess what each one means. When it guesses wrong, you get the classic problems:</p>
+        <div class="compare">
+          <table>
+            <thead><tr><th>Value</th><th>In a CSV</th><th>In an .xlsx</th></tr></thead>
+            <tbody>
+              <tr><td><code>249.50</code></td><td>Text — sorts as "249.50" between "2" and "30"</td><td>Number — sorts and sums correctly</td></tr>
+              <tr><td><code>true</code></td><td>Text — never matches a TRUE filter</td><td>Boolean — filters and pivots correctly</td></tr>
+              <tr><td><code>007</code></td><td>Text, but Excel may auto-convert it to 7</td><td>Text — stays exactly as written</td></tr>
+              <tr><td><code>1e3</code></td><td>Text</td><td>Number — 1000</td></tr>
+              <tr><td>Long text</td><td>Text</td><td>Text</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>HopConvert writes each cell with the type it actually has in the JSON: numbers as numeric cells, booleans as boolean cells, and everything else as inline strings. That is why the workbook you download sorts correctly straight away.</p>
+
+        <h2 id="csv">JSON to Excel or JSON to CSV?</h2>
+        <p>Use the workbook when a person will open the file and work with it. Use CSV when a machine will read it.</p>
+        <ul>
+          <li><strong>Workbook (<code>.xlsx</code>):</strong> types, formatting, column widths, frozen headers. Bigger files, but this is what you send to a human.</li>
+          <li><strong>CSV:</strong> tiny, universal, trivially streamed. This is what you load into Postgres, BigQuery, or a pipeline — and what <a href="index.html">the JSON to CSV converter</a> is for.</li>
+        </ul>
+        <p>A practical rule: if the next step is a spreadsheet, use the workbook. If the next step is a database or a script, use CSV.</p>
+
+        <h2 id="columns">How is the column set decided?</h2>
+        <p>Every record is read, and the column list is the <strong>union of all keys</strong>, in order of first appearance. Records missing a key get an empty cell. The result always has the same number of columns, which is what a worksheet needs.</p>
+        <p>Each column is also auto-sized: the width is measured from the header and the longest value in that column, then clamped between 10 and 46 characters. This stops numeric columns from showing as <code>#######</code> and stops text columns from being padded out to an arbitrary width.</p>
+
+        <h2 id="nested">How is nested data handled?</h2>
+        <p>A worksheet is flat, so nested objects are flattened into column names joined by <code>__</code> — <code>{"user": {"name": "Alice"}}</code> becomes the column <code>user__name</code>. Arrays of objects expand into one row per element with the parent fields repeated, which is exactly the header/detail layout pivot tables expect.</p>
+        <p>If you need genuine nesting, Excel supports it natively through <code>JSON</code>-typed columns in modern versions — but that is a manual step. For automatic conversion, flattening is the practical choice.</p>
+
+        <h2 id="limits">What are the practical limits?</h2>
+        <p>Because the workbook is built in memory in your browser, the ceiling is your tab's available memory rather than a server limit. In practice:</p>
+        <ul>
+          <li><strong>Up to about 50,000 rows</strong> — instant, and the file stays a sensible size.</li>
+          <li><strong>100,000 to 500,000 rows</strong> — works, but expect a few seconds and a noticeably larger file.</li>
+          <li><strong>Beyond that</strong> — use CSV, which streams and compresses far better, or split the data.</li>
+        </ul>
+        <p>There is no enforced limit and no upload, so nothing fails with a "file too large" error. The browser simply runs out of room first, and you get a clear message instead of a broken download.</p>
+
+        <h2 id="edge">Common edge cases</h2>
+        <ul>
+          <li><strong>Top-level object instead of an array:</strong> becomes a one-row sheet.</li>
+          <li><strong>Top-level array of scalars:</strong> becomes a single column named <code>value</code>.</li>
+          <li><strong>Empty strings and nulls:</strong> written as empty cells, so Excel shows them as blank rather than the word "null".</li>
+          <li><strong>Unicode, emoji, and RTL text:</strong> written as UTF-8 and render correctly.</li>
+          <li><strong>Values containing newlines:</strong> preserved inside the cell, because XML escaping handles them properly.</li>
+          <li><strong>Sheet name restrictions:</strong> Excel forbids <code>\ / ? * [ ] :</code> and caps names at 31 characters. HopConvert sanitises the name for you.</li>
+          <li><strong>Numbers beyond 2^53-1:</strong> JSON.parse loses precision on very large integers. Keep 64-bit IDs as strings in the source JSON.</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<section style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about turning JSON into a real Excel workbook.</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>What is a JSON to Excel converter?</summary>
+        <div class="answer">A JSON to Excel converter builds a genuine Office Open XML (.xlsx) workbook from JSON data. Unlike renaming a CSV to .xls, the file contains typed cells, real column widths, and a styled header row, so it opens natively in Excel, Numbers, LibreOffice Calc, and Google Sheets.</div>
+      </details>
+      <details>
+        <summary>How does the .xlsx format work?</summary>
+        <div class="answer">A workbook is a ZIP archive of XML parts: the content-type manifest, the workbook definition, the relationships, the styles, and one worksheet per sheet. HopConvert writes those parts directly in JavaScript and packages them locally in your browser.</div>
+      </details>
+      <details>
+        <summary>Why do cell types matter?</summary>
+        <div class="answer">CSV is typeless — every cell is text. In an .xlsx, numbers are stored as numbers and booleans as booleans, so sorting by a price column sorts numerically and a TRUE filter actually matches. That is the main practical difference between the two formats.</div>
+      </details>
+      <details>
+        <summary>Is HopConvert free?</summary>
+        <div class="answer">Yes — 100% free with no sign-up, no watermark, and no premium tier. The workbook is generated locally, so there are no running costs to pass on.</div>
+      </details>
+      <details>
+        <summary>Is my JSON uploaded?</summary>
+        <div class="answer">No. The workbook is assembled entirely in your browser with JavaScript, so there is no backend that could receive your file. The "Verify: nothing uploaded" button shows a live audit of every network request the page makes.</div>
+      </details>
+      <details>
+        <summary>How large a file can it handle?</summary>
+        <div class="answer">There is no hard limit — the constraint is your browser tab's memory. Up to about 50,000 rows is instant; beyond 500,000 rows, CSV is a better choice because it is far more compact.</div>
+      </details>
+      <details>
+        <summary>How are nested objects handled?</summary>
+        <div class="answer">They are flattened into column names joined by <code>__</code>, so <code>{"user": {"name": "Alice"}}</code> becomes the column <code>user__name</code>. Arrays of objects expand into one row per element.</div>
+      </details>
+      <details>
+        <summary>When should I use CSV instead?</summary>
+        <div class="answer">When a machine reads the file — database bulk loads, pipelines, and scripts all prefer CSV because it is smaller and trivially parseable. Use the workbook when a person will open it and work with it.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Build your Excel workbook now</h2>
+      <p>Free, fast, and private. Your JSON never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="json-to-excel.html#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Open the JSON to Excel Converter
+        </a>
+      </div>
+      <p style="margin-top: 18px; font-size: 0.9rem; color: var(--ink-700);">
+        More free tools: <a href="index.html">JSON to CSV</a> &middot; <a href="csv-to-json.html">CSV to JSON</a> &middot; <a href="xml-to-csv.html">XML to CSV</a> &middot; <a href="json-to-yaml.html">JSON to YAML</a> &middot; <a href="yaml-to-json.html">YAML to JSON</a> &middot; <a href="jsonl-to-csv.html">JSONL to CSV</a> &middot; <a href="json-to-sql.html">JSON to SQL</a> &middot; <a href="json-to-markdown.html">JSON to Markdown</a> &middot; <a href="json-to-excel.html">JSON to Excel</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

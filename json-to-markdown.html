@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>JSON to Markdown Table Converter — Free Online Tool | HopConvert</title>
+<meta name="description" content="Convert JSON to a Markdown table online for free. Paste JSON, get GitHub-flavoured Markdown with aligned columns. Works in your browser — nothing is uploaded." />
+<meta name="keywords" content="json to markdown table, json to markdown, markdown table generator, json to md table, github markdown table converter" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/json-to-markdown.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="JSON to Markdown Table Converter — Free Online Tool" />
+<meta property="og:description" content="Turn JSON into a clean Markdown table in one paste. Column alignment, pipe escaping, and no sign-up." />
+<meta property="og:url" content="https://hopconvert.com/json-to-markdown.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="JSON to Markdown Table Converter — Free Online Tool" />
+<meta name="twitter:description" content="JSON to GitHub-flavoured Markdown table. Free, instant, and fully in your browser." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/json-to-markdown.html",
+    "featureList":  [
+                        "GitHub-flavoured Markdown table output",
+                        "Automatic column alignment",
+                        "Pipe character escaping",
+                        "Optional row index column",
+                        "Cell truncation with an ellipsis",
+                        "No file upload to server (privacy)"
+                    ],
+    "description":  "Free online JSON to Markdown table converter with GitHub-flavoured alignment, pipe escaping, and instant .md download.",
+    "@type":  "SoftwareApplication",
+    "applicationSubCategory":  "Data Conversion Tool",
+    "browserRequirements":  "Requires JavaScript. Requires HTML5.",
+    "@context":  "https://schema.org",
+    "name":  "HopConvert JSON to Markdown Table",
+    "offers":  {
+                   "price":  "0",
+                   "priceCurrency":  "USD",
+                   "availability":  "https://schema.org/InStock",
+                   "@type":  "Offer"
+               },
+    "applicationCategory":  "UtilitiesApplication",
+    "operatingSystem":  "Any (Web Browser)"
+}
+</script>
+
+<!-- Schema.org: HowTo -->
+<script type="application/ld+json">
+{
+    "step":  [
+                 {
+                     "position":  1,
+                     "name":  "Paste or upload your JSON",
+                     "@type":  "HowToStep",
+                     "text":  "Drop a .json file into the upload zone or paste a JSON array of objects. The converter reads the union of all keys to build the table columns."
+                 },
+                 {
+                     "position":  2,
+                     "name":  "Tune the formatting",
+                     "@type":  "HowToStep",
+                     "text":  "Open the settings cog to choose the column alignment, turn pipe escaping on or off, set a cell length limit, and add a numbered index column."
+                 },
+                 {
+                     "position":  3,
+                     "name":  "Preview the table",
+                     "@type":  "HowToStep",
+                     "text":  "The Markdown table appears immediately, with the alignment row generated for you."
+                 },
+                 {
+                     "position":  4,
+                     "name":  "Copy or download",
+                     "@type":  "HowToStep",
+                     "text":  "Click Download .md to save the file, or select the preview text and paste it straight into your Markdown editor."
+                 }
+             ],
+    "tool":  [
+                 {
+                     "name":  "Web browser",
+                     "@type":  "HowToTool"
+                 },
+                 {
+                     "name":  "HopConvert (free, no sign-up)",
+                     "@type":  "HowToTool"
+                 }
+             ],
+    "@type":  "HowTo",
+    "name":  "How to Convert JSON to a Markdown Table",
+    "description":  "Turn a JSON array of records into a Markdown table you can paste into a README, issue, or documentation site.",
+    "totalTime":  "PT1M",
+    "@context":  "https://schema.org",
+    "estimatedCost":  {
+                          "currency":  "USD",
+                          "value":  "0",
+                          "@type":  "MonetaryAmount"
+                      }
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A JSON to Markdown table converter transforms a JSON array of records into a GitHub-flavoured Markdown table — a header row, an alignment separator, and one row per record. The result pastes directly into a README, issue, pull request, wiki, or chat message.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is a JSON to Markdown table converter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The JSON to Markdown converter is 100% free with no sign-up, no watermark, and no premium tier. It runs in your browser, so there are no server costs to pass on.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is HopConvert free to use?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. No account, no email, no personal details. Open the page, paste your JSON, and copy the table.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Do I need an account?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. The table is generated locally in your browser with JavaScript. There is no backend that could receive your data, and the \"Verify: nothing uploaded\" button on the page shows a live audit of every network request it makes.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is my JSON uploaded?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A pipe inside a value is escaped to a literal pipe so it cannot split the row, and newlines inside a value are replaced with spaces so they cannot end the table early. Backslashes are escaped first, which is the only order that stays correct.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How are pipes and newlines handled?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "By default it is automatic: columns whose values are all numeric are right-aligned, and everything else is left-aligned. You can force left, centre, or right alignment for every column in settings.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How is column alignment decided?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Nested objects are flattened into column names joined by \u003ccode\u003e__\u003c/code\u003e, so \u003ccode\u003e{\"user\": {\"name\": \"Alice\"}}\u003c/code\u003e becomes the column \u003ccode\u003euser__name\u003c/code\u003e. Arrays of objects expand into one row per element.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What happens to nested JSON?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. Turn on the index column in settings and each row gets a numbered first cell, which is handy when rows need to be referenced in a review.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I add a row number column?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Use Markdown when the table is for documentation — a README, an issue, a changelog. Use CSV when the data needs to be sorted, filtered, pivoted or opened in a spreadsheet, and use Excel when you need types and formatting preserved.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Should I use Markdown or CSV instead?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/json-to-markdown.html",
+    "datePublished":  "2026-11-08",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-08",
+    "@context":  "https://schema.org",
+    "name":  "JSON to Markdown Table Converter — Free Online Tool",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/json-to-markdown.html#webpage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/json-to-markdown.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/json-to-markdown.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "JSON to Markdown Table Converter",
+                                "item":  "https://hopconvert.com/json-to-markdown.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html" class="current">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero + Converter -->
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Instant &middot; Free &middot; No sign-up
+    </span>
+    <h1>JSON to Markdown Table Converter — <span class="accent">made simple</span></h1>
+    <p class="lede">Paste JSON, get a GitHub-flavoured Markdown table you can drop straight into a README, issue, or wiki page. Pipe characters are escaped, numeric columns right-align, and nothing is uploaded.</p>
+
+    <div class="converter" role="region" aria-label="JSON to Markdown table converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter &mdash; Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a1.65 1.65 0 0 1 0-2.83 1.65 1.65 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a1.65 1.65 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop a JSON file</strong>
+          <small>or click to browse · .json</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".json,application/json" />
+        </label>
+        <div class="paste-zone">
+          <label for="mdInput" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste JSON</label>
+          <textarea id="mdInput" placeholder="…or paste JSON — an array of objects works best" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+      <div class="filter-row">
+        <label for="filterInput">Filter</label>
+        <input type="text" id="filterInput" placeholder="select(.active == true)" spellcheck="false" autocomplete="off" aria-describedby="filterHint" />
+        <span class="filter-hint" id="filterHint">jq-style: <code>.field</code> <code>.[]</code> <code>select(.f == "x")</code></span>
+        <button type="button" class="filter-clear" id="filterClear">Clear</button>
+      </div>
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your Markdown table will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><span><strong id="rowCount">0</strong> rows</span></span>
+          <span><span><strong id="colCount">0</strong> columns</span></span>
+          <span><span><strong id="delimiterLabel">Markdown</strong> output</span></span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="resetBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download .md
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust" aria-label="Why trust HopConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- What is it -->
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">The basics</span>
+    <h2>What is a JSON to Markdown table converter?</h2>
+    <p>A <strong>JSON to Markdown table converter</strong> turns structured JSON data into a <strong>Markdown table</strong> — the pipe-delimited grid that GitHub, GitLab, Obsidian, Notion, and most documentation tools render as a table. It is the fastest way to get API output into a README, a bug report, a pull request description, or a wiki page.</p>
+    <p>The reason people end up hand-writing these tables is that the output of an API is rarely shaped like a table. A JSON array of objects has to have its keys lined up, its nested objects flattened, and its pipe characters escaped before Markdown will render it correctly. Get any of those wrong and the table silently breaks — a cell containing a pipe splits the row into two, and a value containing a newline ends the table entirely.</p>
+    <p>HopConvert does all of that work. It unions the keys across your records to build a consistent column set, flattens nested objects into columns like <code>user__name</code>, escapes pipes and backslashes so values cannot break the grid, collapses newlines inside cells into spaces, and generates the alignment row (<code>---</code>, <code>---:</code>, or <code>:---:</code>) that makes the table render properly. Numeric columns are right-aligned automatically, which is exactly what a human would have done by hand.</p>
+    <p>Everything happens in your browser. The JSON you paste is never transmitted anywhere, so it is safe to use with data from a private API, an internal service, or a customer export.</p>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- How to convert -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>How to convert JSON to Markdown in 4 steps</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Most conversions take under a minute. No login, no upload to a server, no installation.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste or upload</h3>
+        <p>Drop a <code>.json</code> file into the upload zone or paste a JSON array of objects into the box. A single object becomes a one-row table.</p>
+      </li>
+      <li class="step">
+        <h3>Tune the formatting</h3>
+        <p>Open the settings cog to set the alignment style, decide whether pipes are escaped, cap cell length if you want, and add a numbered index column.</p>
+      </li>
+      <li class="step">
+        <h3>Preview</h3>
+        <p>The Markdown table appears instantly, with the separator row and alignment markers already generated.</p>
+      </li>
+      <li class="step">
+        <h3>Copy or download</h3>
+        <p>Click <strong>Download .md</strong> to save the table, or select the preview text and paste it directly into your README or issue.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Features -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why HopConvert</span>
+      <h2>Built for the JSON you are about to paste into a README</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Markdown tables break in small, confusing ways. HopConvert handles all of them for you.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Correct alignment row</h3>
+        <p>The <code>| --- |</code> separator is generated for you, and numeric columns are right-aligned automatically — exactly what Markdown renderers expect.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Pipe escaping</h3>
+        <p>A value containing <code>|</code> is escaped to <code>\|</code> so it cannot split your row into extra columns. Backslashes are escaped too.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Union of all columns</h3>
+        <p>Records with different keys still produce one consistent table, with missing values left blank.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Newlines neutralised</h3>
+        <p>A value containing a line break would end the table, so newlines inside cells are replaced with spaces.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Browser-only privacy</h3>
+        <p>Internal API output and customer data stay on your machine — every byte is processed locally in JavaScript.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <h3>Optional index column</h3>
+        <p>Add a numbered <code>#</code> column when you want rows to be referenced by position in an issue or a review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Comparison</span>
+      <h2>Markdown tables vs CSV vs HTML tables</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Three ways to publish a table. Each has a different sweet spot.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Markdown</th>
+            <th>CSV / HTML</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Renders in a README</td>
+            <td><span class="yes">Native</span></td>
+            <td>CSV needs a link, HTML needs a renderer</td>
+          </tr>
+          <tr>
+            <td>Readme diffs</td>
+            <td><span class="yes">Reviewable as text</span></td>
+            <td>CSV is one long line</td>
+          </tr>
+          <tr>
+            <td>Spreadsheet-ready</td>
+            <td>No — needs converting back</td>
+            <td><span class="yes">Yes for CSV</span></td>
+          </tr>
+          <tr>
+            <td>Styling</td>
+            <td>Minimal — alignment only</td>
+            <td><span class="yes">Full CSS</span></td>
+          </tr>
+          <tr>
+            <td>Version control</td>
+            <td><span class="yes">Clean diffs</span></td>
+            <td>HTML diffs are noisy</td>
+          </tr>
+          <tr>
+            <td>Cell with a pipe character</td>
+            <td>Needs escaping</td>
+            <td><span class="yes">No issue</span></td>
+          </tr>
+          <tr>
+            <td>Where it comes from</td>
+            <td>JSON, hand-written</td>
+            <td>CSV, spreadsheet exports</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Use cases -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Use cases</span>
+      <h2>When teams reach for JSON to Markdown</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Documentation, issue reports, and changelogs all want a table. JSON is what you have.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <h3>README feature tables</h3>
+        <p>Turn a config dump or a list of supported options into a table you can paste into your project README.</p>
+      </div>
+      <div class="case">
+        <h3>Bug reports and issue threads</h3>
+        <p>Paste the API response that broke, as a table, so the reporter and the maintainer see the same rows.</p>
+      </div>
+      <div class="case">
+        <h3>Documentation sites</h3>
+        <p>Generate a table of API parameters, versions, or supported timezones straight from a JSON spec.</p>
+      </div>
+      <div class="case">
+        <h3>Changelogs and release notes</h3>
+        <p>Summarise a release payload into a readable list of changes.</p>
+      </div>
+      <div class="case">
+        <h3>Slack and chat updates</h3>
+        <p>Render a quick results table to paste into a channel without screenshotting a spreadsheet.</p>
+      </div>
+      <div class="case">
+        <h3>Teaching and workshops</h3>
+        <p>Show a dataset as a table in a slide or a notebook so students can focus on the data, not the formatting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>JSON to Markdown: the complete guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything about turning JSON into a Markdown table that renders correctly everywhere — alignment, escaping, and the rules that break grids.</p>
+      <p style="margin-top: 10px;">
+        <a href="json-to-markdown-guide.html" class="btn btn-secondary">
+          Read the full JSON to Markdown guide
+        </a>
+      </p>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--ink-700);">
+        Related tools: <a href="json-to-markdown-guide.html">JSON to Markdown guide</a> &middot; <a href="index.html">JSON to CSV</a>
+      </p>
+    </div>
+
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#g-syntax">Table syntax</a>
+        <a href="#g-align">Alignment</a>
+        <a href="#g-escape">Escaping</a>
+        <a href="#g-columns">Column set</a>
+        <a href="#g-nested">Nested data</a>
+        <a href="#g-edges">Edge cases</a>
+        <a href="#g-where">Where to use it</a>
+      </div>
+
+      <div class="content-block">
+        <h3 id="g-syntax">What does a Markdown table look like?</h3>
+        <p>A GitHub-flavoured Markdown table is three kinds of line: a header row, a separator row, and one body row per record. Every cell is wrapped in pipes, and every row has the same number of cells.</p>
+<pre><code>| id | name       | active |
+| --- | ---------- | ------ |
+| 1  | Alice Chen | true   |
+| 2  | Bob Singh  | false  |
+</code></pre>
+        <p>The separator row is not decoration — it is required, and it is what tells the renderer where the header ends. Each of its cells must contain at least three hyphens. A table without a separator row is not a table; it renders as plain text.</p>
+
+        <h3 id="g-align">How does column alignment work?</h3>
+        <p>The separator row also controls alignment. The hyphens can be padded with a colon on either side:</p>
+        <ul>
+          <li><code>| --- |</code> — default, left-aligned</li>
+          <li><code>| :--- |</code> — left-aligned, explicitly</li>
+          <li><code>| :---: |</code> — centred</li>
+          <li><code>| ---: |</code> — right-aligned</li>
+        </ul>
+        <p>Padding the dashes to match the width of the header cell is purely cosmetic, but it makes the raw Markdown far easier to read in a diff. Most people right-align numeric columns because that is what a spreadsheet would do, and HopConvert detects it automatically — a column whose every value is a number gets <code>---:</code>.</p>
+
+        <h3 id="g-escape">How do you escape special characters?</h3>
+        <p>Two characters will break a Markdown table if they are not handled:</p>
+        <ul>
+          <li><strong>The pipe character <code>|</code></strong> is the column separator. A cell containing a raw pipe is split into two columns, and the row becomes ragged. Escape it as <code>\|</code>.</li>
+          <li><strong>The newline</strong> ends the row. A cell containing a line break must have it replaced with a space, or the table stops early and the rest of your data becomes stray text.</li>
+        </ul>
+        <p>Backslashes need care too: escaping a pipe introduces a backslash, so a literal backslash in your data has to be doubled first. HopConvert escapes in that order — backslashes, then pipes — which is the only order that is actually correct.</p>
+<pre><code>value "a | b"   becomes   value "a \| b"
+value "C:\dir"  becomes   value "C:\\dir"
+</code></pre>
+
+        <h3 id="g-columns">How is the column set decided?</h3>
+        <p>The converter reads every record and builds the column list from the <strong>union of all keys</strong>, in order of first appearance. Records missing a key simply get an empty cell. Without this, a JSON array where the first record has three keys and the second has four would produce a broken table with mismatched row lengths — which most renderers either drop or silently repair.</p>
+
+        <h3 id="g-nested">How is nested data handled?</h3>
+        <p>Nested objects are flattened into column names joined by <code>__</code> — <code>{"user": {"name": "Alice"}}</code> produces the column <code>user__name</code>. Arrays of objects expand into one row per element with the parent fields repeated, which is the layout a documentation table almost always wants.</p>
+        <p>Because a Markdown table must stay flat, there is no way to represent genuinely nested content. For anything that needs structure, <a href="index.html">CSV</a> or <a href="json-to-excel.html">Excel</a> is the better target.</p>
+
+        <h3 id="g-edges">Common edge cases</h3>
+        <ul>
+          <li><strong>A value containing a pipe:</strong> escaped to <code>\|</code>.</li>
+          <li><strong>A value containing a newline:</strong> replaced with a space.</li>
+          <li><strong>Empty values:</strong> rendered as an empty cell, not the string "null".</li>
+          <li><strong>Boolean and numeric values:</strong> written as <code>true</code> / <code>false</code> and bare numbers, and numeric columns are right-aligned.</li>
+          <li><strong>Very long values:</strong> optionally truncated with an ellipsis using the cell-length setting.</li>
+          <li><strong>A single object instead of an array:</strong> converted to a one-row table.</li>
+          <li><strong>An array of scalars:</strong> converted to a single column named <code>value</code>.</li>
+          <li><strong>Unicode and emoji:</strong> written as UTF-8, which every modern renderer handles.</li>
+        </ul>
+
+        <h3 id="g-where">Where do Markdown tables belong?</h3>
+        <p>Markdown tables are a documentation format, not a data format. They are the right choice for:</p>
+        <ul>
+          <li><strong>READMEs and documentation sites</strong> — feature matrices, parameter tables, version comparisons, supported options.</li>
+          <li><strong>Issue and pull request bodies</strong> — where a reviewer needs to see actual rows.</li>
+          <li><strong>Changelogs and release notes</strong> — a table of changes per version.</li>
+          <li><strong>Slack, Discord, and email</strong> — a short table pasted into a channel, where a screenshot would be worse.</li>
+        </ul>
+        <p>They are the wrong choice for anything that needs to be sorted, filtered, pivoted, or joined. That is a spreadsheet job — use <a href="json-to-excel.html">JSON to Excel</a> or <a href="index.html">JSON to CSV</a> instead. And if the data is sensitive enough that it should never leave your machine, every HopConvert tool keeps it in the browser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about turning JSON into a Markdown table.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>What is a JSON to Markdown table converter?</summary>
+        <div class="answer">A JSON to Markdown table converter transforms a JSON array of records into a GitHub-flavoured Markdown table — a header row, an alignment separator, and one row per record. The result pastes directly into a README, issue, pull request, wiki, or chat message.</div>
+      </details>
+      <details>
+        <summary>Is HopConvert free to use?</summary>
+        <div class="answer">Yes. The JSON to Markdown converter is 100% free with no sign-up, no watermark, and no premium tier. It runs in your browser, so there are no server costs to pass on.</div>
+      </details>
+      <details>
+        <summary>Do I need an account?</summary>
+        <div class="answer">No. No account, no email, no personal details. Open the page, paste your JSON, and copy the table.</div>
+      </details>
+      <details>
+        <summary>Is my JSON uploaded?</summary>
+        <div class="answer">No. The table is generated locally in your browser with JavaScript. There is no backend that could receive your data, and the "Verify: nothing uploaded" button on the page shows a live audit of every network request it makes.</div>
+      </details>
+      <details>
+        <summary>How are pipes and newlines handled?</summary>
+        <div class="answer">A pipe inside a value is escaped to a literal pipe so it cannot split the row, and newlines inside a value are replaced with spaces so they cannot end the table early. Backslashes are escaped first, which is the only order that stays correct.</div>
+      </details>
+      <details>
+        <summary>How is column alignment decided?</summary>
+        <div class="answer">By default it is automatic: columns whose values are all numeric are right-aligned, and everything else is left-aligned. You can force left, centre, or right alignment for every column in settings.</div>
+      </details>
+      <details>
+        <summary>What happens to nested JSON?</summary>
+        <div class="answer">Nested objects are flattened into column names joined by <code>__</code>, so <code>{"user": {"name": "Alice"}}</code> becomes the column <code>user__name</code>. Arrays of objects expand into one row per element.</div>
+      </details>
+      <details>
+        <summary>Can I add a row number column?</summary>
+        <div class="answer">Yes. Turn on the index column in settings and each row gets a numbered first cell, which is handy when rows need to be referenced in a review.</div>
+      </details>
+      <details>
+        <summary>Should I use Markdown or CSV instead?</summary>
+        <div class="answer">Use Markdown when the table is for documentation — a README, an issue, a changelog. Use CSV when the data needs to be sorted, filtered, pivoted or opened in a spreadsheet, and use Excel when you need types and formatting preserved.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Build your Markdown table now</h2>
+      <p>Free, fast, and private. Your JSON never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Start Converting
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Settings modal -->
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="mdAlign">Column alignment</label>
+        <select id="mdAlign">
+          <option value="auto" selected>Automatic — numbers right, text left</option>
+          <option value="left">Left — <code>---</code></option>
+          <option value="center">Centre — <code>:---:</code></option>
+          <option value="right">Right — <code>---:</code></option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="truncateLen">Truncate cells longer than (characters, 0 = never)</label>
+        <input type="text" id="truncateLen" value="0" spellcheck="false" autocomplete="off" />
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="escapePipes" checked />
+          <label for="escapePipes">Escape pipe characters in values</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="indexColumn" />
+          <label for="indexColumn">Add a numbered index column</label>
+        </div>
+      </div>    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var T = window.HopTools;
+  var F = window.HopFilter;
+
+  var settings = { align: 'auto', escapePipes: true, truncate: 0, indexColumn: false };
+
+  function parseInput(text) {
+    var t = String(text).trim();
+    if (t === '') throw new Error('Paste some JSON to convert.');
+    var data;
+    try { data = JSON.parse(t); }
+    catch (e) { throw new Error('That is not valid JSON — ' + e.message); }
+    return data;
+  }
+
+  function mdCell(v) {
+    if (v === null || v === undefined) return '';
+    var s = typeof v === 'object' ? JSON.stringify(v) : String(v);
+    s = s.replace(/\r\n|\r|\n/g, ' ');
+    if (settings.escapePipes) {
+      s = s.replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
+    }
+    if (settings.truncate > 0 && s.length > settings.truncate) {
+      s = s.slice(0, settings.truncate - 1) + '…';
+    }
+    return s;
+  }
+
+  function isNumeric(v) {
+    if (typeof v === 'number') return isFinite(v);
+    if (typeof v === 'string' && /^-?\d+(\.\d+)?$/.test(v.trim())) return true;
+    return false;
+  }
+
+  function alignFor(values, mode) {
+    if (mode === 'left') return '---';
+    if (mode === 'center') return ':---:';
+    if (mode === 'right') return '---:';
+    var seen = false, allNum = true;
+    values.forEach(function (v) {
+      if (v === null || v === undefined || v === '') return;
+      seen = true;
+      if (!isNumeric(v)) allNum = false;
+    });
+    return (seen && allNum) ? '---:' : '---';
+  }
+
+  function applyFilter(data) {
+    var el = document.getElementById('filterInput');
+    if (!el) return { data: data, note: '' };
+    var expr = String(el.value || '').trim();
+    if (expr === '') return { data: data, note: '' };
+    var err = F.validate(expr);
+    if (err) return { data: data, note: 'Filter ignored — ' + err };
+    var out = F.apply(data, expr);
+    return { data: out, note: 'Filter <code>' + T.esc(expr) + '</code> matched ' + out.length + ' record(s).' };
+  }
+
+  function convert(text) {
+    var data = parseInput(text);
+    var filtered = applyFilter(data);
+    if (filtered.data.length === 0) throw new Error('The filter matched none of the records.');
+
+    var res = T.collectRows(filtered.data, { strategy: 'detail', sep: '__', joinDelim: ' | ' });
+    if (!res.headers.length) throw new Error('No columns could be derived from that JSON.');
+
+    var headers = res.headers.slice();
+    if (settings.indexColumn) headers.unshift('#');
+    var raw = res.headers;
+
+    var lines = [];
+    lines.push('| ' + headers.map(mdCell).join(' | ') + ' |');
+    lines.push('| ' + raw.map(function (h) {
+      return alignFor(res.rows.map(function (r) { return r[h]; }), settings.align);
+    }).join(' | ') + ' |');
+
+    res.rows.forEach(function (r, i) {
+      var cells = raw.map(function (h) { return mdCell(r[h]); });
+      if (settings.indexColumn) cells.unshift(String(i + 1));
+      lines.push('| ' + cells.join(' | ') + ' |');
+    });
+
+    var md = lines.join('\n') + '\n';
+    var html = '';
+    if (filtered.note) html += '<div class="out-note">' + filtered.note + '</div>';
+    html += T.renderPre(md, 'md-out');
+    return { html: html, text: md, rows: res.rows.length, cols: res.headers.length };
+  }
+
+  var api = T.mount({
+    inputId: 'mdInput',
+    fileId: 'fileInput',
+    statusId: 'parseStatus',
+    sampleId: 'loadSample',
+    resetId: 'resetBtn',
+    downloadId: 'downloadBtn',
+    errorId: 'errorBox',
+    resultsId: 'results',
+    emptyId: 'resultsEmpty',
+    sample: "[\n  { \"id\": 1, \"name\": \"Alice Chen\", \"role\": \"Engineer\", \"team\": \"Platform\", \"active\": true },\n  { \"id\": 2, \"name\": \"Bob Singh\", \"role\": \"Designer\", \"team\": \"Brand\", \"active\": false },\n  { \"id\": 3, \"name\": \"Carol Díaz\", \"role\": \"Engineer\", \"team\": \"Platform\", \"active\": true }\n]",
+    downloadName: 'converted.md',
+    downloadMime: 'text/markdown;charset=utf-8',
+    convert: convert,
+    applySettings: function () {
+      var a = document.getElementById('mdAlign');
+      var e = document.getElementById('escapePipes');
+      var t = document.getElementById('truncateLen');
+      var i = document.getElementById('indexColumn');
+      if (a) settings.align = a.value;
+      if (e) settings.escapePipes = e.checked;
+      if (t) settings.truncate = parseInt(t.value, 10) || 0;
+      if (i) settings.indexColumn = i.checked;
+    },
+    onSuccess: function (out) {
+      var rc = document.getElementById('rowCount');
+      var cc = document.getElementById('colCount');
+      var dl = document.getElementById('delimiterLabel');
+      if (rc) rc.textContent = out.rows;
+      if (cc) cc.textContent = out.cols;
+      if (dl) dl.textContent = 'Markdown';
+    }
+  });
+
+  var filterEl = document.getElementById('filterInput');
+  if (filterEl) {
+    filterEl.addEventListener('input', function () {
+      var input = document.getElementById('mdInput');
+      api.run(input ? input.value : '');
+    });
+  }
+  var filterClear = document.getElementById('filterClear');
+  if (filterClear) {
+    filterClear.addEventListener('click', function () {
+      if (filterEl) filterEl.value = '';
+      var input = document.getElementById('mdInput');
+      api.run(input ? input.value : '');
+    });
+  }
+})();
+</script>
+</body>
+</html>

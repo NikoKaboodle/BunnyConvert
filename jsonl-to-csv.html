@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>JSONL to CSV Converter — JSON Lines to CSV Free | HopConvert</title>
+<meta name="description" content="Convert JSONL and NDJSON to CSV online for free. Handles one JSON object per line, nested fields, and custom delimiters. Runs entirely in your browser — nothing is uploaded." />
+<meta name="keywords" content="jsonl to csv, ndjson to csv, json lines to csv, jsonl converter, ndjson converter, jsonl to excel, json lines to spreadsheet" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/jsonl-to-csv.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="JSONL to CSV Converter — Free Online Tool" />
+<meta property="og:description" content="Convert JSON Lines (JSONL / NDJSON) to CSV instantly. Nested fields, custom delimiters, no sign-up, no upload." />
+<meta property="og:url" content="https://hopconvert.com/jsonl-to-csv.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="JSONL to CSV Converter — Free Online Tool" />
+<meta name="twitter:description" content="JSONL and NDJSON to CSV in your browser. No upload, no sign-up, free forever." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/jsonl-to-csv.html",
+    "featureList":  [
+                        "JSON Lines and NDJSON parsing",
+                        "Nested object flattening with a custom separator",
+                        "Automatic union of columns across records",
+                        "Custom delimiters (comma, tab, semicolon, pipe)",
+                        "jq-style filtering before conversion",
+                        "No file upload to server (privacy)"
+                    ],
+    "description":  "Free online JSON Lines (JSONL/NDJSON) to CSV converter with nested-field flattening, custom delimiters, and instant Excel download.",
+    "@type":  "SoftwareApplication",
+    "applicationSubCategory":  "Data Conversion Tool",
+    "browserRequirements":  "Requires JavaScript. Requires HTML5.",
+    "@context":  "https://schema.org",
+    "name":  "HopConvert JSONL to CSV",
+    "offers":  {
+                   "price":  "0",
+                   "priceCurrency":  "USD",
+                   "availability":  "https://schema.org/InStock",
+                   "@type":  "Offer"
+               },
+    "applicationCategory":  "UtilitiesApplication",
+    "operatingSystem":  "Any (Web Browser)"
+}
+</script>
+
+<!-- Schema.org: HowTo -->
+<script type="application/ld+json">
+{
+    "step":  [
+                 {
+                     "position":  1,
+                     "name":  "Paste or upload your JSONL",
+                     "@type":  "HowToStep",
+                     "text":  "Drop a .jsonl or .ndjson file into the upload zone, or paste JSON Lines text — one complete JSON object per line."
+                 },
+                 {
+                     "position":  2,
+                     "name":  "Choose conversion options",
+                     "@type":  "HowToStep",
+                     "text":  "Open the settings cog to pick a delimiter and how nested objects should be flattened into column names."
+                 },
+                 {
+                     "position":  3,
+                     "name":  "Preview the result",
+                     "@type":  "HowToStep",
+                     "text":  "The live preview shows the columns and rows the converter found, so you can check the shape before downloading."
+                 },
+                 {
+                     "position":  4,
+                     "name":  "Download the CSV",
+                     "@type":  "HowToStep",
+                     "text":  "Click Download CSV to save the file and open it directly in Excel, Google Sheets, Numbers, or any BI tool."
+                 }
+             ],
+    "tool":  [
+                 {
+                     "name":  "Web browser",
+                     "@type":  "HowToTool"
+                 },
+                 {
+                     "name":  "HopConvert (free, no sign-up)",
+                     "@type":  "HowToTool"
+                 }
+             ],
+    "@type":  "HowTo",
+    "name":  "How to Convert JSONL to CSV Online",
+    "description":  "Convert a JSON Lines (JSONL or NDJSON) file into a CSV table ready for Excel or Google Sheets, in four simple steps.",
+    "totalTime":  "PT1M",
+    "@context":  "https://schema.org",
+    "estimatedCost":  {
+                          "currency":  "USD",
+                          "value":  "0",
+                          "@type":  "MonetaryAmount"
+                      }
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A JSONL to CSV converter reads a JSON Lines file — one complete JSON value per line — and writes a standard CSV table with a header row and one row per record. It is the fastest way to turn an event stream, log dump, or dataset into something Excel, Google Sheets, or a BI tool can read.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is a JSONL to CSV converter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The JSONL to CSV converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, no watermark, and no premium plans. Conversion runs in your browser, so we have no server costs to pass on.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is HopConvert free to use?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. HopConvert does not require an account, an email address, or any personal information. Open the page, paste your JSONL, and download the CSV.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Do I need to create an account?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. Every record is parsed locally in your browser using JavaScript. Your file is never transmitted to a server — the tool has no backend that could receive it. Click the \"Verify: nothing uploaded\" badge to see a live, in-browser audit of every network request the page makes.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is my data private and secure?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "None in practice. JSON Lines and NDJSON are two names for the same thing: one JSON value per line. The extensions \u003ccode\u003e.jsonl\u003c/code\u003e and \u003ccode\u003e.ndjson\u003c/code\u003e are used interchangeably, and HopConvert accepts both.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is the difference between JSONL and NDJSON?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. If your input starts with \u003ccode\u003e[\u003c/code\u003e, the converter parses it as a standard JSON array and converts it the same way. That makes it easy to use this tool as a general JSON-to-CSV converter.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I paste a regular JSON array instead?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "That line is skipped and reported with its line number, and the rest of the file still converts. You will see a note above the preview telling you exactly which lines were skipped so you can go fix the source.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What happens if a line is not valid JSON?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Nested objects are flattened into columns named \u003ccode\u003eparent__child\u003c/code\u003e by default — for example \u003ccode\u003eprops.device\u003c/code\u003e becomes \u003ccode\u003eprops__device\u003c/code\u003e. You can change the separator in settings, or switch to the flatten strategy to widen arrays of objects too.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How do I convert nested objects in JSONL?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "There is no hard limit. Because conversion happens in your browser, the practical limit is the memory available to your tab (typically 200 MB to 2 GB). For files over 100 MB, use Chrome or Edge on a 64-bit system and close other tabs.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is the maximum file size?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The filter box accepts a small jq-style expression, for example \u003ccode\u003eselect(.event == \"purchase\")\u003c/code\u003e or \u003ccode\u003e.props\u003c/code\u003e. It runs entirely in your browser and updates the preview as you type.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I filter records before converting?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/jsonl-to-csv.html",
+    "datePublished":  "2026-11-08",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-08",
+    "@context":  "https://schema.org",
+    "name":  "JSONL to CSV Converter — Free Online Tool",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/jsonl-to-csv.html#webpage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/jsonl-to-csv.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/jsonl-to-csv.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "JSONL to CSV Converter",
+                                "item":  "https://hopconvert.com/jsonl-to-csv.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html" class="current">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero + Converter -->
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Instant &middot; Free &middot; No sign-up
+    </span>
+    <h1>JSONL to CSV Converter — <span class="accent">made simple</span></h1>
+    <p class="lede">Paste JSON Lines, get a clean CSV. Every record becomes a row, nested fields become columns, and the whole thing happens in your browser — your log data never touches a server.</p>
+
+    <div class="converter" role="region" aria-label="JSONL to CSV converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter &mdash; Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a1.65 1.65 0 0 1 0-2.83 1.65 1.65 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a1.65 1.65 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop a JSONL file</strong>
+          <small>or click to browse · .jsonl / .ndjson / .json</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".jsonl,.ndjson,.json,.txt,application/x-ndjson,application/json" />
+        </label>
+        <div class="paste-zone">
+          <label for="jsonlInput" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste JSONL</label>
+          <textarea id="jsonlInput" placeholder="…or paste JSON Lines — one JSON object per line" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+      <div class="filter-row">
+        <label for="filterInput">Filter</label>
+        <input type="text" id="filterInput" placeholder="select(.event == "purchase")" spellcheck="false" autocomplete="off" aria-describedby="filterHint" />
+        <span class="filter-hint" id="filterHint">jq-style: <code>.field</code> <code>.[0]</code> <code>.[]</code> <code>select(.f == "x")</code></span>
+        <button type="button" class="filter-clear" id="filterClear">Clear</button>
+      </div>
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your CSV preview will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><span><strong id="rowCount">0</strong> rows</span></span>
+          <span><span><strong id="colCount">0</strong> columns</span></span>
+          <span><span><strong id="delimiterLabel">Comma</strong> delimiter</span></span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="resetBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CSV
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust" aria-label="Why trust HopConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- What is it -->
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">The basics</span>
+    <h2>What is a JSONL to CSV converter?</h2>
+    <p>A <strong>JSONL to CSV converter</strong> turns <strong>JSON Lines</strong> into <strong>CSV</strong>. JSON Lines (also called <code>.jsonl</code>, <code>.ndjson</code>, or newline-delimited JSON) is a format where every line of the file is one complete, self-contained JSON value. No wrapping array, no commas between records — just one record per line.</p>
+    <p>That format shows up everywhere: application logs, event streams, message-queue dumps, model training datasets, database change-data-capture exports, and the output of most command-line tools that emit structured records. It is deliberately streamable — you can process a 10 GB file one line at a time without loading it all into memory.</p>
+    <p>CSV is the other half of the equation. It is the format every spreadsheet, BI tool, and database bulk loader understands. Converting JSONL to CSV turns a machine-readable stream into something you can filter, pivot, and chart in Excel without writing a single line of code.</p>
+    <p>HopConvert handles the messy parts: it reads each line independently, unions the keys across every record so sparse records still line up, flattens nested objects into columns like <code>props__device</code>, joins arrays of primitives with <code> | </code>, and skips (and reports) any line it cannot parse instead of failing the whole file. And it does all of it in your browser — the file is never uploaded anywhere.</p>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- How to convert -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>How to convert JSONL to CSV in 4 steps</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Most conversions take under a minute. No login, no upload to a server, no installation.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste or upload</h3>
+        <p>Drop a <code>.jsonl</code> or <code>.ndjson</code> file into the upload zone, or paste JSON Lines text directly into the box. The converter parses each line as you go.</p>
+      </li>
+      <li class="step">
+        <h3>Choose options</h3>
+        <p>Open the settings cog to pick a delimiter (comma, tab, semicolon, pipe) and whether nested objects become one wide row or expand into detail rows.</p>
+      </li>
+      <li class="step">
+        <h3>Preview</h3>
+        <p>The live preview table updates instantly so you can confirm the column layout and row count before downloading anything.</p>
+      </li>
+      <li class="step">
+        <h3>Download</h3>
+        <p>Click <strong>Download CSV</strong> to save the file. It opens directly in Microsoft Excel, Google Sheets, Numbers, or any spreadsheet app.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Features -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why HopConvert</span>
+      <h2>Built for the JSON Lines you actually have</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Real-world JSONL streams are sparse, nested, and occasionally malformed. HopConvert handles them so you do not have to.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>True line-by-line parsing</h3>
+        <p>Each line is parsed independently, exactly like a streaming reader would. A 200 MB log file converts in seconds because nothing is loaded twice.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Union of all columns</h3>
+        <p>Records rarely share the same keys. The converter builds the column set from every record, so missing fields simply become empty cells.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Browser-only privacy</h3>
+        <p>Log files often contain user IDs, IPs, and request bodies. Every byte is processed locally in JavaScript — nothing is uploaded, logged, or stored.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>jq-style filtering</h3>
+        <p>Filter records before conversion with <code>select(.event == "purchase")</code> or extract a sub-array with <code>.props</code> — no scripting required.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Bad lines are reported</h3>
+        <p>If one record is malformed, the converter skips it and tells you the line number instead of discarding the whole file.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <h3>Live preview</h3>
+        <p>See the columns and rows before you commit. Nothing is written to disk until you click Download.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Comparison</span>
+      <h2>JSONL vs JSON vs CSV: what is the difference?</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Three formats, three very different jobs. Knowing which one you have saves a lot of confusion.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>JSONL</th>
+            <th>CSV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Structure</td>
+            <td>One JSON value per line, no wrapping array</td>
+            <td>Flat rows and columns separated by a delimiter</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Log streams, event pipelines, append-only records</td>
+            <td>Spreadsheets, BI tools, database bulk loads</td>
+          </tr>
+          <tr>
+            <td>Streaming</td>
+            <td><span class="yes">Reads line by line</span></td>
+            <td>Needs the whole file in memory to parse reliably</td>
+          </tr>
+          <tr>
+            <td>Nesting</td>
+            <td>Full JSON nesting allowed per line</td>
+            <td><span class="no">None — must be flattened</span></td>
+          </tr>
+          <tr>
+            <td>File size</td>
+            <td>Larger than CSV, much smaller than pretty-printed JSON</td>
+            <td>Smallest of the three</td>
+          </tr>
+          <tr>
+            <td>Appending</td>
+            <td><span class="yes">Trivial — add a line</span></td>
+            <td><span class="no">Rewrites the whole file</span></td>
+          </tr>
+          <tr>
+            <td>Easy to open in Excel</td>
+            <td><span class="no">Needs conversion</span></td>
+            <td><span class="yes">Opens directly</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Use cases -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Use cases</span>
+      <h2>When teams reach for JSONL to CSV</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">JSONL is the default output format of modern data tooling. Converting it to CSV is how that data becomes analysable.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <h3>Application log analysis</h3>
+        <p>Ship a JSONL log out of your service, convert it to CSV, and pivot on status codes, latency, or user in Excel.</p>
+      </div>
+      <div class="case">
+        <h3>Event stream exports</h3>
+        <p>Kafka consumers, Segment, and Stripe all emit JSONL. Bulk-load it into BigQuery, Snowflake, or Postgres via CSV.</p>
+      </div>
+      <div class="case">
+        <h3>ML dataset preparation</h3>
+        <p>Training datasets often arrive as JSONL. Convert to CSV to inspect label balance in a spreadsheet before training.</p>
+      </div>
+      <div class="case">
+        <h3>API request captures</h3>
+        <p>Capture raw request/response bodies as JSONL, then convert to CSV to find slow endpoints and error clusters.</p>
+      </div>
+      <div class="case">
+        <h3>Database change streams</h3>
+        <p>Debezium and CDC tools emit change events as JSONL. Convert to CSV to audit what changed and when.</p>
+      </div>
+      <div class="case">
+        <h3>CI and test fixtures</h3>
+        <p>Turn failing test output into a CSV you can attach to a bug report or paste into a ticket.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>JSONL to CSV: the complete guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about JSON Lines, how the format differs from a JSON array, and how to get clean CSV out of it.</p>
+      <p style="margin-top: 10px;">
+        <a href="jsonl-to-csv-guide.html" class="btn btn-secondary">
+          Read the full JSONL to CSV guide
+        </a>
+      </p>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--ink-700);">
+        Related tools: <a href="json-to-csv-guide.html">JSON to CSV guide</a> &middot; <a href="csv-to-json.html">CSV to JSON</a>
+      </p>
+    </div>
+
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#g-format">The format</a>
+        <a href="#g-arrays">JSONL vs JSON array</a>
+        <a href="#g-shape">Output shape</a>
+        <a href="#g-nested">Nested data</a>
+        <a href="#g-sparse">Sparse records</a>
+        <a href="#g-edges">Edge cases</a>
+        <a href="#g-pipelines">Pipelines</a>
+      </div>
+
+      <div class="content-block">
+        <h3 id="g-format">What exactly is JSON Lines?</h3>
+        <p><strong>JSON Lines</strong> (also written <code>jsonl</code>, <code>ndjson</code>, or newline-delimited JSON) is a text format in which <strong>each line is one complete and independent JSON value</strong>. There is no enclosing array and no comma between records. The format was popularised by the creators of <a href="https://jsonlines.org/" rel="nofollow noopener">jsonlines.org</a> and is now used by Elasticsearch, MongoDB, CouchDB, BigQuery, and most modern log shippers.</p>
+        <p>A minimal example:</p>
+<pre><code>{"id": 1, "event": "page_view", "user": "alice"}
+{"id": 2, "event": "purchase", "user": "bob", "amount": 49.99}
+{"id": 3, "event": "signup", "user": "carol"}
+</code></pre>
+        <p>Notice that each record carries its own <code>id</code>. That redundancy is the point: every line stands alone, so a reader can process, route, or discard it individually. A JSON array of the same three records would need to be opened, scanned, and closed as one unit, and a single syntax error anywhere would break the entire file.</p>
+
+        <h3 id="g-arrays">JSONL or a JSON array?</h3>
+        <p>These hold the same information but behave very differently:</p>
+        <ul>
+          <li><strong>A JSON array</strong> is a single document. It must be valid from the first <code>[</code> to the last <code>]</code>. You cannot append to it without rewriting it, and a truncated file is unparseable.</li>
+          <li><strong>JSON Lines</strong> is a stream. Records are appended as they arrive, consumers read them one at a time, and a damaged line only affects that line.</li>
+        </ul>
+        <p>That is why almost every log pipeline, event bus, and streaming database uses JSONL. When you convert JSONL to CSV, you are essentially freezing a stream into a table.</p>
+
+        <h3 id="g-shape">What shape is the output?</h3>
+        <p>The converter produces a standard CSV: one header row of column names, then one row per record. Column names come from the <strong>union of the keys across every record</strong>, so if record 4 has a <code>plan</code> field that the first three do not, <code>plan</code> becomes a column and the other rows get an empty cell in it.</p>
+        <p>CSV output uses CRLF line endings and RFC 4180 quoting: any field containing a comma, a double quote, or a newline is wrapped in double quotes with inner quotes doubled. Values are written as text, which is exactly what spreadsheets expect.</p>
+
+        <h3 id="g-nested">How is nested data handled?</h3>
+        <p>JSONL records are often not flat. The converter offers two strategies:</p>
+        <ul>
+          <li><strong>Header / detail (default):</strong> A nested object such as <code>{"id": 1, "props": {"device": "mobile"}}</code> is flattened into two columns: <code>id</code> and <code>props__device</code>. The separator is configurable in settings.</li>
+          <li><strong>Flatten:</strong> The same result, but with nested arrays of objects also flattened into wider columns rather than expanded into extra rows.</li>
+        </ul>
+        <p>Arrays of primitive values — tags, skills, categories — are joined with <code> | </code> so they stay readable in a single cell. Arrays of objects become one row per element with the parent fields repeated, which is the classic header/detail layout your BI tool expects.</p>
+
+        <h3 id="g-sparse">What about records with different keys?</h3>
+        <p>This is the normal case, not an edge case. Event streams are sparse by design: a <code>purchase</code> event carries an amount, a <code>page_view</code> does not. The converter builds the column set from every record it reads, so all rows share the same columns and missing values are simply blank.</p>
+        <p>This is also why column <em>order</em> is derived from first appearance rather than sorted alphabetically — the first record in the file decides the leading columns, which usually matches the order the producer writes them in.</p>
+
+        <h3 id="g-edges">Common edge cases</h3>
+        <ul>
+          <li><strong>Malformed lines:</strong> Skipped and reported with their line numbers. The rest of the file still converts.</li>
+          <li><strong>Blank lines:</strong> Ignored entirely.</li>
+          <li><strong>UTF-8 BOM:</strong> Detected and stripped from the first line.</li>
+          <li><strong>CRLF and LF endings:</strong> Both parse correctly, even if mixed within one file.</li>
+          <li><strong>Top-level arrays per line:</strong> If a line holds a JSON array instead of an object, it is treated as a single record and stringified into one cell.</li>
+          <li><strong>Very long lines:</strong> There is no line-length limit; only your tab's memory is the constraint.</li>
+          <li><strong>Duplicate keys within one line:</strong> The last occurrence wins, matching <code>JSON.parse</code> behaviour.</li>
+        </ul>
+
+        <h3 id="g-pipelines">Using JSONL in a real pipeline</h3>
+        <p>A common end-to-end flow looks like this:</p>
+<pre><code>curl -s https://api.example.com/events.jsonl \
+  | jq -c 'select(.status != 200)' \
+  | ./hopconvert-jsonl-to-csv \
+  &gt; errors.csv
+</code></pre>
+        <p>Or, entirely in the browser, using the filter box on the converter:</p>
+<pre><code>select(.event == "purchase")</code></pre>
+        <p>That filter keeps only purchase events. Combine it with a path such as <code>.props</code> to convert just the nested payload into columns.</p>
+        <p>For very large files, remember that conversion happens in your browser — the practical ceiling is your tab's available memory. Close other tabs, use a 64-bit browser, and expect roughly 50 MB per second of throughput on a modern laptop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about converting JSON Lines to CSV with HopConvert.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>What is a JSONL to CSV converter?</summary>
+        <div class="answer">A JSONL to CSV converter reads a JSON Lines file — one complete JSON value per line — and writes a standard CSV table with a header row and one row per record. It is the fastest way to turn an event stream, log dump, or dataset into something Excel, Google Sheets, or a BI tool can read.</div>
+      </details>
+      <details>
+        <summary>Is HopConvert free to use?</summary>
+        <div class="answer">Yes. The JSONL to CSV converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, no watermark, and no premium plans. Conversion runs in your browser, so we have no server costs to pass on.</div>
+      </details>
+      <details>
+        <summary>Do I need to create an account?</summary>
+        <div class="answer">No. HopConvert does not require an account, an email address, or any personal information. Open the page, paste your JSONL, and download the CSV.</div>
+      </details>
+      <details>
+        <summary>Is my data private and secure?</summary>
+        <div class="answer">Yes. Every record is parsed locally in your browser using JavaScript. Your file is never transmitted to a server — the tool has no backend that could receive it. Click the "Verify: nothing uploaded" badge to see a live, in-browser audit of every network request the page makes.</div>
+      </details>
+      <details>
+        <summary>What is the difference between JSONL and NDJSON?</summary>
+        <div class="answer">None in practice. JSON Lines and NDJSON are two names for the same thing: one JSON value per line. The extensions <code>.jsonl</code> and <code>.ndjson</code> are used interchangeably, and HopConvert accepts both.</div>
+      </details>
+      <details>
+        <summary>Can I paste a regular JSON array instead?</summary>
+        <div class="answer">Yes. If your input starts with <code>[</code>, the converter parses it as a standard JSON array and converts it the same way. That makes it easy to use this tool as a general JSON-to-CSV converter.</div>
+      </details>
+      <details>
+        <summary>What happens if a line is not valid JSON?</summary>
+        <div class="answer">That line is skipped and reported with its line number, and the rest of the file still converts. You will see a note above the preview telling you exactly which lines were skipped so you can go fix the source.</div>
+      </details>
+      <details>
+        <summary>How do I convert nested objects in JSONL?</summary>
+        <div class="answer">Nested objects are flattened into columns named <code>parent__child</code> by default — for example <code>props.device</code> becomes <code>props__device</code>. You can change the separator in settings, or switch to the flatten strategy to widen arrays of objects too.</div>
+      </details>
+      <details>
+        <summary>What is the maximum file size?</summary>
+        <div class="answer">There is no hard limit. Because conversion happens in your browser, the practical limit is the memory available to your tab (typically 200 MB to 2 GB). For files over 100 MB, use Chrome or Edge on a 64-bit system and close other tabs.</div>
+      </details>
+      <details>
+        <summary>Can I filter records before converting?</summary>
+        <div class="answer">Yes. The filter box accepts a small jq-style expression, for example <code>select(.event == "purchase")</code> or <code>.props</code>. It runs entirely in your browser and updates the preview as you type.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Convert your JSONL now</h2>
+      <p>Free, fast, and private. No sign-up. Your log data never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Start Converting
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Settings modal -->
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="delimiter">Delimiter</label>
+        <select id="delimiter">
+          <option value="," selected>Comma — standard CSV</option>
+          <option value="&#9;">Tab — best for Excel paste</option>
+          <option value=";">Semicolon — common in EU locales</option>
+          <option value="|">Pipe — useful when data has commas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="nestedStrategy">Nested data</label>
+        <select id="nestedStrategy">
+          <option value="detail" selected>Header / detail (one row per array element)</option>
+          <option value="flatten">Flatten (nested keys joined: props__device)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="flattenSep">Nested key separator</label>
+        <input type="text" id="flattenSep" value="__" spellcheck="false" autocomplete="off" />
+      </div>    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var T = window.HopTools;
+  var F = window.HopFilter;
+
+  var settings = { delimiter: ',', strategy: 'detail', sep: '__', joinDelim: ' | ' };
+
+  function parseInput(text) {
+    var t = String(text).trim();
+    if (t === '') throw new Error('Paste some JSON Lines to convert.');
+
+    // A whole-document JSON array is accepted too.
+    if (t.charAt(0) === '[') {
+      try {
+        var whole = JSON.parse(t);
+        if (Array.isArray(whole)) return { records: whole, note: '' };
+      } catch (e) { /* not an array document — fall through to line mode */ }
+    }
+
+    var lines = t.split(/\r?\n/);
+    var records = [];
+    var bad = [];
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].trim();
+      if (line === '') continue;
+      try { records.push(JSON.parse(line)); }
+      catch (e) { bad.push(i + 1); }
+    }
+    if (!records.length) {
+      throw new Error('No valid JSON records found. Each line must contain one complete JSON object — that is what makes a JSON Lines / NDJSON file.');
+    }
+    var note = '';
+    if (bad.length) {
+      note = bad.length + ' unparseable line' + (bad.length > 1 ? 's were' : ' was') +
+        ' skipped (line' + (bad.length > 1 ? 's ' : ' ') + bad.slice(0, 6).join(', ') +
+        (bad.length > 6 ? ', …' : '') + ').';
+    }
+    return { records: records, note: note };
+  }
+
+  function applyFilter(records) {
+    var el = document.getElementById('filterInput');
+    if (!el) return { data: records, note: '' };
+    var expr = String(el.value || '').trim();
+    if (expr === '') return { data: records, note: '' };
+    var err = F.validate(expr);
+    if (err) return { data: records, note: 'Filter ignored — ' + err };
+    var out = F.apply(records, expr);
+    return { data: out, note: 'Filter <code>' + T.esc(expr) + '</code> matched ' + out.length + ' record(s).' };
+  }
+
+  function convert(text) {
+    var parsed = parseInput(text);
+    var filtered = applyFilter(parsed.records);
+    if (filtered.data.length === 0) {
+      throw new Error('The filter matched none of the ' + parsed.records.length + ' records.');
+    }
+    var res = T.collectRows(filtered.data, {
+      strategy: settings.strategy, sep: settings.sep, joinDelim: settings.joinDelim
+    });
+    var csv = T.toCsv(res.headers, res.rows, settings.delimiter);
+    var html = '';
+    if (parsed.note || filtered.note) {
+      html += '<div class="out-note">' + T.esc(parsed.note) + filtered.note + '</div>';
+    }
+    html += T.renderTable(res.headers, res.rows, 50);
+    return { html: html, text: csv, rows: res.rows.length, cols: res.headers.length };
+  }
+
+  var api = T.mount({
+    inputId: 'jsonlInput',
+    fileId: 'fileInput',
+    statusId: 'parseStatus',
+    sampleId: 'loadSample',
+    resetId: 'resetBtn',
+    downloadId: 'downloadBtn',
+    errorId: 'errorBox',
+    resultsId: 'results',
+    emptyId: 'resultsEmpty',
+    sample: "{\"id\":1,\"event\":\"page_view\",\"user\":\"alice\",\"ts\":\"2026-01-04T10:12:00Z\",\"props\":{\"device\":\"mobile\",\"os\":\"iOS\"}}\n{\"id\":2,\"event\":\"purchase\",\"user\":\"bob\",\"ts\":\"2026-01-04T10:13:41Z\",\"props\":{\"device\":\"desktop\",\"os\":\"Windows\",\"amount\":49.99}}\n{\"id\":3,\"event\":\"signup\",\"user\":\"carol\",\"ts\":\"2026-01-04T10:15:02Z\",\"props\":{\"device\":\"mobile\",\"os\":\"Android\",\"plan\":\"pro\"}}\n{\"id\":4,\"event\":\"purchase\",\"user\":\"dave\",\"ts\":\"2026-01-04T10:16:44Z\",\"props\":{\"device\":\"desktop\",\"os\":\"macOS\",\"amount\":129.5}}",
+    downloadName: 'converted.jsonl.csv',
+    downloadMime: 'text/csv;charset=utf-8',
+    convert: convert,
+    applySettings: function () {
+      var d = document.getElementById('delimiter');
+      var s = document.getElementById('nestedStrategy');
+      var f = document.getElementById('flattenSep');
+      if (d) settings.delimiter = d.value;
+      if (s) settings.strategy = s.value;
+      if (f) settings.sep = f.value || '__';
+    },
+    onSuccess: function (out) {
+      var rc = document.getElementById('rowCount');
+      var cc = document.getElementById('colCount');
+      var dl = document.getElementById('delimiterLabel');
+      if (rc) rc.textContent = out.rows;
+      if (cc) cc.textContent = out.cols;
+      if (dl) dl.textContent = settings.delimiter === '\t' ? 'Tab' : (settings.delimiter === ',' ? 'Comma' : (settings.delimiter === ';' ? 'Semicolon' : 'Pipe'));
+    }
+  });
+
+  var filterEl = document.getElementById('filterInput');
+  if (filterEl) {
+    filterEl.addEventListener('input', function () {
+      var input = document.getElementById('jsonlInput');
+      api.run(input ? input.value : '');
+    });
+  }
+  var filterClear = document.getElementById('filterClear');
+  if (filterClear) {
+    filterClear.addEventListener('click', function () {
+      if (filterEl) filterEl.value = '';
+      var input = document.getElementById('jsonlInput');
+      api.run(input ? input.value : '');
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>JSON to SQL Converter — Generate INSERT Statements Free | HopConvert</title>
+<meta name="description" content="Convert JSON to SQL INSERT statements online for free. Choose your table name, schema, and dialect. Nested data, nulls, and booleans handled. Runs in your browser." />
+<meta name="keywords" content="json to sql, json to sql insert, json to insert statement, convert json to sql, sql insert generator, postgres insert from json, mysql insert from json" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/json-to-sql.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="JSON to SQL Converter — Free Online Tool" />
+<meta property="og:description" content="Turn JSON into ready-to-run SQL INSERT statements. Pick your table, schema and dialect. Free, no sign-up, no upload." />
+<meta property="og:url" content="https://hopconvert.com/json-to-sql.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="JSON to SQL Converter — Free Online Tool" />
+<meta name="twitter:description" content="JSON to SQL INSERT statements in your browser. Table name, schema, dialect and column options." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/json-to-sql.html",
+    "featureList":  [
+                        "INSERT statement generation from JSON",
+                        "PostgreSQL / ANSI and MySQL dialects",
+                        "Configurable table name and schema",
+                        "Correct NULL, boolean and number literals",
+                        "Single or multi-row INSERT statements",
+                        "No file upload to server (privacy)"
+                    ],
+    "description":  "Free online JSON to SQL converter that generates INSERT statements with configurable table name, schema, dialect, and column lists.",
+    "@type":  "SoftwareApplication",
+    "applicationSubCategory":  "Data Conversion Tool",
+    "browserRequirements":  "Requires JavaScript. Requires HTML5.",
+    "@context":  "https://schema.org",
+    "name":  "HopConvert JSON to SQL",
+    "offers":  {
+                   "price":  "0",
+                   "priceCurrency":  "USD",
+                   "availability":  "https://schema.org/InStock",
+                   "@type":  "Offer"
+               },
+    "applicationCategory":  "UtilitiesApplication",
+    "operatingSystem":  "Any (Web Browser)"
+}
+</script>
+
+<!-- Schema.org: HowTo -->
+<script type="application/ld+json">
+{
+    "step":  [
+                 {
+                     "position":  1,
+                     "name":  "Paste or upload your JSON",
+                     "@type":  "HowToStep",
+                     "text":  "Drop a .json file into the upload zone or paste a JSON array of objects. The converter derives your column list from the union of all keys."
+                 },
+                 {
+                     "position":  2,
+                     "name":  "Configure the statement",
+                     "@type":  "HowToStep",
+                     "text":  "Open the settings cog to set the table name, an optional schema, the SQL dialect, and whether you want one INSERT per row or a multi-row INSERT."
+                 },
+                 {
+                     "position":  3,
+                     "name":  "Preview the SQL",
+                     "@type":  "HowToStep",
+                     "text":  "The generated statements appear immediately, with every string literal correctly quoted and every null rendered as NULL."
+                 },
+                 {
+                     "position":  4,
+                     "name":  "Download or copy",
+                     "@type":  "HowToStep",
+                     "text":  "Click Download .sql to save the script, or select the text in the preview and copy it straight into your query editor."
+                 }
+             ],
+    "tool":  [
+                 {
+                     "name":  "Web browser",
+                     "@type":  "HowToTool"
+                 },
+                 {
+                     "name":  "HopConvert (free, no sign-up)",
+                     "@type":  "HowToTool"
+                 }
+             ],
+    "@type":  "HowTo",
+    "name":  "How to Convert JSON to SQL Online",
+    "description":  "Turn a JSON array of records into SQL INSERT statements you can run in Postgres, MySQL, SQLite or any SQL database.",
+    "totalTime":  "PT1M",
+    "@context":  "https://schema.org",
+    "estimatedCost":  {
+                          "currency":  "USD",
+                          "value":  "0",
+                          "@type":  "MonetaryAmount"
+                      }
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A JSON to SQL converter transforms a JSON array of records into SQL INSERT statements you can execute against Postgres, MySQL, SQLite, SQL Server, or DuckDB. It derives the column list from the keys in your JSON and formats every value as the correct SQL literal.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is a JSON to SQL converter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The JSON to SQL converter is 100% free with no sign-up, no watermark, and no premium tier. Everything runs in your browser, so there are no server costs to pass on.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is HopConvert free to use?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. No account, no email, no personal information. Open the page, paste your JSON, set your table name, and copy the SQL.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Do I need an account?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. The SQL is generated locally in your browser using JavaScript. JSON payloads often contain personal data or production credentials, so this matters — and you can verify it live with the \"Verify: nothing uploaded\" button on the page.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is my data uploaded to a server?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "PostgreSQL and ANSI SQL (double-quoted identifiers, standard literal escaping) and MySQL (backtick identifiers, backslash escaping). You can also turn identifier quoting off entirely for migration tools that prefer bare names.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Which SQL dialects are supported?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "JSON null becomes SQL NULL, booleans become TRUE and FALSE, and numbers are written unquoted so numeric columns accept them. This is the part hand-written SQL most often gets wrong.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How does it handle null and booleans?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes — that is the default, because a single batched statement is far faster than thousands of individual inserts. You can switch to one statement per row in settings if your migration tooling prefers it.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I generate a multi-row INSERT?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Open the settings cog and type the table name, plus an optional schema. The generated statements use them directly, so you can produce \u003ccode\u003eINSERT INTO \"public\".\"users\"\u003c/code\u003e or \u003ccode\u003eINSERT INTO `analytics`.`events`\u003c/code\u003e depending on the dialect.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How do I set the table name and schema?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Nested objects are flattened into column names joined by \u003ccode\u003e__\u003c/code\u003e, so \u003ccode\u003e{\"user\": {\"name\": \"Alice\"}}\u003c/code\u003e becomes the column \u003ccode\u003euser__name\u003c/code\u003e. Nested arrays and objects are serialised as JSON text in a single column.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What happens to nested objects?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "The SQL is generated from your data, but it is still code. Wrap the import in a transaction, test it against a copy of your data first, and check the generated column list against your schema before running it.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is the generated SQL safe to run?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/json-to-sql.html",
+    "datePublished":  "2026-11-08",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-08",
+    "@context":  "https://schema.org",
+    "name":  "JSON to SQL Converter — Free Online Tool",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/json-to-sql.html#webpage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/json-to-sql.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/json-to-sql.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "JSON to SQL Converter",
+                                "item":  "https://hopconvert.com/json-to-sql.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html" class="current">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero + Converter -->
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Instant &middot; Free &middot; No sign-up
+    </span>
+    <h1>JSON to SQL Converter — <span class="accent">made simple</span></h1>
+    <p class="lede">Paste JSON, get ready-to-run SQL INSERT statements. Set your table name, pick a dialect, and the generated SQL matches your database — all generated locally in your browser.</p>
+
+    <div class="converter" role="region" aria-label="JSON to SQL converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter &mdash; Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a1.65 1.65 0 0 1 0-2.83 1.65 1.65 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a1.65 1.65 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop a JSON file</strong>
+          <small>or click to browse · .json</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".json,application/json" />
+        </label>
+        <div class="paste-zone">
+          <label for="sqlInput" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste JSON</label>
+          <textarea id="sqlInput" placeholder="…or paste JSON — an array of objects works best" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+      <div class="filter-row">
+        <label for="filterInput">Filter</label>
+        <input type="text" id="filterInput" placeholder="select(.status == "paid")" spellcheck="false" autocomplete="off" aria-describedby="filterHint" />
+        <span class="filter-hint" id="filterHint">jq-style: <code>.field</code> <code>.[]</code> <code>select(.f == "x")</code></span>
+        <button type="button" class="filter-clear" id="filterClear">Clear</button>
+      </div>
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your SQL statements will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><span><strong id="rowCount">0</strong> rows</span></span>
+          <span><span><strong id="colCount">0</strong> columns</span></span>
+          <span><span><strong id="delimiterLabel">SQL</strong> output</span></span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="resetBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download .sql
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust" aria-label="Why trust HopConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- What is it -->
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">The basics</span>
+    <h2>What is a JSON to SQL converter?</h2>
+    <p>A <strong>JSON to SQL converter</strong> turns structured JSON data into <strong>SQL <code>INSERT</code> statements</strong> — the exact commands you need to load that data into a relational database. Most teams hit this constantly: an API returns JSON, a webhook fires with a JSON payload, a backfill script reads a JSON export, and the target is Postgres, MySQL, SQLite, SQL Server, or DuckDB.</p>
+    <p>Writing those statements by hand is slow and error-prone. One forgotten quote around a value containing an apostrophe and your import fails halfway, leaving the table half-populated. The value types are just as easy to get wrong: a JSON <code>null</code> must become SQL <code>NULL</code>, not the string <code>"null"</code>; a boolean must become <code>TRUE</code>/<code>FALSE</code>; a number must not be quoted if the column is numeric.</p>
+    <p>HopConvert handles all of that. It reads the union of keys across your records to build the column list, quotes identifiers according to your dialect (double quotes for PostgreSQL and ANSI SQL, backticks for MySQL), escapes string literals correctly, renders <code>null</code> and booleans as proper SQL keywords, and formats numbers as bare numeric literals. You set the table name and schema once and the statements are ready to paste into psql, MySQL Workbench, or a migration file.</p>
+    <p>Everything runs in your browser, so nothing is uploaded. That matters more here than for other converters: JSON payloads often contain personal data, internal identifiers, or credentials pulled from a production environment.</p>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- How to convert -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>How to convert JSON to SQL in 4 steps</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Most conversions take under a minute. No login, no upload to a server, no installation.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste or upload</h3>
+        <p>Drop a <code>.json</code> file into the upload zone or paste a JSON array of objects into the box. A single object works too — it becomes a one-row insert.</p>
+      </li>
+      <li class="step">
+        <h3>Set up the statement</h3>
+        <p>Open the settings cog to set the table name, an optional schema, the dialect (PostgreSQL/ANSI or MySQL), and whether to emit one <code>INSERT</code> per row or a single multi-row <code>INSERT</code>.</p>
+      </li>
+      <li class="step">
+        <h3>Preview</h3>
+        <p>The generated SQL appears instantly. Check the column list and the literal formatting before you run it anywhere near a real database.</p>
+      </li>
+      <li class="step">
+        <h3>Download or copy</h3>
+        <p>Click <strong>Download .sql</strong> to save the script, or select the preview text and copy it straight into your query editor.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Features -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why HopConvert</span>
+      <h2>Built for the JSON your API actually returns</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Real payloads are nested, sparse, and full of nulls. HopConvert produces SQL you can run without hand-fixing.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3>Dialect-aware quoting</h3>
+        <p>PostgreSQL and ANSI SQL use double-quoted identifiers; MySQL uses backticks. String literals are escaped per dialect, so apostrophes in O'Brien-style names are handled correctly.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Correct literals, every time</h3>
+        <p>JSON <code>null</code> becomes <code>NULL</code>, booleans become <code>TRUE</code>/<code>FALSE</code>, and numbers are emitted unquoted so numeric columns accept them.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Union of all columns</h3>
+        <p>Records with different keys still produce one consistent column list, with missing values written as <code>NULL</code>.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Browser-only privacy</h3>
+        <p>API payloads often contain personal data or internal identifiers. Everything is generated locally in JavaScript — nothing is transmitted or stored.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Multi-row or per-row inserts</h3>
+        <p>A single batched <code>INSERT</code> is dramatically faster than thousands of individual statements. Pick whichever your migration tool prefers.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>jq-style filtering</h3>
+        <p>Load only the rows you need with <code>select(.status == "paid")</code> before the SQL is generated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Comparison</span>
+      <h2>Generated SQL vs hand-written SQL</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">The difference shows up the moment a value contains a quote, a null, or a boolean.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Hand-written</th>
+            <th>HopConvert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Apostrophes in values</td>
+            <td>Easy to get wrong — breaks the statement</td>
+            <td><span class="yes">Escaped automatically</span></td>
+          </tr>
+          <tr>
+            <td>JSON null vs "null"</td>
+            <td>Often confused</td>
+            <td><span class="yes">Rendered as SQL NULL</span></td>
+          </tr>
+          <tr>
+            <td>Booleans</td>
+            <td>0/1 or TRUE/FALSE, inconsistent</td>
+            <td><span class="yes">TRUE / FALSE</span></td>
+          </tr>
+          <tr>
+            <td>Missing keys across records</td>
+            <td>Column list gets out of sync</td>
+            <td><span class="yes">Union of all keys</span></td>
+          </tr>
+          <tr>
+            <td>Table and schema name</td>
+            <td>Repeatedly retyped</td>
+            <td><span class="yes">Set once in settings</span></td>
+          </tr>
+          <tr>
+            <td>Dialect differences</td>
+            <td>Easy to miss</td>
+            <td><span class="yes">ANSI or MySQL quoting</span></td>
+          </tr>
+          <tr>
+            <td>Time to first statement</td>
+            <td>Minutes for a big payload</td>
+            <td><span class="yes">Instant</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Use cases -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Use cases</span>
+      <h2>When teams reach for JSON to SQL</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Anywhere JSON needs to land in a relational database, this is the shortest path.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <h3>Seeding a local database</h3>
+        <p>Pull a fixture from an API or a repository and turn it into INSERT statements so a new developer has realistic data in seconds.</p>
+      </div>
+      <div class="case">
+        <h3>Webhook payload replay</h3>
+        <p>Capture the JSON body a partner sent, convert it to SQL, and replay it into a staging table to reproduce a bug.</p>
+      </div>
+      <div class="case">
+        <h3>Backfilling a column</h3>
+        <p>Export a JSON snapshot of one field, generate a bulk UPDATE-friendly set of rows, and patch historical records.</p>
+      </div>
+      <div class="case">
+        <h3>Data migration scripts</h3>
+        <p>Turn a JSON export from a legacy system into a checked-in .sql migration file your team can review before it runs.</p>
+      </div>
+      <div class="case">
+        <h3>Analytics table loads</h3>
+        <p>Convert an API export to INSERT statements and bulk-load it into Postgres, MySQL, DuckDB, or SQLite for analysis.</p>
+      </div>
+      <div class="case">
+        <h3>Test fixtures</h3>
+        <p>Generate deterministic INSERT statements for integration tests instead of hand-maintaining a seed file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>JSON to SQL: the complete guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything about turning JSON into SQL INSERT statements — types, quoting, dialects, and the mistakes that break an import.</p>
+      <p style="margin-top: 10px;">
+        <a href="json-to-sql-guide.html" class="btn btn-secondary">
+          Read the full JSON to SQL guide
+        </a>
+      </p>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--ink-700);">
+        Related tools: <a href="json-to-csv-guide.html">JSON to CSV guide</a> &middot; <a href="json-to-excel.html">JSON to Excel</a>
+      </p>
+    </div>
+
+    <div class="container-narrow">
+      <div class="guide-toc">
+        <strong>Jump to section</strong>
+        <a href="#g-why">Why convert</a>
+        <a href="#g-types">Type mapping</a>
+        <a href="#g-quoting">Identifier quoting</a>
+        <a href="#g-literals">String literals</a>
+        <a href="#g-columns">Column list</a>
+        <a href="#g-bulk">Bulk inserts</a>
+        <a href="#g-edges">Edge cases</a>
+        <a href="#g-safety">Running it safely</a>
+      </div>
+
+      <div class="content-block">
+        <h3 id="g-why">Why convert JSON to SQL?</h3>
+        <p>JSON is the default format for everything that talks over HTTP. SQL is the default format for everything that stores relations. Almost every system you work with has to move data between the two — and the conversion is where data quietly gets corrupted.</p>
+        <p>The usual sources are:</p>
+        <ul>
+          <li><strong>API responses into a local database</strong> — for exploration, for a demo, or for a fixture file.</li>
+          <li><strong>Webhook payloads into a queue table</strong> — so you can inspect what a partner actually sent.</li>
+          <li><strong>Legacy exports into a new system</strong> — the old system exports JSON, the new system wants rows.</li>
+          <li><strong>Third-party datasets</strong> — a vendor sends a JSON file, your warehouse wants a bulk load.</li>
+        </ul>
+
+        <h3 id="g-types">How do JSON types map to SQL types?</h3>
+        <p>The mapping is mostly obvious, and mostly where imports break.</p>
+        <div class="compare">
+          <table>
+            <thead><tr><th>JSON</th><th>SQL literal</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>string</code></td><td><code>'value'</code></td><td>Always quoted; internal quotes doubled</td></tr>
+              <tr><td><code>number</code></td><td><code>42</code></td><td>Emitted unquoted so numeric columns accept it</td></tr>
+              <tr><td><code>true</code> / <code>false</code></td><td><code>TRUE</code> / <code>FALSE</code></td><td>Standard SQL keywords</td></tr>
+              <tr><td><code>null</code></td><td><code>NULL</code></td><td>Not the string <code>'null'</code></td></tr>
+              <tr><td><code>object</code></td><td><code>'{...}'</code></td><td>Serialised as JSON text</td></tr>
+              <tr><td><code>array</code></td><td><code>'[...]'</code></td><td>Serialised as JSON text</td></tr>
+              <tr><td>missing key</td><td><code>NULL</code></td><td>When records have different keys</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The single most common bug in hand-written SQL is rendering a JSON <code>null</code> as the quoted string <code>'null'</code>. Your column then contains the four characters <code>null</code> instead of SQL <code>NULL</code>, and every <code>WHERE x IS NULL</code> query silently returns nothing.</p>
+
+        <h3 id="g-quoting">How are identifiers quoted?</h3>
+        <p>SQL identifiers — table names, column names, schema names — have to be quoted differently depending on the database:</p>
+        <ul>
+          <li><strong>PostgreSQL, SQLite, SQL Server, Oracle, ANSI SQL:</strong> double quotes, <code>"users"</code>. This is the SQL standard and the default in HopConvert.</li>
+          <li><strong>MySQL and MariaDB:</strong> backticks, <code>`users</code>. MySQL also accepts double quotes by default, but only in <code>ANSI_QUOTES</code> mode — switching to MySQL quoting avoids ambiguity.</li>
+          <li><strong>No quoting:</strong> also offered, for databases and migration tools that prefer bare identifiers.</li>
+        </ul>
+        <p>Quoting matters for two reasons. First, reserved words — <code>order</code>, <code>group</code>, <code>user</code>, <code>select</code> — are common as column names, and an unquoted reserved word is a syntax error. Second, mixed-case identifiers are folded to lower case by some databases but not others, so quoting is what keeps your column names exactly as you defined them.</p>
+
+        <h3 id="g-literals">How are string literals escaped?</h3>
+        <p>A string literal in SQL is wrapped in single quotes, and any single quote inside it is written twice:</p>
+<pre><code>'O''Brien'
+</code></pre>
+        <p>That is the ANSI rule and it is what HopConvert emits for PostgreSQL and SQLite. MySQL additionally interprets backslash sequences inside string literals, so a literal backslash must be doubled and control characters must be escaped:</p>
+<pre><code>'C:\\path\\to\\file'
+'line one\nline two'
+</code></pre>
+        <p>HopConvert handles that automatically when the MySQL dialect is selected. Getting this wrong is the classic cause of "syntax error at or near" errors in the middle of an import.</p>
+
+        <h3 id="g-columns">How is the column list decided?</h3>
+        <p>The converter reads every record and builds the column list from the <strong>union of all keys</strong>, in order of first appearance. Records that lack a key get <code>NULL</code> for that column. This matches the way you would write the <code>CREATE TABLE</code> statement yourself, and it is what makes a sparse JSON array importable without hand-editing.</p>
+        <p>Nested objects are flattened into column names joined by <code>__</code> — <code>{"user": {"name": "Alice"}}</code> produces the column <code>user__name</code>. Match that to your schema, or rename the column in the database.</p>
+
+        <h3 id="g-bulk">Should I use one INSERT per row or a multi-row INSERT?</h3>
+        <p>Both are valid, and the difference is large in practice.</p>
+        <ul>
+          <li><strong>One INSERT per row:</strong> easy to read, easy to resume, and each statement is independent. But every statement is a round trip, so ten thousand rows means ten thousand round trips.</li>
+          <li><strong>A single multi-row INSERT:</strong> one statement, one round trip, dramatically faster for bulk loads. Postgres, MySQL, SQLite, and SQL Server all accept it.</li>
+        </ul>
+        <p>For a few dozen rows the difference is irrelevant. For a bulk load it is the difference between seconds and minutes. The multi-row form is the default in HopConvert for that reason.</p>
+        <p>Very large batches can also hit the maximum statement size in Postgres, so for really big payloads, generate chunks rather than one enormous statement.</p>
+
+        <h3 id="g-edges">Common edge cases</h3>
+        <ul>
+          <li><strong>Top-level object instead of an array:</strong> Treated as a single row.</li>
+          <li><strong>Top-level array of scalars:</strong> Converted to a single column named <code>value</code>.</li>
+          <li><strong>Nested arrays and objects:</strong> Serialised to JSON text and stored as a text column.</li>
+          <li><strong>Missing keys:</strong> Written as <code>NULL</code>.</li>
+          <li><strong>Numbers beyond JavaScript's safe integer range:</strong> JSON.parse loses precision on integers above 2^53-1. For 64-bit IDs, keep them as strings in the source JSON.</li>
+          <li><strong>Very long strings:</strong> Fine, subject to your database's column limit.</li>
+          <li><strong>Unicode and emoji:</strong> Written as UTF-8.</li>
+        </ul>
+
+        <h3 id="g-safety">Running the generated SQL safely</h3>
+        <p>A few habits make a JSON-to-SQL import far less painful:</p>
+        <ol>
+          <li><strong>Always wrap the whole thing in a transaction</strong> — <code>BEGIN;</code> before, <code>COMMIT;</code> after. If one row fails, nothing is half-applied.</li>
+          <li><strong>Test against a copy first.</strong> Run it on a snapshot, not production.</li>
+          <li><strong>Check the column list against your schema</strong> before running. The converter derives columns from the JSON, not from your table.</li>
+          <li><strong>Use <code>ON CONFLICT DO NOTHING</code></strong> (or <code>INSERT IGNORE</code>) if re-running a backfill.</li>
+          <li><strong>Mind the transaction log.</strong> A million-row insert in one transaction can be heavy; chunk it.</li>
+        </ol>
+        <p>And one more thing worth remembering: the generated SQL is generated from data you control, but it is still code. Read it before you run it against anything you care about.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Everything you need to know about converting JSON to SQL INSERT statements.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>What is a JSON to SQL converter?</summary>
+        <div class="answer">A JSON to SQL converter transforms a JSON array of records into SQL INSERT statements you can execute against Postgres, MySQL, SQLite, SQL Server, or DuckDB. It derives the column list from the keys in your JSON and formats every value as the correct SQL literal.</div>
+      </details>
+      <details>
+        <summary>Is HopConvert free to use?</summary>
+        <div class="answer">Yes. The JSON to SQL converter is 100% free with no sign-up, no watermark, and no premium tier. Everything runs in your browser, so there are no server costs to pass on.</div>
+      </details>
+      <details>
+        <summary>Do I need an account?</summary>
+        <div class="answer">No. No account, no email, no personal information. Open the page, paste your JSON, set your table name, and copy the SQL.</div>
+      </details>
+      <details>
+        <summary>Is my data uploaded to a server?</summary>
+        <div class="answer">No. The SQL is generated locally in your browser using JavaScript. JSON payloads often contain personal data or production credentials, so this matters — and you can verify it live with the "Verify: nothing uploaded" button on the page.</div>
+      </details>
+      <details>
+        <summary>Which SQL dialects are supported?</summary>
+        <div class="answer">PostgreSQL and ANSI SQL (double-quoted identifiers, standard literal escaping) and MySQL (backtick identifiers, backslash escaping). You can also turn identifier quoting off entirely for migration tools that prefer bare names.</div>
+      </details>
+      <details>
+        <summary>How does it handle null and booleans?</summary>
+        <div class="answer">JSON null becomes SQL NULL, booleans become TRUE and FALSE, and numbers are written unquoted so numeric columns accept them. This is the part hand-written SQL most often gets wrong.</div>
+      </details>
+      <details>
+        <summary>Can I generate a multi-row INSERT?</summary>
+        <div class="answer">Yes — that is the default, because a single batched statement is far faster than thousands of individual inserts. You can switch to one statement per row in settings if your migration tooling prefers it.</div>
+      </details>
+      <details>
+        <summary>How do I set the table name and schema?</summary>
+        <div class="answer">Open the settings cog and type the table name, plus an optional schema. The generated statements use them directly, so you can produce <code>INSERT INTO "public"."users"</code> or <code>INSERT INTO `analytics`.`events`</code> depending on the dialect.</div>
+      </details>
+      <details>
+        <summary>What happens to nested objects?</summary>
+        <div class="answer">Nested objects are flattened into column names joined by <code>__</code>, so <code>{"user": {"name": "Alice"}}</code> becomes the column <code>user__name</code>. Nested arrays and objects are serialised as JSON text in a single column.</div>
+      </details>
+      <details>
+        <summary>Is the generated SQL safe to run?</summary>
+        <div class="answer">The SQL is generated from your data, but it is still code. Wrap the import in a transaction, test it against a copy of your data first, and check the generated column list against your schema before running it.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Generate your SQL now</h2>
+      <p>Free, fast, and private. Your JSON never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Start Converting
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Settings modal -->
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="tableName">Table name</label>
+        <input type="text" id="tableName" value="users" spellcheck="false" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="schemaName">Schema (optional)</label>
+        <input type="text" id="schemaName" value="" placeholder="public" spellcheck="false" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="sqlDialect">SQL dialect</label>
+        <select id="sqlDialect">
+          <option value="ansi" selected>PostgreSQL / ANSI SQL — "quoted" identifiers</option>
+          <option value="mysql">MySQL / MariaDB — `backtick` identifiers</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="insertStyle">Statement style</label>
+        <select id="insertStyle">
+          <option value="multi" selected>One multi-row INSERT (fastest)</option>
+          <option value="single">One INSERT per row (easier to resume)</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="withColumns" checked />
+          <label for="withColumns">Include the column list in every statement</label>
+        </div>
+      </div>    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var T = window.HopTools;
+  var F = window.HopFilter;
+
+  var settings = {
+    table: 'users',
+    schema: '',
+    dialect: 'ansi',
+    style: 'multi',
+    withColumns: true
+  };
+
+  function parseInput(text) {
+    var t = String(text).trim();
+    if (t === '') throw new Error('Paste some JSON to convert.');
+    var data;
+    try { data = JSON.parse(t); }
+    catch (e) {
+      throw new Error('That is not valid JSON — ' + e.message);
+    }
+    return data;
+  }
+
+  function ident(name) {
+    if (settings.dialect === 'mysql') return '`' + String(name).replace(/`/g, '``') + '`';
+    return '"' + String(name).replace(/"/g, '""') + '"';
+  }
+
+  function stringLit(v) {
+    var s = String(v);
+    if (settings.dialect === 'mysql') {
+      s = s.replace(/\\/g, '\\\\').replace(/'/g, "''").replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/\t/g, '\\t');
+    } else {
+      s = s.replace(/'/g, "''");
+    }
+    return "'" + s + "'";
+  }
+
+  function literal(v) {
+    if (v === null || v === undefined) return 'NULL';
+    if (typeof v === 'number') return isFinite(v) ? String(v) : 'NULL';
+    if (typeof v === 'boolean') return v ? 'TRUE' : 'FALSE';
+    if (typeof v === 'object') return stringLit(JSON.stringify(v));
+    return stringLit(v);
+  }
+
+  function qualifiedTable() {
+    var name = settings.table || 'records';
+    if (settings.schema && settings.schema.trim() !== '') {
+      return ident(settings.schema.trim()) + '.' + ident(name);
+    }
+    return ident(name);
+  }
+
+  function applyFilter(data) {
+    var el = document.getElementById('filterInput');
+    if (!el) return { data: data, note: '' };
+    var expr = String(el.value || '').trim();
+    if (expr === '') return { data: data, note: '' };
+    var err = F.validate(expr);
+    if (err) return { data: data, note: 'Filter ignored — ' + err };
+    var out = F.apply(data, expr);
+    return { data: out, note: 'Filter <code>' + T.esc(expr) + '</code> matched ' + out.length + ' record(s).' };
+  }
+
+  function convert(text) {
+    var data = parseInput(text);
+    var filtered = applyFilter(data);
+    if (filtered.data.length === 0) {
+      throw new Error('The filter matched none of the records.');
+    }
+    var res = T.collectRows(filtered.data, { strategy: 'detail', sep: '__', joinDelim: ' | ' });
+    if (!res.headers.length) throw new Error('No columns could be derived from that JSON.');
+
+    var table = qualifiedTable();
+    var colList = settings.withColumns
+      ? ' (' + res.headers.map(ident).join(', ') + ')'
+      : '';
+
+    var lines = [];
+    lines.push('-- Generated by HopConvert — https://hopconvert.com/json-to-sql.html');
+    lines.push('-- ' + res.rows.length + ' row' + (res.rows.length === 1 ? '' : 's') + ', ' +
+      res.headers.length + ' column' + (res.headers.length === 1 ? '' : 's'));
+    lines.push('');
+
+    if (settings.style === 'multi') {
+      res.rows.forEach(function (r) {
+        var vals = res.headers.map(function (h) { return literal(r[h]); }).join(', ');
+        lines.push('INSERT INTO ' + table + colList + ' VALUES (' + vals + ');');
+      });
+    } else {
+      res.rows.forEach(function (r, i) {
+        var vals = res.headers.map(function (h) { return literal(r[h]); }).join(', ');
+        lines.push('INSERT INTO ' + table + colList + ' VALUES');
+        lines.push('  (' + vals + ')' + (i === res.rows.length - 1 ? ';' : ','));
+      });
+    }
+
+    var sql = lines.join('\n') + '\n';
+    var html = '';
+    if (filtered.note) html += '<div class="out-note">' + filtered.note + '</div>';
+    html += T.renderPre(sql, 'sql-out');
+    return { html: html, text: sql, rows: res.rows.length, cols: res.headers.length };
+  }
+
+  var api = T.mount({
+    inputId: 'sqlInput',
+    fileId: 'fileInput',
+    statusId: 'parseStatus',
+    sampleId: 'loadSample',
+    resetId: 'resetBtn',
+    downloadId: 'downloadBtn',
+    errorId: 'errorBox',
+    resultsId: 'results',
+    emptyId: 'resultsEmpty',
+    sample: "[\n  { \"id\": 1, \"name\": \"Alice Chen\", \"email\": \"alice@example.com\", \"active\": true, \"balance\": 249.5 },\n  { \"id\": 2, \"name\": \"Bob Singh\", \"email\": \"bob@example.com\", \"active\": false, \"balance\": 0 },\n  { \"id\": 3, \"name\": \"Carol Díaz\", \"email\": \"carol@example.com\", \"active\": true, \"balance\": 1820.75 }\n]",
+    downloadName: 'converted.sql',
+    downloadMime: 'text/plain;charset=utf-8',
+    convert: convert,
+    applySettings: function () {
+      var t = document.getElementById('tableName');
+      var sc = document.getElementById('schemaName');
+      var d = document.getElementById('sqlDialect');
+      var st = document.getElementById('insertStyle');
+      var wc = document.getElementById('withColumns');
+      if (t) settings.table = t.value || 'records';
+      if (sc) settings.schema = sc.value || '';
+      if (d) settings.dialect = d.value;
+      if (st) settings.style = st.value;
+      if (wc) settings.withColumns = wc.checked;
+    },
+    onSuccess: function (out) {
+      var rc = document.getElementById('rowCount');
+      var cc = document.getElementById('colCount');
+      var dl = document.getElementById('delimiterLabel');
+      if (rc) rc.textContent = out.rows;
+      if (cc) cc.textContent = out.cols;
+      if (dl) dl.textContent = 'SQL';
+    }
+  });
+
+  var filterEl = document.getElementById('filterInput');
+  if (filterEl) {
+    filterEl.addEventListener('input', function () {
+      var input = document.getElementById('sqlInput');
+      api.run(input ? input.value : '');
+    });
+  }
+  var filterClear = document.getElementById('filterClear');
+  if (filterClear) {
+    filterClear.addEventListener('click', function () {
+      if (filterEl) filterEl.value = '';
+      var input = document.getElementById('sqlInput');
+      api.run(input ? input.value : '');
+    });
+  }
+})();
+</script>
+</body>
+</html>
