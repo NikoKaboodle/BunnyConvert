@@ -308,6 +308,7 @@
       </div>
 
       <div class="content-block">
+<!--email_off-->
         <h2 id="shape">What shape is the output?</h2>
         <p>A JSONL to CSV converter produces a standard CSV file: a single header row containing the union of keys found across every record, followed by one row per record. This is the shape that Excel, Google Sheets, pandas, and every database bulk loader expect, and it is why JSONL becomes immediately analysable once converted.</p>
         <p>Values are written as text with RFC 4180 quoting. A field containing a comma, a double quote, or a newline is wrapped in double quotes and inner quotes are doubled. Line endings are CRLF, which is what Windows tools expect and what every other parser tolerates.</p>
@@ -383,6 +384,7 @@ select(.amount &gt; 100)           keep only high-value orders
         <p>Conversion runs entirely in your browser, so the practical limit is your tab's available memory — typically 200 MB to 2 GB. On a modern laptop expect roughly 50 MB per second of throughput, which means a 100 MB log file converts in about two seconds.</p>
         <p>For genuinely large files, the fastest path is to filter at the source with <code>jq</code> first so only the records you need are pasted into the converter. Because nothing is uploaded, there is no request-size limit to work around and no queue to wait in.</p>
 
+<!--/email_off-->
       </div>
     </div>
   </div>

@@ -275,6 +275,7 @@
         <p>JSON (JavaScript Object Notation) is a lightweight text-based format for structured data, derived from JavaScript object syntax. It was popularised by Douglas Crockford in the early 2000s and standardised as <strong>RFC 8259</strong> in 2017. Today it is the lingua franca of web APIs, mobile apps, configuration files, and inter-service communication.</p>
         <p>A JSON document is built from two structures: a <em>collection of name/value pairs</em> (an object, written with curly braces) and an <em>ordered list of values</em> (an array, written with square brackets). Every value is one of: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>object</code>, or <code>array</code>. This minimalism is what makes JSON easy to parse in every programming language and human-readable enough to inspect with the naked eye.</p>
         <p>Example JSON object:</p>
+<!--email_off-->
 <pre><code>{
   "id": 42,
   "name": "Alice Chen",
@@ -284,15 +285,18 @@
   "active": true,
   "joined": 1672531200
 }</code></pre>
+<!--/email_off-->
         <p>The hierarchical nature of JSON — objects inside objects, arrays of objects, arrays of primitives — is what makes it powerful for representing real-world data, but it is also the main challenge when you want to put that data into a flat spreadsheet.</p>
 
         <h2 id="csv">What is CSV?</h2>
         <p>CSV (Comma-Separated Values) is the oldest and most widely supported tabular data format. It predates JSON by decades and is defined loosely — the closest thing to a formal spec is <strong>RFC 4180</strong> from 2005. A CSV file is plain text: one record per line, with each field separated by a delimiter (usually a comma, but tab, semicolon, and pipe are common).</p>
         <p>Example CSV:</p>
+<!--email_off-->
 <pre><code>id,name,email,active
 42,Alice Chen,alice@example.com,true
 43,Bob Singh,bob@example.com,false
 </code></pre>
+<!--/email_off-->
         <p>CSV's strengths are its simplicity and its universal compatibility. Every spreadsheet program (Excel, Google Sheets, Numbers, LibreOffice Calc), every database (Postgres, MySQL, SQLite, BigQuery, Snowflake), and every data tool (Pandas, R, Tableau, Power BI) can read CSV without additional libraries. The downside is that CSV cannot represent nested data, and the lack of a single formal spec means dialects vary — especially around quoting, escaping, and which characters are valid delimiters.</p>
         <p>The most common dialects you'll encounter:</p>
         <ul>

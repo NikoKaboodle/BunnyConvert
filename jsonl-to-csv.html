@@ -661,6 +661,7 @@
       </div>
 
       <div class="content-block">
+<!--email_off-->
         <h3 id="g-format">What exactly is JSON Lines?</h3>
         <p><strong>JSON Lines</strong> (also written <code>jsonl</code>, <code>ndjson</code>, or newline-delimited JSON) is a text format in which <strong>each line is one complete and independent JSON value</strong>. There is no enclosing array and no comma between records. The format was popularised by the creators of <a href="https://jsonlines.org/" rel="nofollow noopener">jsonlines.org</a> and is now used by Elasticsearch, MongoDB, CouchDB, BigQuery, and most modern log shippers.</p>
         <p>A minimal example:</p>
@@ -716,6 +717,7 @@
 <pre><code>select(.event == "purchase")</code></pre>
         <p>That filter keeps only purchase events. Combine it with a path such as <code>.props</code> to convert just the nested payload into columns.</p>
         <p>For very large files, remember that conversion happens in your browser — the practical ceiling is your tab's available memory. Close other tabs, use a 64-bit browser, and expect roughly 50 MB per second of throughput on a modern laptop.</p>
+<!--/email_off-->
       </div>
     </div>
   </div>

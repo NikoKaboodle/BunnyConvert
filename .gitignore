@@ -39,3 +39,5 @@ serve-local.ps1
 add-ads.ps1
 selftest.html
 _testout/
+verify-live.ps1
+fix-email-obfuscation.ps1

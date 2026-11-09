@@ -658,6 +658,7 @@
       </div>
 
       <div class="content-block">
+<!--email_off-->
         <h3 id="g-format">What is a .xlsx file, really?</h3>
         <p>An <code>.xlsx</code> workbook is a <strong>ZIP archive containing XML parts</strong>. When you unzip one, you find something like this:</p>
 <pre><code>[Content_Types].xml          describes what each part is
@@ -721,6 +722,7 @@ xl/worksheets/sheet1.xml     the actual cell data
           <li><strong>Sheet name restrictions:</strong> Excel forbids <code>\ / ? * [ ] :</code> and caps names at 31 characters. HopConvert sanitises the name for you.</li>
           <li><strong>Numbers beyond 2^53-1:</strong> JSON.parse loses precision on very large integers. Keep 64-bit IDs as strings in the source JSON.</li>
         </ul>
+<!--/email_off-->
       </div>
     </div>
   </div>
