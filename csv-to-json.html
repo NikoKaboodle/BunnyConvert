@@ -31,6 +31,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
 
 <!-- Schema.org: SoftwareApplication -->
@@ -74,6 +75,94 @@
 </script>
 
 <!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A CSV to JSON converter transforms tabular CSV data into a JSON array of objects. Each row becomes one object, with the header row supplying the keys. The result is a standard JSON document you can use in any web app, API, or NoSQL database.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is a CSV to JSON converter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The CSV to JSON converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don\u0027t pay for servers and we don\u0027t charge you.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is HopConvert free to use?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "By default yes — the first row of your CSV is treated as the field names. If your file does not have a header row, open settings and switch to \"auto-generate columns\" (col1, col2, col3…) or provide custom column names.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Does the first row need to be a header?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Comma, tab, semicolon, and pipe. The auto-detect option sniffs the first line of your file and picks the most likely delimiter. This works well for most spreadsheets and database exports.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Which delimiters are supported?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "RFC 4180 quoting is fully supported. Values wrapped in double quotes, embedded quotes escaped as two double quotes, and newlines inside quoted values all parse correctly. Numeric values are output as JSON numbers; everything else as JSON strings.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How are quoted values handled?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Pretty-printed (2-space indent, easy to read) or minified (single line, smallest file size). Pick pretty for human inspection and minified for production use or network transfer.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What output format options are there?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. Because conversion happens in your browser, the practical limit is your tab\u0027s available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I convert large CSV files?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No. All parsing and conversion happens client-side in JavaScript. Your CSV is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Does my data leave my browser?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The output is a standard JSON array of objects that any web framework, REST client, or NoSQL database can read. For MongoDB, the array can be imported directly with mongoimport.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I open the resulting JSON in an API or app?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "The converter uses the header row\u0027s column count as the authoritative source. Rows with fewer columns are padded with empty strings; rows with more columns have the extra values dropped (a warning is shown in the result panel).",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What if my CSV has different numbers of columns per row?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
 <!-- Schema.org: BreadcrumbList -->
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image" content="https://hopconvert.com/og/csv-to-json.png" />
@@ -136,12 +225,21 @@
         <div class="nav-dropdown-menu" role="menu">
           <div class="nav-dropdown-group">
             <h4>Converters</h4>
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
             <a href="index.html">JSON to CSV</a>
             <a href="csv-to-json.html" class="current">CSV to JSON</a>
             <a href="xml-to-csv.html">XML to CSV</a>
             <a href="json-to-yaml.html">JSON to YAML</a>
             <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
           </div>
+</div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
           <div class="nav-dropdown-group">
             <h4>Guides</h4>
             <a href="json-to-csv-guide.html">JSON to CSV guide</a>
@@ -149,7 +247,12 @@
             <a href="xml-to-csv-guide.html">XML to CSV guide</a>
             <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
             <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
           </div>
+</div>
         </div>
       </div>
       <a href="#faq">FAQ</a>
@@ -234,6 +337,18 @@
   <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
 </div>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
 <!-- What is CSV to JSON -->
 <section>
   <div class="container content-block">
@@ -254,6 +369,17 @@ Bob,Designer,London</code></pre>
 </section>
 
 <!-- How to convert -->
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section style="background: var(--ink-50);">
   <div class="container">
     <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
@@ -279,6 +405,17 @@ Bob,Designer,London</code></pre>
 </section>
 
 <!-- Features -->
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section>
   <div class="container">
     <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
@@ -384,6 +521,17 @@ Bob,Designer,London</code></pre>
 </section>
 
 <!-- Guide -->
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section id="guide">
   <div class="container">
     <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
@@ -475,6 +623,17 @@ Bob,Designer,London</code></pre>
 </section>
 
 <!-- FAQ -->
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section id="faq" style="background: var(--ink-50);">
   <div class="container-narrow">
     <div style="text-align:center; margin-bottom: 32px;">
@@ -560,21 +719,33 @@ Bob,Designer,London</code></pre>
       <div class="footer-col">
         <h4>Converters</h4>
         <ul>
+        <ul>
           <li><a href="index.html">JSON to CSV</a></li>
           <li><a href="csv-to-json.html">CSV to JSON</a></li>
           <li><a href="xml-to-csv.html">XML to CSV</a></li>
           <li><a href="json-to-yaml.html">JSON to YAML</a></li>
           <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Guides</h4>
+        <ul>
         <ul>
           <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
           <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
           <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
           <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
           <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
         </ul>
       </div>
       <div class="footer-col">

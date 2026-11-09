@@ -29,6 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
@@ -68,6 +69,95 @@
 </script>
 
 <meta property="og:locale" content="en_US" />
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A JSON to YAML converter takes a JSON document and produces an equivalent YAML file. JSON and YAML are designed to be interchangeable: both represent the same data structures with different syntax. YAML is preferred for configuration files because it\u0027s more human-readable and supports comments.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is a JSON to YAML converter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The JSON to YAML converter is 100% free with no sign-up required. There are no paid tiers, no feature gates, and no premium plans. Conversion runs in your browser so we don\u0027t pay for servers and we don\u0027t charge you.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is HopConvert free to use?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "YAML is the standard format for configuration files in modern infrastructure and deployment tools: Kubernetes manifests, Docker Compose files, Ansible playbooks, GitHub Actions workflows, GitLab CI pipelines, Prometheus alert rules, Helm charts, and many more. It\u0027s also used for data serialization and cross-language data exchange.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is YAML used for?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The converter produces YAML 1.2 output, which is the current standard. YAML 1.2 is a strict superset of JSON, so any valid JSON document is also valid YAML.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is YAML 1.2 supported?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "By default, keys are kept in the order they appear in your JSON document. Toggle \u0027Sort keys alphabetically\u0027 in settings to sort all object keys at every level. Sorting is useful for diff-friendly configs and version control.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How are keys sorted?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No — by default, the converter emits \u0027plain\u0027 strings without quotes whenever the value would otherwise be ambiguous (e.g., true, false, null, numbers, or strings containing special characters). YAML parsers read both quoted and unquoted strings. Toggle \u0027Quote all strings\u0027 in settings to force quotes everywhere.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Does the converter add quotes around strings?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. kubectl can output any resource as JSON; paste that into the converter and you\u0027ll get a clean YAML manifest ready to commit to a Git repo. The output uses 2-space indent, which is the Kubernetes convention.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I convert a Kubernetes manifest JSON to YAML?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "JSON doesn\u0027t have a true multi-line string type, but YAML\u0027s \u0027literal block\u0027 style (using |) is supported. Long strings with embedded newlines are emitted as block scalars; single-line strings stay on one line.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What about multi-line strings?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. All conversion happens in your browser using JavaScript. Your JSON is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is my JSON data private?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The output is a standard .yaml or .yml file. It opens in any text editor (VS Code, Sublime, Vim, Notepad++) and in any IDE with YAML support. Most editors will syntax-highlight the file automatically.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I open the YAML in my editor?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image" content="https://hopconvert.com/og/json-to-yaml.png" />
 <meta property="og:image:width" content="1200" />
@@ -129,12 +219,21 @@
         <div class="nav-dropdown-menu" role="menu">
           <div class="nav-dropdown-group">
             <h4>Converters</h4>
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
             <a href="index.html">JSON to CSV</a>
             <a href="csv-to-json.html">CSV to JSON</a>
             <a href="xml-to-csv.html">XML to CSV</a>
             <a href="json-to-yaml.html" class="current">JSON to YAML</a>
             <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
           </div>
+</div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
           <div class="nav-dropdown-group">
             <h4>Guides</h4>
             <a href="json-to-csv-guide.html">JSON to CSV guide</a>
@@ -142,7 +241,12 @@
             <a href="xml-to-csv-guide.html">XML to CSV guide</a>
             <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
             <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
           </div>
+</div>
         </div>
       </div>
       <a href="#faq">FAQ</a>
@@ -225,6 +329,18 @@
   <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
 </div>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
 <section>
   <div class="container content-block">
     <span class="section-eyebrow">The basics</span>
@@ -254,6 +370,17 @@ environment:
   </div>
 </section>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section style="background: var(--ink-50);">
   <div class="container">
     <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
@@ -278,6 +405,17 @@ environment:
   </div>
 </section>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section>
   <div class="container">
     <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
@@ -364,6 +502,17 @@ environment:
 </section>
 
 <!-- Guide -->
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section id="guide">
   <div class="container">
     <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
@@ -475,6 +624,17 @@ staging:
   </div>
 </section>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section id="faq" style="background: var(--ink-50);">
   <div class="container-narrow">
     <div style="text-align:center; margin-bottom: 32px;">
@@ -559,21 +719,33 @@ staging:
       <div class="footer-col">
         <h4>Converters</h4>
         <ul>
+        <ul>
           <li><a href="index.html">JSON to CSV</a></li>
           <li><a href="csv-to-json.html">CSV to JSON</a></li>
           <li><a href="xml-to-csv.html">XML to CSV</a></li>
           <li><a href="json-to-yaml.html">JSON to YAML</a></li>
           <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Guides</h4>
+        <ul>
         <ul>
           <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
           <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
           <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
           <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
           <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
         </ul>
       </div>
       <div class="footer-col">

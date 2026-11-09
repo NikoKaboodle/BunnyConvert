@@ -22,3 +22,20 @@ seo-fix.ps1
 seo-upgrade.ps1
 seo-schema.ps1
 seo-links.ps1
+
+# Page generator / wiring (build-time only)
+tmpl.ps1
+pages.ps1
+spec-jsonl.ps1
+spec-sql.ps1
+spec-mdxlsx.ps1
+spec-xlsx.ps1
+build-pages.ps1
+wire-pages.ps1
+gen-sitemap.ps1
+verify-site.ps1
+add-schema.ps1
+serve-local.ps1
+add-ads.ps1
+selftest.html
+_testout/

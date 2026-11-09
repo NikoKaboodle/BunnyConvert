@@ -29,6 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script src="nav.js" defer></script>
+<script src="hop-common.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
@@ -69,6 +70,95 @@
 </script>
 
 <meta property="og:locale" content="en_US" />
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "An XML to CSV converter parses a well-formed XML document and produces a CSV file where each repeating element becomes one row and each child element or attribute becomes a column. XML\u0027s hierarchy is flattened into a table that opens directly in Excel or Google Sheets.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What is an XML to CSV converter?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "The converter auto-detects the most common repeating direct child of the root element. For RSS feeds that\u0027s item, for SOAP responses it\u0027s the operation-specific element, for arbitrary XML it\u0027s whichever child element appears most often. You can override the choice in settings.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Which XML element becomes the row?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "By default, XML attributes are included as columns prefixed with @ (for example, @id, @type). You can toggle this off in settings if you\u0027d rather ignore attributes, or set the prefix to a different character.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How are attributes handled?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Nested child elements are flattened with a separator. For example, address/city becomes the column address__city. The separator is configurable in settings.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What about nested elements?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. RSS 2.0 and Atom 1.0 are both well-supported. The auto-detect logic identifies item and entry elements as the row source. Standard fields like title, link, pubDate, and description all become columns.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Does the converter work with RSS and Atom feeds?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. SOAP envelopes, REST API responses wrapped in XML, and arbitrary enterprise formats all parse correctly. The auto-detect logic finds the repeating element regardless of namespace prefix.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What about SOAP or API responses?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. All parsing happens in your browser using JavaScript. Your XML is never transmitted to a server. The page uses HTTPS and runs no third-party tracking scripts during conversion.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Is my XML data private?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "There is no hard size limit. The converter runs entirely in your browser, so the practical limit is your tab\u0027s available memory (typically 200 MB to 2 GB). For very large files we recommend Chrome or Edge with a 64-bit browser and closing other tabs.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What\u0027s the maximum file size?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. The output is a standard CSV file. Double-click to open in Excel, or drag it into a Google Sheets tab. If you used a non-comma delimiter, use Data \u003e From Text/CSV in Excel to pick the right one.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I open the CSV in Excel or Google Sheets?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "The default behaviour is to strip namespace prefixes for cleaner column names (so ns:title becomes \u0027title\u0027). Toggle \u0027preserve namespaces\u0027 in settings if you need the prefix included in column names.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Does the converter preserve XML namespaces?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image" content="https://hopconvert.com/og/xml-to-csv.png" />
 <meta property="og:image:width" content="1200" />
@@ -130,12 +220,21 @@
         <div class="nav-dropdown-menu" role="menu">
           <div class="nav-dropdown-group">
             <h4>Converters</h4>
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
             <a href="index.html">JSON to CSV</a>
             <a href="csv-to-json.html">CSV to JSON</a>
             <a href="xml-to-csv.html" class="current">XML to CSV</a>
             <a href="json-to-yaml.html">JSON to YAML</a>
             <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
           </div>
+</div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
           <div class="nav-dropdown-group">
             <h4>Guides</h4>
             <a href="json-to-csv-guide.html">JSON to CSV guide</a>
@@ -143,7 +242,12 @@
             <a href="xml-to-csv-guide.html">XML to CSV guide</a>
             <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
             <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
           </div>
+</div>
         </div>
       </div>
       <a href="#faq">FAQ</a>
@@ -227,6 +331,18 @@
   <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
 </div>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
 <section>
   <div class="container content-block">
     <span class="section-eyebrow">The basics</span>
@@ -237,6 +353,17 @@
   </div>
 </section>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section style="background: var(--ink-50);">
   <div class="container">
     <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
@@ -261,6 +388,17 @@
   </div>
 </section>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section>
   <div class="container">
     <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
@@ -346,6 +484,17 @@
 </section>
 
 <!-- Guide -->
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section id="guide">
   <div class="container">
     <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
@@ -441,6 +590,17 @@
   </div>
 </section>
 
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
 <section id="faq" style="background: var(--ink-50);">
   <div class="container-narrow">
     <div style="text-align:center; margin-bottom: 32px;">
@@ -525,21 +685,33 @@
       <div class="footer-col">
         <h4>Converters</h4>
         <ul>
+        <ul>
           <li><a href="index.html">JSON to CSV</a></li>
           <li><a href="csv-to-json.html">CSV to JSON</a></li>
           <li><a href="xml-to-csv.html">XML to CSV</a></li>
           <li><a href="json-to-yaml.html">JSON to YAML</a></li>
           <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Guides</h4>
+        <ul>
         <ul>
           <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
           <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
           <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
           <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
           <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
         </ul>
       </div>
       <div class="footer-col">
