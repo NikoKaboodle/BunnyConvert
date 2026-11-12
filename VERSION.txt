@@ -1,0 +1,13 @@
+hop-common.js cache version
+
+GitHub Pages serves .js with Cache-Control: max-age=14400 (4 hours).
+Every page loads the shared runtime as:
+
+  <script src="hop-common.js?v=20261112-2"></script>
+
+When hop-common.js changes, bump the version on all 20 pages in the same
+commit, otherwise visitors keep running the previous copy for up to four
+hours - which matters most for the privacy verifier, the one file whose
+logic decides whether the site claims your data stayed local.
+
+Current version: 20261112-2

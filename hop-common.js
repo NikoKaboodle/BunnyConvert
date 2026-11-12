@@ -200,6 +200,17 @@
         return !baseline[callKey(c)] && !baseline[pathKey(c.url)];
       });
 
+      // A second, independent signal. The Performance API sees every request
+      // the page makes, even one that went through a fetch() we no longer
+      // wrap. Ad delivery uses iframe, script and img requests, so a fetch
+      // that appeared only after your data arrived is ours to explain.
+      afterData.forEach(function (r) {
+        if (r.type !== 'fetch') return;
+        if (baseline[pathKey(r.url)]) return;
+        var already = urlLeaks.some(function (c) { return pathKey(c.url) === pathKey(r.url); });
+        if (!already) urlLeaks.push({ method: 'GET', url: r.url, body: false, at: r.start });
+      });
+
       var risky = uploads.concat(urlLeaks);
 
       return {
