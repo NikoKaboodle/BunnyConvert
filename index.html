@@ -34,7 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script src="nav.js" defer></script>
-<script src="hop-common.js?v=20261112-2"></script>
+<script src="hop-common.js?v=20261112-3"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
 
 <!-- Schema.org: SoftwareApplication -->
@@ -1329,8 +1329,14 @@
     } catch (e) {
       // Try as URL
       if (/^https?:\/\//i.test(text.trim())) {
+        var fetchUrl = text.trim();
         els.parseStatus.textContent = 'Fetching URL…';
-        fetch(text.trim())
+        // Tell the privacy verifier about this request. Ad scripts can replace
+        // window.fetch, so the verifier's own wrapper may never see it.
+        if (window.HopPrivacy && window.HopPrivacy.noteRequest) {
+          window.HopPrivacy.noteRequest('GET', fetchUrl);
+        }
+        fetch(fetchUrl)
           .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
           .then(t => { els.jsonInput.value = t; processInput(t); })
           .catch(e => { showError('Could not fetch URL: ' + e.message); els.parseStatus.textContent = 'Fetch failed'; });

@@ -61,6 +61,22 @@
       (global.performance.getEntriesByType('resource') || []).forEach(pushResource);
     } catch (e) { /* no Performance API — report will show zero resources */ }
 
+    // Record one request. The same request can be seen twice - once through
+    // our fetch wrapper and once when a page declares it explicitly - so
+    // near-identical entries collapse into one.
+    function pushCall(method, url, body) {
+      try {
+        var m = String(method || 'GET').toUpperCase();
+        var u = String(url || '');
+        var key = m + '|' + pathKey(u);
+        var t = now();
+        for (var i = calls.length - 1; i >= 0 && i >= calls.length - 4; i--) {
+          if (calls[i].key === key && (t - calls[i].at) < 2000) return;
+        }
+        calls.push({ method: m, url: u, body: !!body, at: t, key: key });
+      } catch (e) { /* never let instrumentation break the page */ }
+    }
+
     // PerformanceResourceTiming does not expose the HTTP method, so wrap
     // fetch() and XMLHttpRequest to record it. Your data can only be
     // transmitted by a request that is not a GET/HEAD, so the method is
@@ -73,7 +89,7 @@
           var method = (init && init.method) || (input && input.method) || 'GET';
           var hasBody = !!(init && init.body) ||
             (input && typeof input !== 'string' && input.body !== undefined && input.body !== null);
-          calls.push({ method: String(method).toUpperCase(), url: String(url), body: hasBody, at: now() });
+          pushCall(method, url, hasBody);
         } catch (e) { /* never let instrumentation break the page */ }
         return nativeFetch.apply(this, arguments);
       };
@@ -89,12 +105,7 @@
         return origOpen.apply(this, arguments);
       };
       proto.send = function (body) {
-        calls.push({
-          method: this.__hopMethod || 'GET',
-          url: this.__hopUrl || '',
-          body: body !== undefined && body !== null,
-          at: now()
-        });
+        pushCall(this.__hopMethod || 'GET', this.__hopUrl || '', body !== undefined && body !== null);
         return origSend.apply(this, arguments);
       };
     }
@@ -232,6 +243,11 @@
       report: report,
       onChange: onChange,
       markData: markData,
+      // Let a page declare a request it made. Ad scripts can replace
+      // window.fetch, so our own wrapper can miss a request altogether. A
+      // page that knows it fetched something can say so and be certain of
+      // being counted.
+      noteRequest: function (method, url) { pushCall(method, url, false); },
       get dataAt() { return dataAt; }
     };
   })();
