@@ -356,7 +356,7 @@
       </div>
       <div class="filter-row">
         <label for="filterInput">Filter</label>
-        <input type="text" id="filterInput" placeholder="select(.active == true)" spellcheck="false" autocomplete="off" aria-describedby="filterHint" />
+        <input type="text" id="filterInput" data-privacy-ignore placeholder="select(.active == true)" spellcheck="false" autocomplete="off" aria-describedby="filterHint" />
         <span class="filter-hint" id="filterHint">jq-style: <code>.field</code> <code>.[]</code> <code>select(.f == "x")</code></span>
         <button type="button" class="filter-clear" id="filterClear">Clear</button>
       </div>
@@ -1176,19 +1176,23 @@ xl/worksheets/sheet1.xml     the actual cell data
 
   function applyFilter(data) {
     var el = document.getElementById('filterInput');
-    if (!el) return { data: data, note: '' };
+    if (!el) return { data: data, note: '', filtered: false };
     var expr = String(el.value || '').trim();
-    if (expr === '') return { data: data, note: '' };
+    if (expr === '') return { data: data, note: '', filtered: false };
     var err = F.validate(expr);
-    if (err) return { data: data, note: 'Filter ignored — ' + err };
+    if (err) return { data: data, note: 'Filter ignored — ' + err, filtered: false };
     var out = F.apply(data, expr);
-    return { data: out, note: 'Filter <code>' + T.esc(expr) + '</code> matched ' + out.length + ' record(s).' };
+    return { data: out, note: 'Filter <code>' + T.esc(expr) + '</code> matched ' + out.length + ' record(s).', filtered: true };
   }
 
   function convert(text) {
     var data = parseInput(text);
     var filtered = applyFilter(data);
-    if (filtered.data.length === 0) throw new Error('The filter matched none of the records.');
+    if (filtered.data.length === 0) {
+      throw new Error(filtered.filtered
+        ? 'The filter matched none of the records.'
+        : 'That JSON array is empty — there are no records to convert.');
+    }
 
     var res = T.collectRows(filtered.data, { strategy: 'detail', sep: '__', joinDelim: ' | ' });
     if (!res.headers.length) throw new Error('No columns could be derived from that JSON.');

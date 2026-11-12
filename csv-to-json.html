@@ -866,7 +866,8 @@ Bob,Designer,London</code></pre>
 
   // ============ CSV PARSER ============
   function detectDelimiter(text) {
-    const firstLine = text.split(/\r?\n/)[0] || '';
+    // Skip blank leading lines, otherwise the first line carries no signal.
+    const firstLine = String(text || '').split(/\r?\n/).find(l => l.trim() !== '') || '';
     const candidates = [',', '\t', ';', '|'];
     let best = ',', bestCount = 0;
     for (const d of candidates) {
@@ -906,8 +907,13 @@ Bob,Designer,London</code></pre>
       }
     }
     if (cur !== '' || row.length > 0) { row.push(cur); rows.push(row); }
-    // Trim trailing empty rows
-    while (rows.length > 0 && rows[rows.length - 1].every(c => c === '')) rows.pop();
+    // Trim trailing empty rows - but only a genuinely empty final line.
+    // A row of empty fields (",") is real data and must be kept.
+    while (rows.length > 0) {
+      const last = rows[rows.length - 1];
+      if (last.length === 1 && last[0] === '') rows.pop();
+      else break;
+    }
     return rows;
   }
 
@@ -915,12 +921,19 @@ Bob,Designer,London</code></pre>
     if (s === '' || s == null) return null;
     const t = s.trim();
     if (t === '') return '';
-    if (/^-?\d+$/.test(t)) return parseInt(t, 10);
+    // Leading zeros mean an identifier (a ZIP code, a phone number, an ID),
+    // not a number - keep them as text.
+    if (/^-?0\d+/.test(t)) return s;
+    if (/^-?\d+$/.test(t)) {
+      const n = parseInt(t, 10);
+      // Integers JavaScript cannot represent exactly stay as text.
+      return Number.isSafeInteger(n) ? n : s;
+    }
     if (/^-?\d*\.\d+([eE][-+]?\d+)?$/.test(t) || /^-?\d+[eE][-+]?\d+$/.test(t)) return parseFloat(t);
     const tl = t.toLowerCase();
     if (tl === 'true' || tl === 'yes') return true;
     if (tl === 'false' || tl === 'no') return false;
-    if (tl === 'null' || tl === 'n/a') return null;
+    if (tl === 'null') return null;
     return s;
   }
 
@@ -929,24 +942,33 @@ Bob,Designer,London</code></pre>
     const rows = parseCsv(text, delimiter);
     if (rows.length === 0) return { json: '[]', records: 0, columns: 0, delimiter };
 
+    // Skip leading blank lines so that an empty first line does not become
+    // the header row.
+    let firstData = 0;
+    while (firstData < rows.length && rows[firstData].every(c => c === '')) firstData++;
+    if (firstData >= rows.length) return { json: '[]', records: 0, columns: 0, delimiter };
+    const body = rows.slice(firstData);
+
     let headers;
     let dataStart;
     if (opts.headerMode === 'auto') {
-      headers = rows[0].map(h => h);
+      headers = body[0].map(h => h);
       dataStart = 1;
     } else if (opts.headerMode === 'generate') {
-      headers = rows[0].map((_, i) => 'col' + (i + 1));
+      headers = body[0].map((_, i) => 'col' + (i + 1));
       dataStart = 0;
     } else {
-      headers = rows[0].map((_, i) => 'col' + (i + 1));
+      // "No header, use column numbers as keys" - the first row is data.
+      headers = body[0].map((_, i) => String(i + 1));
       dataStart = 0;
     }
 
     // Trim and lowercase if requested
     if (opts.trimKeys) headers = headers.map(h => h.trim().toLowerCase().replace(/\s+/g, '_'));
 
-    // Disambiguate duplicates
-    const seen = {};
+    // Disambiguate duplicates. Object.create(null) keeps inherited keys such
+    // as "constructor" from being mistaken for a duplicate.
+    const seen = Object.create(null);
     headers = headers.map(h => {
       if (!h) h = 'column';
       if (seen[h] == null) { seen[h] = 0; return h; }
@@ -954,11 +976,19 @@ Bob,Designer,London</code></pre>
       return h + '_' + seen[h];
     });
 
+    // A row can be wider than the header row. Widen the header set so those
+    // extra values are kept instead of being silently dropped.
+    let maxCols = headers.length;
+    for (let r = dataStart; r < body.length; r++) {
+      if (body[r].length > maxCols) maxCols = body[r].length;
+    }
+    for (let c = headers.length; c < maxCols; c++) headers.push('column_' + (c + 1));
+
     const records = [];
-    for (let r = dataStart; r < rows.length; r++) {
+    for (let r = dataStart; r < body.length; r++) {
       const obj = {};
       for (let c = 0; c < headers.length; c++) {
-        let v = rows[r][c] || '';
+        let v = body[r][c] || '';
         if (opts.inferTypes) v = inferValue(v);
         obj[headers[c]] = v;
       }

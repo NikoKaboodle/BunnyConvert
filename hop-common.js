@@ -103,10 +103,19 @@
     function isDataField(t) {
       if (!t || !t.closest) return false;
       if (!t.closest('.converter, [data-privacy-zone]')) return false;
+      // Controls explicitly marked as not carrying user data (the jq filter
+      // box, for example) must not trigger the "data entered" state.
+      if (t.closest('[data-privacy-ignore]')) return false;
       if (t.tagName === 'TEXTAREA') return true;
+      if (t.isContentEditable) return true;
       if (t.tagName === 'INPUT') {
         var ty = (t.type || 'text').toLowerCase();
-        return ty === 'text' || ty === 'file' || ty === 'search' || ty === 'url';
+        // Buttons and toggles never carry data. Everything else might —
+        // a number, email or date field can hold user data just as well as
+        // a text field, so we cannot whitelist by type.
+        if (ty === 'button' || ty === 'submit' || ty === 'reset' ||
+            ty === 'checkbox' || ty === 'radio' || ty === 'image') return false;
+        return true;
       }
       return false;
     }
@@ -137,21 +146,58 @@
     }, true);
 
     /* --- Build the audit report --- */
+    function urlParts(u) {
+      try {
+        var p = new URL(u, global.location.href);
+        return { origin: p.origin, path: p.pathname };
+      } catch (e) {
+        return { origin: String(u || ''), path: '' };
+      }
+    }
+
+    // A call is identified by method + origin + path. The path is used rather
+    // than the full URL so that a tracking parameter changing between two
+    // otherwise identical requests does not look like a brand new request.
+    function callKey(c) {
+      var p = urlParts(c.url);
+      return c.method + '|' + p.origin + '|' + p.path;
+    }
+
+    function pathKey(u) {
+      var p = urlParts(u);
+      return p.origin + '|' + p.path;
+    }
+
     function report() {
       var afterData = dataAt === null ? [] : resources.filter(function (r) { return r.start >= dataAt; });
       var callsAfter = dataAt === null ? [] : calls.filter(function (c) { return c.at >= dataAt; });
 
-      // A request that could carry your data: anything that is not GET/HEAD.
+      // Baseline: everything the page had already requested before any user
+      // data arrived. Only requests that are NEW after that point are ones we
+      // cannot vouch for — the page's own fonts, styles and ad frames are
+      // part of the baseline and stay harmless.
+      var baseline = Object.create(null);
+      if (dataAt !== null) {
+        calls.forEach(function (c) {
+          if (c.at < dataAt) baseline[callKey(c)] = 1;
+        });
+        resources.forEach(function (r) {
+          if (r.start < dataAt) baseline[pathKey(r.url)] = 1;
+        });
+      }
+
+      // A request that could carry your data: anything that is not GET/HEAD,
+      // or that sends a request body.
       var uploads = callsAfter.filter(function (c) {
-        return c.method !== 'GET' && c.method !== 'HEAD';
+        return (c.method !== 'GET' && c.method !== 'HEAD') || c.body;
       });
 
-      // A GET whose URL carries a long query string could also embed data.
+      // A GET or HEAD can still carry data in the URL — for example when you
+      // paste a URL for the page to fetch. Only requests the page had already
+      // made before your data arrived are treated as safe.
       var urlLeaks = callsAfter.filter(function (c) {
-        try {
-          var u = new URL(c.url, global.location.href);
-          return (u.search || '').length > 120;
-        } catch (e) { return false; }
+        if (c.method !== 'GET' && c.method !== 'HEAD') return false;
+        return !baseline[callKey(c)] && !baseline[pathKey(c.url)];
       });
 
       var risky = uploads.concat(urlLeaks);
@@ -287,6 +333,12 @@
         if (om) {
           path = body.slice(0, found.at).trim();
           value = body.slice(found.at + om.length).trim();
+          // An unterminated string would compare against the stray quote and
+          // silently match nothing. Fail loudly instead.
+          var q = value.charAt(0);
+          if ((q === '"' || q === "'") && (value.length < 2 || value.charAt(value.length - 1) !== q)) {
+            throw new Error('Unterminated string in select(...)');
+          }
         } else {
           path = body;
         }
@@ -412,6 +464,15 @@
           if (!/\)\s*$/.test(st)) return 'Unclosed parentheses in select(...)';
           var body = st.replace(/^\s*select\s*\(/i, '').replace(/\)\s*$/, '');
           if (!body.trim()) return 'select(...) needs a condition, e.g. select(.status == "ok")';
+          // An unterminated string must be reported, not silently ignored.
+          var found = findOperator(body);
+          if (found.op) {
+            var lit = body.slice(found.at + found.op.length).trim();
+            var q = lit.charAt(0);
+            if ((q === '"' || q === "'") && (lit.length < 2 || lit.charAt(lit.length - 1) !== q)) {
+              return 'Unterminated string in select(...)';
+            }
+          }
         } else if (!/^[\s.[\]A-Za-z0-9_\-"']*$/.test(st)) {
           return 'Unsupported character in "' + st + '"';
         }
@@ -463,14 +524,14 @@
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15.5 9.5"/></svg>' +
           '<div><strong>Your data never left this browser.</strong>' +
           '<p>' + (rep.dataEntered
-            ? 'Since you pasted your data, this page made <strong>0 requests that could carry it</strong>. Everything below happened before your data existed on the page.'
+            ? 'Since you pasted your data, this page made <strong>0 requests that could carry it</strong>. Every request listed below is one the page made on its own — fonts, styles, scripts and ad frames.'
             : 'No request on this page can carry your data. Paste or upload something, then re-check to see the live count.') +
           '</p></div></div>'
       : '<div class="pv-verdict pv-warn">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>' +
           '<div><strong>Something on this page sent a request after your data arrived.</strong>' +
-          '<p>' + rep.uploads.length + ' non-GET request(s) and ' + rep.urlLeaks.length +
-          ' request(s) with a long URL were made after your data entered the page. They are listed below — none are HopConvert converters.</p></div></div>';
+          '<p>' + rep.uploads.length + ' upload request(s) and ' + rep.urlLeaks.length +
+          ' new request(s) were made after your data entered the page. They are listed below — none are HopConvert converters.</p></div></div>';
 
     var stats =
       '<div class="pv-stats">' +
@@ -710,7 +771,13 @@
         var merged = {};
         for (var x in base) merged[x] = base[x];
         if (child && typeof child === 'object') {
-          for (var y in child) merged[y] = child[y];
+          for (var y in child) {
+            // A child field must never silently replace the parent's field of
+            // the same name — that would lose the parent value. Keep both by
+            // qualifying the child's key with the array it came from.
+            var key = Object.prototype.hasOwnProperty.call(merged, y) ? arrKey + sep + y : y;
+            merged[key] = child[y];
+          }
         } else {
           merged[arrKey] = child;
         }

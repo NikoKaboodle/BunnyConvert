@@ -1059,7 +1059,12 @@
       } else if (Array.isArray(value)) {
         out[newKey] = formatArrayValue(value, strategy, joiner);
       } else if (typeof value === 'object') {
-        Object.assign(out, flattenObject(value, newKey, strategy, sep, joiner, depth + 1));
+        if (strategy === 'concatenate') {
+          // Concatenate keeps a nested object whole in a single cell.
+          out[newKey] = JSON.stringify(value);
+        } else {
+          Object.assign(out, flattenObject(value, newKey, strategy, sep, joiner, depth + 1));
+        }
       } else {
         out[newKey] = formatScalar(value);
       }
@@ -1116,6 +1121,93 @@
     return str;
   }
 
+  function isPlainObject(v) {
+    return !!v && typeof v === 'object' && !Array.isArray(v);
+  }
+
+  // Expand a record into one row per element of its first array-of-objects
+  // field. Parent fields are repeated on every row.
+  function expandDetail(item, strategy, sep, joiner, out, depth) {
+    let arrKey = null;
+    for (const key of Object.keys(item)) {
+      const v = item[key];
+      if (Array.isArray(v) && v.length && v.every(x => isPlainObject(x))) { arrKey = key; break; }
+    }
+    if (arrKey === null || depth > 5) {
+      out.push(flattenObject(item, '', strategy, sep, joiner));
+      return;
+    }
+    const base = {};
+    for (const key of Object.keys(item)) if (key !== arrKey) base[key] = item[key];
+    const parentFlat = flattenObject(base, '', strategy, sep, joiner);
+    for (const child of item[arrKey]) {
+      const childFlat = isPlainObject(child)
+        ? flattenObject(child, '', strategy, sep, joiner)
+        : { [arrKey]: formatScalar(child) };
+      const merged = Object.assign({}, parentFlat);
+      for (const y of Object.keys(childFlat)) {
+        // A child field must never silently replace the parent field of the
+        // same name - the parent value would be lost. Keep both.
+        const key = Object.prototype.hasOwnProperty.call(merged, y) ? arrKey + sep + y : y;
+        merged[key] = childFlat[y];
+      }
+      expandDetail(merged, strategy, sep, joiner, out, depth + 1);
+    }
+  }
+
+  // One row per combination of the array fields (Cartesian product).
+  function expandMatrix(item, strategy, sep, joiner, out, depth) {
+    const arrayKeys = Object.keys(item).filter(k => Array.isArray(item[k]) && item[k].length);
+    if (!arrayKeys.length || depth > 5) {
+      out.push(flattenObject(item, '', strategy, sep, joiner));
+      return;
+    }
+    let combos = [[]];
+    for (const key of arrayKeys) {
+      const next = [];
+      for (const combo of combos) {
+        for (const value of item[key]) next.push(combo.concat([{ key: key, value: value }]));
+      }
+      combos = next;
+      if (combos.length > 5000) break;
+    }
+    if (combos.length > 5000) {
+      // Too many combinations to expand - keep every value in one cell
+      // instead, so that nothing is lost.
+      out.push(flattenObject(item, '', 'flatten', sep, joiner));
+      return;
+    }
+    for (const combo of combos) {
+      const row = {};
+      for (const k of Object.keys(item)) if (!Array.isArray(item[k])) row[k] = item[k];
+      for (const pick of combo) {
+        if (isPlainObject(pick.value)) {
+          const childFlat = flattenObject(pick.value, '', strategy, sep, joiner);
+          for (const y of Object.keys(childFlat)) {
+            const key = Object.prototype.hasOwnProperty.call(row, y) ? pick.key + sep + y : y;
+            row[key] = childFlat[y];
+          }
+        } else {
+          row[pick.key] = formatScalar(pick.value);
+        }
+      }
+      out.push(flattenObject(row, '', strategy, sep, joiner));
+    }
+  }
+
+  // Turn the parsed JSON into flat output rows according to the strategy.
+  function buildRows(data, strategy, sep, joiner) {
+    const out = [];
+    for (const item of data) {
+      if (item === null || item === undefined) { out.push({ value: '' }); continue; }
+      if (!isPlainObject(item)) { out.push({ value: formatScalar(item) }); continue; }
+      if (strategy === 'detail') expandDetail(item, strategy, sep, joiner, out, 0);
+      else if (strategy === 'matrix') expandMatrix(item, strategy, sep, joiner, out, 0);
+      else out.push(flattenObject(item, '', strategy, sep, joiner));
+    }
+    return out;
+  }
+
   function jsonToCsv(input, opts) {
     opts = opts || {};
     const delimiter = opts.delimiter || ',';
@@ -1127,8 +1219,8 @@
     if (opts.convertEpoch) data = walkConvertEpoch(data);
     if (!Array.isArray(data)) data = [data];
 
-    // Flatten every record
-    const flatRows = data.map(item => flattenObject(item, '', strategy, sep, joiner));
+    // Flatten every record according to the "Nested data" strategy.
+    const flatRows = buildRows(data, strategy, sep, joiner);
 
     // Collect all column keys (in first-seen order, or smart)
     const keySet = new Set();
@@ -1152,6 +1244,15 @@
     return { csv: lines.join('\n'), headers, rowCount: flatRows.length, colCount: headers.length };
   }
 
+  // Split a CSV into rows, honouring quoted fields so that a value
+  // containing a newline stays inside its own cell.
+  function parseCsvRows(csv) {
+    if (window.HopTools && typeof window.HopTools.parseDelimited === 'function') {
+      return window.HopTools.parseDelimited(csv, state.delimiter);
+    }
+    return csv.split('\n').map(line => parseCsvLine(line, state.delimiter));
+  }
+
   // ============ RENDER ============
   function renderPreview(csv, headers, rowCount) {
     if (rowCount === 0) {
@@ -1161,14 +1262,14 @@
       els.colCount.textContent = '0';
       return;
     }
-    const lines = csv.split('\n');
-    const previewRows = lines.slice(0, 51); // header + 50 rows
+    const allRows = parseCsvRows(csv);
+    // Header + 50 rows, plus one extra slot for the "more rows" notice.
+    const previewRows = allRows.slice(0, 52);
     const thead = '<thead><tr>' + headers.map(h => '<th>' + escapeHtml(h) + '</th>').join('') + '</tr></thead>';
-    const tbody = '<tbody>' + previewRows.slice(1).map((line, i) => {
-      if (i === 50 && lines.length > 51) {
-        return '<tr><td colspan="' + headers.length + '" style="text-align:center; color: var(--ink-500); font-style: italic;">… ' + (lines.length - 51) + ' more rows</td></tr>';
+    const tbody = '<tbody>' + previewRows.slice(1).map((cells, i) => {
+      if (i === 50) {
+        return '<tr><td colspan="' + headers.length + '" style="text-align:center; color: var(--ink-500); font-style: italic;">… ' + (allRows.length - 51) + ' more rows</td></tr>';
       }
-      const cells = parseCsvLine(line, state.delimiter);
       return '<tr>' + headers.map((_, j) => '<td>' + escapeHtml(cells[j] || '') + '</td>').join('') + '</tr>';
     }).join('') + '</tbody>';
     els.results.innerHTML = '<table>' + thead + tbody + '</table>';
@@ -1213,6 +1314,8 @@
   // ============ HANDLERS ============
   function processInput(text) {
     clearError();
+    // A UTF-8 BOM is not valid JSON and would otherwise break the parse.
+    text = String(text || '').replace(/^\uFEFF/, '');
     if (!text || !text.trim()) {
       state.lastCsv = '';
       renderPreview('', [], 0);

@@ -979,7 +979,8 @@ staging:
 
   function jsonToYaml(text, opts) {
     let parsed;
-    try { parsed = JSON.parse(text); }
+    // A UTF-8 BOM is not valid JSON and would otherwise break the parse.
+    try { parsed = JSON.parse(String(text).replace(/^\uFEFF/, '')); }
     catch (e) { throw new Error('JSON parse error: ' + e.message); }
     if (opts.sortKeys) opts.preserveOrder = false;
     return dumpValue(parsed, 0, opts);
@@ -1030,7 +1031,8 @@ staging:
       state.lastYaml = yaml;
       renderPreview(yaml);
       let parsed;
-      try { parsed = JSON.parse(text); } catch (e) {}
+      // A UTF-8 BOM is not valid JSON and would otherwise break the parse.
+    try { parsed = JSON.parse(String(text).replace(/^\uFEFF/, '')); } catch (e) {}
       const k = parsed ? countKeys(parsed) : 0;
       els.rowCount.textContent = k.toLocaleString();
       els.parseStatus.textContent = 'Converted ' + k + ' key' + (k === 1 ? '' : 's');

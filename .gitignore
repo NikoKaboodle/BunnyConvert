@@ -44,3 +44,11 @@ fix-email-obfuscation.ps1
 _commitmsg.txt
 _server.log
 _server.err
+
+# Local test harnesses and one-shot patch scripts (not part of the site)
+adversarial.html
+regress.html
+patch-index.ps1
+patch-rest.ps1
+patch-csv2.ps1
+patch-filter-ignore.ps1
