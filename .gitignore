@@ -51,4 +51,5 @@ regress.html
 patch-index.ps1
 patch-rest.ps1
 patch-csv2.ps1
+patch-cache.ps1
 patch-filter-ignore.ps1
