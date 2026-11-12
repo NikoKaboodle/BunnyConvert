@@ -138,9 +138,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   padding: 20px;
-  min-width: 480px;
+  min-width: 700px;
   display: none;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   z-index: 200;
 }
@@ -431,15 +431,41 @@ section .lede { color: var(--ink-700); font-size: 1.05rem; max-width: 640px; mar
 }
 .guide-toc a:hover { background: var(--blue-600); color: var(--white); border-color: var(--blue-600); text-decoration: none; }
 
-/* Ad slots */
+/* Ad slots
+   Every ad container reserves space before the ad loads, so a late-filling
+   ad can never push the page content down (cumulative layout shift). One
+   rule per slot type.
+
+   The reservation uses min-height, not height: the ad network sets
+   "height: auto !important" on the container while it measures and fills
+   the slot, which would cancel a fixed height but leaves min-height in
+   force. The reserved box is therefore always there, and it grows only if
+   the network genuinely serves a taller unit. */
 .ad-slot {
   margin: 28px auto;
   max-width: 100%;
   text-align: center;
-  min-height: 100px;
   display: block;
 }
 .ad-slot ins.adsbygoogle { display: block; }
+
+/* Slot type 1 - wide horizontal strip, used directly under the trust strip.
+   The container is capped at 728px so the unit stays a leaderboard
+   (728x90 on desktop, 320x50 on mobile), which fits the reserved box. */
+.ad-slot--banner {
+  max-width: 728px;
+  min-height: 100px;
+}
+.ad-slot--banner ins.adsbygoogle { min-height: 100px; }
+
+/* Slot type 2 - in-content rectangle between content blocks.
+   Column width keeps the unit in the 250-280px band (336x280 desktop,
+   300x250 mobile), which fits the reserved height. */
+.ad-slot--rect {
+  max-width: 336px;
+  min-height: 280px;
+}
+.ad-slot--rect ins.adsbygoogle { min-height: 280px; }
 
 /* FAQ */
 .faq { display: flex; flex-direction: column; gap: 10px; }
@@ -481,7 +507,7 @@ section .lede { color: var(--ink-700); font-size: 1.05rem; max-width: 640px; mar
   background: var(--ink-900); color: var(--ink-300);
   padding: 48px 0 24px; margin-top: 64px;
 }
-.footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 32px; margin-bottom: 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 32px; margin-bottom: 32px; }
 @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 .footer-col h4 { color: var(--white); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; }
@@ -608,3 +634,12 @@ section .lede { color: var(--ink-700); font-size: 1.05rem; max-width: 640px; mar
 }
 .code-block code { color: inherit; }
 .code-caption { font-size: 0.8rem; color: var(--ink-500); margin: -8px 0 16px; }
+
+/* Worked example: input and output side by side */
+.example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+@media (max-width: 820px) { .example-grid { grid-template-columns: 1fr; } }
+.example-grid .code-block { margin: 0; }
+.code-label {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-500); margin: 0 0 8px;
+}

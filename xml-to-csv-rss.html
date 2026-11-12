@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>XML to CSV for RSS - Turn a Feed Into a Spreadsheet | HopConvert</title>
+<meta name="description" content="Convert an RSS or Atom feed to CSV. See the Python snippet for both formats, work through a real feed example, and use the free browser converter to do it instantly." />
+<meta name="keywords" content="xml to csv rss, rss to csv, atom feed to csv, convert rss feed to spreadsheet, xml to csv feed" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/xml-to-csv-rss.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="XML to CSV for RSS" />
+<meta property="og:description" content="Turn any RSS or Atom feed into a CSV table - with the Python snippet for both formats." />
+<meta property="og:url" content="https://hopconvert.com/xml-to-csv-rss.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="XML to CSV for RSS" />
+<meta name="twitter:description" content="Turn any RSS or Atom feed into a CSV table - with the Python snippet for both formats." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=20261112-4" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js?v=20261112-3"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/xml-to-csv-rss.html",
+    "featureList":  [
+                        "Free - no sign-up",
+                        "RSS 2.0 and Atom",
+                        "Reads namespaces correctly",
+                        "Every item becomes a row",
+                        "No upload of the feed"
+                    ],
+    "description":  "Convert an RSS or Atom feed to a CSV table for free, in your browser.",
+    "@type":  "SoftwareApplication",
+    "applicationSubCategory":  "Data Conversion Tool",
+    "browserRequirements":  "Requires JavaScript. Requires HTML5.",
+    "@context":  "https://schema.org",
+    "name":  "XML to CSV for RSS Converter",
+    "offers":  {
+                   "price":  "0",
+                   "priceCurrency":  "USD",
+                   "availability":  "https://schema.org/InStock",
+                   "@type":  "Offer"
+               },
+    "applicationCategory":  "UtilitiesApplication",
+    "operatingSystem":  "Any (Web Browser)"
+}
+</script>
+
+<!-- Schema.org: HowTo -->
+<script type="application/ld+json">
+{
+    "step":  [
+                 {
+                     "position":  1,
+                     "name":  "Find the item element",
+                     "@type":  "HowToStep",
+                     "text":  "RSS 2.0 uses channel/item. Atom uses entry. The converter detects both."
+                 },
+                 {
+                     "position":  2,
+                     "name":  "Pick the fields",
+                     "@type":  "HowToStep",
+                     "text":  "A title, a link and a date cover most uses; add description or category if you need them."
+                 },
+                 {
+                     "position":  3,
+                     "name":  "Write one row per item",
+                     "@type":  "HowToStep",
+                     "text":  "Each item becomes one row, in the order the feed lists them."
+                 },
+                 {
+                     "position":  4,
+                     "name":  "Save the CSV",
+                     "@type":  "HowToStep",
+                     "text":  "Open it in a spreadsheet, import it into your analytics tool, or load it into a database."
+                 }
+             ],
+    "tool":  [
+                 {
+                     "name":  "Web browser",
+                     "@type":  "HowToTool"
+                 },
+                 {
+                     "name":  "HopConvert (free, no sign-up)",
+                     "@type":  "HowToTool"
+                 }
+             ],
+    "@type":  "HowTo",
+    "name":  "How to convert an RSS feed to CSV",
+    "description":  "Read an RSS or Atom feed and write one row per item.",
+    "totalTime":  "PT1M",
+    "@context":  "https://schema.org",
+    "estimatedCost":  {
+                          "currency":  "USD",
+                          "value":  "0",
+                          "@type":  "MonetaryAmount"
+                      }
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Parse the XML, take the item or entry elements, and write one row per item. The converter above does it in the browser; the Python snippet reads the file directly. Either way the result is one row per feed entry.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How do I turn an RSS feed into a CSV?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Atom uses \u003ccode\u003e\u0026lt;feed\u0026gt;\u0026lt;entry\u0026gt;\u003c/code\u003e instead of \u003ccode\u003e\u0026lt;channel\u0026gt;\u0026lt;item\u0026gt;\u003c/code\u003e, and every element sits in the \u003ccode\u003ehttp://www.w3.org/2005/Atom\u003c/code\u003e namespace. The converter detects both, and the Python snippet shows how to read either one.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What about Atom feeds?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Register the namespace prefix before parsing, or use a prefix map in the element lookup. ElementTree will otherwise report elements as \u003ccode\u003ens0:entry\u003c/code\u003e with the namespace turned into a generated prefix - which still works, but is unreadable.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How do I handle namespaces?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. A sitemap is a plain \u003ccode\u003e\u0026lt;urlset\u0026gt;\u003c/code\u003e of \u003ccode\u003e\u0026lt;url\u0026gt;\u003c/code\u003e elements, so the same converter flattens it into a list of pages with their locations and dates.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Can I convert a sitemap the same way?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Title, link and published date cover most uses. Add the description if you want the summaries, and category or author if you want to group the items. The converter flattens whatever the feed carries, so you can see exactly what is there before you decide.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Which feed fields are worth keeping?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/xml-to-csv-rss.html",
+    "datePublished":  "2026-11-12",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-12",
+    "@context":  "https://schema.org",
+    "name":  "XML to CSV for RSS",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/xml-to-csv-rss.html#webpage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/xml-to-csv-rss.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/xml-to-csv-rss.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "Tools",
+                                "item":  "https://hopconvert.com/#tools",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  3,
+                                "name":  "XML to CSV for RSS",
+                                "item":  "https://hopconvert.com/xml-to-csv-rss.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>By task</h4>
+            <a href="json-to-csv-python.html">JSON to CSV in Python</a>
+            <a href="json-array-to-csv.html">JSON array to CSV</a>
+            <a href="json-to-csv-nested-objects.html">JSON to CSV nested objects</a>
+            <a href="json-to-csv-without-uploading.html">JSON to CSV without uploading</a>
+            <a href="json-to-csv-excel.html">JSON to CSV for Excel</a>
+            <a href="yaml-to-json-kubernetes.html">YAML to JSON for Kubernetes</a>
+            <a href="xml-to-csv-rss.html" class="current">XML to CSV for RSS</a>
+            <a href="csv-to-json-type-inference.html">CSV to JSON type inference</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero + the live converter -->
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Free tool &middot; RSS &amp; Atom &middot; No upload
+    </span>
+    <h1>XML to CSV for RSS</h1>
+    <p class="lede">A feed is a list of items in XML. Turn it into rows you can sort, filter and chart - with the Python that reads both RSS 2.0 and Atom.</p>
+
+<div class="converter" role="region" aria-label="XML to CSV converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter — Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop an XML file</strong>
+          <small>or click to browse · .xml / .rss / .atom</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".xml,.rss,.atom,text/xml,application/xml,application/rss+xml,application/atom+xml" />
+        </label>
+        <div class="paste-zone">
+          <label for="xmlInput" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste XML</label>
+          <textarea id="xmlInput" placeholder="…or paste XML text" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your CSV preview will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><strong id="rowCount">0</strong> rows</span>
+          <span><strong id="colCount">0</strong> columns</span>
+          <span><strong id="rowElementLabel">Auto</strong> row element</span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="resetBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CSV
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust" aria-label="Why trust HopConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<div class="ad-slot ad-slot--banner" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="horizontal"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- The code -->
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">Do it in code</span>
+    <h2>Reading a feed in Python</h2>
+<p>A feed is XML with a fixed shape, so the standard library is enough. The awkward part is that RSS and Atom use different element names and Atom puts everything in a namespace - the code below handles both.</p>
+    <pre class="code-block"><code>import csv
+import xml.etree.ElementTree as ET
+
+ATOM = {"a": "http://www.w3.org/2005/Atom"}
+RSS = {"c": "http://purl.org/rss/1.0/modules/content/"}
+
+
+def parse_feed(path):
+    root = ET.parse(path).getroot()
+
+    # Atom: &lt;feed&gt;&lt;entry&gt; ... &lt;/entry&gt;&lt;/feed&gt;
+    entries = root.findall("a:entry", ATOM)
+    if entries:
+        for entry in entries:
+            link = entry.find("a:link", ATOM)
+            yield {
+                "title": entry.findtext("a:title", "", ATOM),
+                "link": link.get("href", "") if link is not None else "",
+                "published": entry.findtext("a:published", "", ATOM),
+                "summary": entry.findtext("a:summary", "", ATOM),
+            }
+        return
+
+    # RSS 2.0: &lt;rss&gt;&lt;channel&gt;&lt;item&gt; ... &lt;/item&gt;&lt;/channel&gt;&lt;/rss&gt;
+    for item in root.iter("item"):
+        yield {
+            "title": item.findtext("title", ""),
+            "link": item.findtext("link", ""),
+            "published": item.findtext("pubDate", ""),
+            "summary": item.findtext("description", ""),
+        }
+
+
+with open("feed.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.DictWriter(f, fieldnames=["title", "link", "published", "summary"])
+    writer.writeheader()
+    writer.writerows(parse_feed("feed.xml"))</code></pre>
+    <p class="code-caption">One script that reads both Atom and RSS 2.0</p>
+<p>Atom puts every element in the <code>http://www.w3.org/2005/Atom</code> namespace, which is why the element names come through as <code>a:entry</code> in ElementTree. RSS 2.0 has no namespace at all, so it is just <code>item</code>.</p><p>Two details are easy to get wrong: the Atom link is an <em>attribute</em> (<code>href</code>), not text, and there is often more than one link element - a self link, an alternate link - so pick the one whose <code>rel</code> is <code>alternate</code>. The converter above picks the first link it finds.</p>
+  </div>
+</section>
+
+<div class="ad-slot ad-slot--rect" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="rectangle"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Worked example -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 680px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Worked example</span>
+      <h2>A worked example</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">A three-item Atom feed and the table it becomes.</p>
+    </div>
+    <div class="example-grid">
+      <div>
+        <p class="code-label">feed.xml</p>
+        <pre class="code-block"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
+  &lt;title&gt;HopConvert news&lt;/title&gt;
+  &lt;entry&gt;
+    &lt;title&gt;New: YAML to JSON for Kubernetes&lt;/title&gt;
+    &lt;link href="https://hopconvert.com/yaml-to-json-kubernetes.html"/&gt;
+    &lt;published&gt;2026-11-12T09:00:00Z&lt;/published&gt;
+    &lt;summary&gt;Convert manifests to JSON in one click.&lt;/summary&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;title&gt;JSON to CSV without uploading&lt;/title&gt;
+    &lt;link href="https://hopconvert.com/json-to-csv-without-uploading.html"/&gt;
+    &lt;published&gt;2026-11-10T09:00:00Z&lt;/published&gt;
+    &lt;summary&gt;Keep the payload on your own machine.&lt;/summary&gt;
+  &lt;/entry&gt;
+&lt;/feed&gt;</code></pre>
+      </div>
+      <div>
+        <p class="code-label">feed.csv</p>
+        <pre class="code-block"><code>title,link,link__@href,published,summary
+New: YAML to JSON for Kubernetes,,https://hopconvert.com/yaml-to-json-kubernetes.html,2026-11-12T09:00:00Z,Convert manifests to JSON in one click.
+JSON to CSV without uploading,,https://hopconvert.com/json-to-csv-without-uploading.html,2026-11-10T09:00:00Z,Keep the payload on your own machine.</code></pre>
+      </div>
+    </div>
+<p style="color: var(--ink-700); margin-top: 24px;">One row per entry, in feed order. The URL lands in the <code>link__@href</code> column, because an Atom link carries its address in an attribute rather than in text - the converter keeps the attributes of leaf elements and prefixes them with <code>@</code>. The <code>link</code> column is therefore empty.</p>
+  </div>
+</section>
+
+<!-- Step by step -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>Convert a feed in the browser</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Paste a feed, or the XML of a page that contains one.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste the feed XML</h3>
+        <p>The whole <feed> or <rss> document. The converter detects RSS and Atom on its own.</p>
+      </li>
+      <li class="step">
+        <h3>Check the preview</h3>
+        <p>The table shows the flattened elements, so you can see which fields the feed actually carries.</p>
+      </li>
+      <li class="step">
+        <h3>Adjust the delimiter if needed</h3>
+        <p>Tab for pasting into a spreadsheet, comma for a standard .csv file.</p>
+      </li>
+      <li class="step">
+        <h3>Download</h3>
+        <p>Save the feed as CSV and use it however you like - a spreadsheet, a newsletter draft, a database import.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="ad-slot ad-slot--rect" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="rectangle"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Why this page -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why HopConvert</span>
+      <h2>Feeds are messy, so the parser handles the mess</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Real feeds have CDATA, entities, namespaces and missing fields. These are the ones that matter.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>RSS and Atom both</h3>
+        <p></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3>CDATA is unwrapped</h3>
+        <p></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>A row per item</h3>
+        <p></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>The feed is not uploaded</h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>The full XML to CSV guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Attributes versus elements, namespaces, CDATA and the other things that trip a naive XML-to-table conversion.</p>
+      <p style="margin-top: 10px;">
+        <a href="xml-to-csv-guide.html" class="btn btn-secondary">
+          Read the XML to CSV guide
+        </a>
+      </p>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--ink-700);">
+        Related tools: <a href="xml-to-csv.html">XML to CSV converter</a> &middot; <a href="csv-to-json.html">CSV to JSON converter</a> &middot; <a href="index.html">JSON to CSV</a> &middot; <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Feed formats, namespaces and the fields worth keeping.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>How do I turn an RSS feed into a CSV?</summary>
+        <div class="answer">Parse the XML, take the item or entry elements, and write one row per item. The converter above does it in the browser; the Python snippet reads the file directly. Either way the result is one row per feed entry.</div>
+      </details>
+      <details>
+        <summary>What about Atom feeds?</summary>
+        <div class="answer">Atom uses <code>&lt;feed&gt;&lt;entry&gt;</code> instead of <code>&lt;channel&gt;&lt;item&gt;</code>, and every element sits in the <code>http://www.w3.org/2005/Atom</code> namespace. The converter detects both, and the Python snippet shows how to read either one.</div>
+      </details>
+      <details>
+        <summary>How do I handle namespaces?</summary>
+        <div class="answer">Register the namespace prefix before parsing, or use a prefix map in the element lookup. ElementTree will otherwise report elements as <code>ns0:entry</code> with the namespace turned into a generated prefix - which still works, but is unreadable.</div>
+      </details>
+      <details>
+        <summary>Can I convert a sitemap the same way?</summary>
+        <div class="answer">Yes. A sitemap is a plain <code>&lt;urlset&gt;</code> of <code>&lt;url&gt;</code> elements, so the same converter flattens it into a list of pages with their locations and dates.</div>
+      </details>
+      <details>
+        <summary>Which feed fields are worth keeping?</summary>
+        <div class="answer">Title, link and published date cover most uses. Add the description if you want the summaries, and category or author if you want to group the items. The converter flattens whatever the feed carries, so you can see exactly what is there before you decide.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Turn the feed into a spreadsheet</h2>
+      <p>Paste the XML, download the CSV. Free, instant, and the feed never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Convert the feed
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>By task</h4>
+        <ul>
+          <li><a href="json-to-csv-python.html">JSON to CSV in Python</a></li>
+          <li><a href="json-array-to-csv.html">JSON array to CSV</a></li>
+          <li><a href="json-to-csv-nested-objects.html">JSON to CSV nested objects</a></li>
+          <li><a href="json-to-csv-without-uploading.html">JSON to CSV without uploading</a></li>
+          <li><a href="json-to-csv-excel.html">JSON to CSV for Excel</a></li>
+          <li><a href="yaml-to-json-kubernetes.html">YAML to JSON for Kubernetes</a></li>
+          <li><a href="xml-to-csv-rss.html">XML to CSV for RSS</a></li>
+          <li><a href="csv-to-json-type-inference.html">CSV to JSON type inference</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="rowElement">Row element</label>
+        <input type="text" id="rowElement" placeholder="auto-detect" />
+      </div>
+      <div class="field">
+        <label for="delimiter">Delimiter</label>
+        <select id="delimiter">
+          <option value="," selected>Comma — standard CSV</option>
+          <option value="\t">Tab — best for Excel paste</option>
+          <option value=";">Semicolon — common in EU locales</option>
+          <option value="|">Pipe — useful when data has commas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="nestedSep">Nested element separator</label>
+        <input type="text" id="nestedSep" value="__" maxlength="3" />
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="includeAttrs" checked />
+          <label for="includeAttrs">Include attributes (prefixed with @)</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="stripNs" checked />
+          <label for="stripNs">Strip namespace prefixes</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+(function() {
+  'use strict';
+
+  const state = {
+    rowElement: '',
+    delimiter: ',',
+    nestedSep: '__',
+    includeAttrs: true,
+    stripNs: true,
+    lastCsv: '',
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    xmlInput: $('xmlInput'),
+    fileInput: $('fileInput'),
+    uploadZone: $('uploadZone'),
+    parseStatus: $('parseStatus'),
+    loadSample: $('loadSample'),
+    results: $('results'),
+    errorBox: $('errorBox'),
+    rowCount: $('rowCount'),
+    colCount: $('colCount'),
+    rowElementLabel: $('rowElementLabel'),
+    downloadBtn: $('downloadBtn'),
+    resetBtn: $('resetBtn'),
+    settingsBtn: $('settingsBtn'),
+    settingsModal: $('settingsModal'),
+    closeSettings: $('closeSettings'),
+    closeSettingsFoot: $('closeSettingsFoot'),
+    applySettings: $('applySettings'),
+    rowElement: $('rowElement'),
+    delimiter: $('delimiter'),
+    nestedSep: $('nestedSep'),
+    includeAttrs: $('includeAttrs'),
+    stripNs: $('stripNs'),
+  };
+
+  const SAMPLE = '<?xml version="1.0" encoding="UTF-8"?>\n<catalog>\n  <book id="1" lang="en">\n    <title>The Pragmatic Programmer</title>\n    <author>Andy Hunt</author>\n    <year>1999</year>\n    <price>42.50</price>\n  </book>\n  <book id="2" lang="en">\n    <title>Clean Code</title>\n    <author>Robert Martin</author>\n    <year>2008</year>\n    <price>38.00</price>\n  </book>\n  <book id="3" lang="en">\n    <title>Refactoring</title>\n    <author>Martin Fowler</author>\n    <year>2018</year>\n    <price>45.00</price>\n  </book>\n</catalog>';
+
+  // ============ XML PARSER ============
+  function stripBom(s) { return s.charCodeAt(0) === 0xFEFF ? s.slice(1) : s; }
+
+  function parseXml(text) {
+    text = stripBom(text);
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'application/xml');
+    const err = doc.querySelector('parsererror');
+    if (err) throw new Error('Invalid XML: ' + (err.textContent || '').slice(0, 200));
+    return doc;
+  }
+
+  function localName(name) {
+    if (state.stripNs && name.indexOf(':') !== -1) return name.split(':').pop();
+    return name;
+  }
+
+  function detectRowElement(doc) {
+    const root = doc.documentElement;
+    const counts = {};
+    for (const child of root.children) {
+      const n = localName(child.tagName);
+      counts[n] = (counts[n] || 0) + 1;
+    }
+    let best = null, bestCount = 0;
+    for (const k in counts) {
+      if (counts[k] > bestCount) { best = k; bestCount = counts[k]; }
+    }
+    return best;
+  }
+
+  function findRowElements(doc, rowName) {
+    const root = doc.documentElement;
+    const out = [];
+    function walk(node) {
+      for (const child of node.children) {
+        if (localName(child.tagName) === rowName) out.push(child);
+        else walk(child);
+      }
+    }
+    walk(root);
+    if (out.length > 0) return out;
+    // Fallback: any child of root with the row name
+    for (const child of root.children) {
+      if (localName(child.tagName) === rowName) out.push(child);
+    }
+    return out;
+  }
+
+  function getText(node) {
+    let s = '';
+    for (const child of node.childNodes) {
+      if (child.nodeType === 3) s += child.nodeValue;
+      else if (child.nodeType === 1) s += getText(child);
+    }
+    return s;
+  }
+
+  function flattenElement(node, prefix, sep) {
+    const out = {};
+    if (state.includeAttrs) {
+      for (const attr of node.attributes) {
+        out[prefix + '@' + localName(attr.name)] = attr.value;
+      }
+    }
+    const children = {};
+    const order = [];
+    for (const child of node.children) {
+      const n = localName(child.tagName);
+      if (!children[n]) { children[n] = []; order.push(n); }
+      children[n].push(child);
+    }
+    for (const n of order) {
+      const key = prefix ? prefix + sep + n : n;
+      if (children[n].length === 1) {
+        const child = children[n][0];
+        const hasChildren = child.children.length > 0;
+        if (hasChildren) {
+          const sub = flattenElement(child, key, sep);
+          for (const k in sub) out[k] = sub[k];
+        } else {
+          out[key] = getText(child);
+          // A leaf element can carry the value that matters - an Atom
+          // <link href="..."> is the URL and nothing else - so its
+          // attributes become their own columns instead of being dropped.
+          if (state.includeAttrs) {
+            for (const attr of child.attributes) {
+              out[key + sep + '@' + localName(attr.name)] = attr.value;
+            }
+          }
+        }
+      } else {
+        out[key] = children[n].map(c => getText(c) || (c.children.length ? JSON.stringify(toObject(c)) : '')).join(' | ');
+      }
+    }
+    return out;
+  }
+
+  function toObject(node) {
+    const out = {};
+    if (state.includeAttrs) for (const attr of node.attributes) out['@' + localName(attr.name)] = attr.value;
+    for (const child of node.children) {
+      const n = localName(child.tagName);
+      out[n] = child.children.length > 0 ? toObject(child) : getText(child);
+    }
+    return out;
+  }
+
+  function escapeCsv(v, delim) {
+    if (v === null || v === undefined) return '';
+    const s = String(v);
+    if (s.includes(delim) || s.includes('"') || s.includes('\n') || s.includes('\r')) {
+      return '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
+  }
+
+  function xmlToCsv(text, opts) {
+    const doc = parseXml(text);
+    const rowName = opts.rowElement || detectRowElement(doc);
+    if (!rowName) throw new Error('Could not detect a repeating row element. Set one in settings.');
+    const rows = findRowElements(doc, rowName);
+    if (rows.length === 0) throw new Error('No elements named <' + rowName + '> found in the document.');
+
+    const flatRows = rows.map(r => flattenElement(r, '', opts.nestedSep));
+    const keySet = new Set();
+    flatRows.forEach(r => Object.keys(r).forEach(k => keySet.add(k)));
+    const headers = Array.from(keySet);
+
+    const lines = [headers.map(h => escapeCsv(h, opts.delimiter)).join(opts.delimiter)];
+    flatRows.forEach(r => {
+      lines.push(headers.map(h => escapeCsv(r[h] || '', opts.delimiter)).join(opts.delimiter));
+    });
+
+    return { csv: lines.join('\n'), rowName, rows: flatRows.length, columns: headers.length };
+  }
+
+  // ============ RENDER ============
+  function renderPreview(csv, rows, columns, rowName) {
+    if (rows === 0) {
+      els.results.classList.remove('visible');
+      els.results.innerHTML = '<div class="results-empty">Your CSV preview will appear here.</div>';
+      els.rowCount.textContent = '0';
+      els.colCount.textContent = '0';
+      els.rowElementLabel.textContent = 'Auto';
+      return;
+    }
+    const lines = csv.split('\n');
+    const previewLines = lines.slice(0, 51);
+    const thead = '<thead><tr>' + lines[0].split(state.delimiter).map(h => '<th>' + escapeHtml(h.replace(/^"|"$/g, '')) + '</th>').join('') + '</tr></thead>';
+    const tbody = '<tbody>' + previewLines.slice(1).map((line, i) => {
+      if (i === 50 && lines.length > 51) {
+        return '<tr><td colspan="99" style="text-align:center; color: var(--ink-500); font-style: italic;">… ' + (lines.length - 51) + ' more rows</td></tr>';
+      }
+      const cells = parseCsvLine(line, state.delimiter);
+      return '<tr>' + cells.map(c => '<td>' + escapeHtml(c) + '</td>').join('') + '</tr>';
+    }).join('') + '</tbody>';
+    els.results.innerHTML = '<table>' + thead + tbody + '</table>';
+    els.results.classList.add('visible');
+    els.rowCount.textContent = rows.toLocaleString();
+    els.colCount.textContent = columns;
+    els.rowElementLabel.textContent = '<' + rowName + '>';
+  }
+
+  function parseCsvLine(line, delim) {
+    const result = [];
+    let cur = '', inQuote = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (inQuote) {
+        if (c === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+        else if (c === '"') inQuote = false;
+        else cur += c;
+      } else {
+        if (c === '"') inQuote = true;
+        else if (c === delim) { result.push(cur); cur = ''; }
+        else cur += c;
+      }
+    }
+    result.push(cur);
+    return result;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function showError(msg) { els.errorBox.textContent = msg; els.errorBox.classList.add('visible'); }
+  function clearError() { els.errorBox.textContent = ''; els.errorBox.classList.remove('visible'); }
+
+  function processInput(text) {
+    clearError();
+    if (!text || !text.trim()) {
+      state.lastCsv = '';
+      renderPreview('', 0, 0, '');
+      els.parseStatus.textContent = 'Awaiting input';
+      return;
+    }
+    try {
+      const result = xmlToCsv(text, {
+        rowElement: state.rowElement,
+        delimiter: state.delimiter,
+        nestedSep: state.nestedSep,
+        includeAttrs: state.includeAttrs,
+        stripNs: state.stripNs,
+      });
+      state.lastCsv = result.csv;
+      renderPreview(result.csv, result.rows, result.columns, result.rowName);
+      els.parseStatus.textContent = 'Converted ' + result.rows + ' row' + (result.rows === 1 ? '' : 's');
+    } catch (e) {
+      showError(e.message);
+      els.parseStatus.textContent = 'Error';
+    }
+  }
+
+  let inputTimer;
+  els.xmlInput.addEventListener('input', () => {
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(() => processInput(els.xmlInput.value), 250);
+  });
+
+  els.uploadZone.addEventListener('click', () => els.fileInput.click());
+  els.uploadZone.addEventListener('dragover', e => { e.preventDefault(); els.uploadZone.classList.add('dragover'); });
+  els.uploadZone.addEventListener('dragleave', () => els.uploadZone.classList.remove('dragover'));
+  els.uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    els.uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+  els.fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file) {
+    if (file.size > 200 * 1024 * 1024) { showError('File is larger than 200 MB. Try splitting it into smaller chunks.'); return; }
+    const reader = new FileReader();
+    reader.onload = e => { els.xmlInput.value = e.target.result; processInput(els.xmlInput.value); };
+    reader.onerror = () => showError('Could not read file.');
+    reader.readAsText(file);
+  }
+
+  els.loadSample.addEventListener('click', () => { els.xmlInput.value = SAMPLE; processInput(els.xmlInput.value); });
+
+  els.resetBtn.addEventListener('click', () => {
+    els.xmlInput.value = '';
+    els.fileInput.value = '';
+    state.lastCsv = '';
+    clearError();
+    renderPreview('', 0, 0, '');
+    els.parseStatus.textContent = 'Awaiting input';
+  });
+
+  els.downloadBtn.addEventListener('click', () => {
+    if (!state.lastCsv) { showError('Nothing to download — paste or upload XML first.'); return; }
+    const ext = state.delimiter === '\t' ? 'tsv' : 'csv';
+    const blob = new Blob([state.lastCsv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'converted.' + ext;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  });
+
+  function openSettings() { els.settingsModal.classList.add('visible'); }
+  function closeSettings() { els.settingsModal.classList.remove('visible'); }
+  els.settingsBtn.addEventListener('click', openSettings);
+  els.closeSettings.addEventListener('click', closeSettings);
+  els.closeSettingsFoot.addEventListener('click', closeSettings);
+  els.settingsModal.addEventListener('click', e => { if (e.target === els.settingsModal) closeSettings(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && els.settingsModal.classList.contains('visible')) closeSettings(); });
+
+  els.applySettings.addEventListener('click', () => {
+    state.rowElement = els.rowElement.value.trim();
+    state.delimiter = els.delimiter.value === '\\t' ? '\t' : els.delimiter.value;
+    state.nestedSep = els.nestedSep.value || '__';
+    state.includeAttrs = els.includeAttrs.checked;
+    state.stripNs = els.stripNs.checked;
+    closeSettings();
+    processInput(els.xmlInput.value);
+  });
+})();
+
+</script>
+</body>
+</html>

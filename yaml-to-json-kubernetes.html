@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>YAML to JSON for Kubernetes - Convert Manifests Free | HopConvert</title>
+<meta name="description" content="Convert Kubernetes YAML manifests to JSON. Handles multi-document files, anchors and labels, includes the yq and Python one-liners, and works in your browser." />
+<meta name="keywords" content="yaml to json kubernetes, kubernetes yaml to json, convert k8s manifest to json, kubectl get -o json, yaml multi document to json" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/yaml-to-json-kubernetes.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="YAML to JSON for Kubernetes" />
+<meta property="og:description" content="Convert Kubernetes manifests to JSON - multi-document files, anchors and all." />
+<meta property="og:url" content="https://hopconvert.com/yaml-to-json-kubernetes.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="YAML to JSON for Kubernetes" />
+<meta name="twitter:description" content="Convert Kubernetes manifests to JSON - multi-document files, anchors and all." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=20261112-4" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js?v=20261112-3"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/yaml-to-json-kubernetes.html",
+    "featureList":  [
+                        "Free - no sign-up",
+                        "Handles multi-document YAML",
+                        "Resolves anchors and aliases",
+                        "Works on a locked-down network",
+                        "Never uploads your manifests"
+                    ],
+    "description":  "Convert Kubernetes YAML manifests to JSON for free, in your browser, with multi-document files supported.",
+    "@type":  "SoftwareApplication",
+    "applicationSubCategory":  "Data Conversion Tool",
+    "browserRequirements":  "Requires JavaScript. Requires HTML5.",
+    "@context":  "https://schema.org",
+    "name":  "YAML to JSON for Kubernetes Converter",
+    "offers":  {
+                   "price":  "0",
+                   "priceCurrency":  "USD",
+                   "availability":  "https://schema.org/InStock",
+                   "@type":  "Offer"
+               },
+    "applicationCategory":  "UtilitiesApplication",
+    "operatingSystem":  "Any (Web Browser)"
+}
+</script>
+
+<!-- Schema.org: HowTo -->
+<script type="application/ld+json">
+{
+    "step":  [
+                 {
+                     "position":  1,
+                     "name":  "Check the documents",
+                     "@type":  "HowToStep",
+                     "text":  "A manifest can hold several resources separated by --- lines. All of them are converted."
+                 },
+                 {
+                     "position":  2,
+                     "name":  "Convert the YAML",
+                     "@type":  "HowToStep",
+                     "text":  "The converter parses the YAML and emits JSON for every document, one object per resource."
+                 },
+                 {
+                     "position":  3,
+                     "name":  "Watch the quoting",
+                     "@type":  "HowToStep",
+                     "text":  "Strings stay strings, numbers stay numbers, and \"yes\" stays a string - YAML 1.2 rules, not YAML 1.1 surprises."
+                 },
+                 {
+                     "position":  4,
+                     "name":  "Feed it to kubectl",
+                     "@type":  "HowToStep",
+                     "text":  "The JSON can be piped into kubectl apply, or diffed against what the cluster already has."
+                 }
+             ],
+    "tool":  [
+                 {
+                     "name":  "Web browser",
+                     "@type":  "HowToTool"
+                 },
+                 {
+                     "name":  "HopConvert (free, no sign-up)",
+                     "@type":  "HowToTool"
+                 }
+             ],
+    "@type":  "HowTo",
+    "name":  "How to convert Kubernetes YAML to JSON",
+    "description":  "Turn a Kubernetes manifest into the JSON the API server expects.",
+    "totalTime":  "PT1M",
+    "@context":  "https://schema.org",
+    "estimatedCost":  {
+                          "currency":  "USD",
+                          "value":  "0",
+                          "@type":  "MonetaryAmount"
+                      }
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Paste it into the converter above, or use \u003ccode\u003eyq -o=json \".\" deployment.yaml\u003c/code\u003e in a terminal, or \u003ccode\u003ekubectl get deployment my-app -o json\u003c/code\u003e to pull the live object from the cluster.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How do I convert a Kubernetes manifest to JSON?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "A file with several resources separated by --- lines is one YAML stream with several documents. The converter parses every document and outputs one JSON object per resource. In Python, use \u003ccode\u003eyaml.safe_load_all\u003c/code\u003e - \u003ccode\u003esafe_load\u003c/code\u003e fails on a multi-document file.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What about multi-document YAML files?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "No, not for the conversion itself. The converter is client-side and works on a manifest you have on your clipboard. You only need kubectl if you want to compare the result against what the cluster is actually running.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Do I need kubectl or a cluster?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Anything you quoted on purpose. YAML 1.1 treats unquoted yes, no, on and off as booleans, and unquoted 0755 or 1.2.3 as something other than a string. Kubernetes expects a string for most label and annotation values, so quote them explicitly.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Which YAML values need care?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Yes. YAML anchors (\u0026amp;name) and aliases (*name) are resolved during parsing, so the JSON contains the expanded value at every place the alias was used.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Does it handle anchors and aliases?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/yaml-to-json-kubernetes.html",
+    "datePublished":  "2026-11-12",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-12",
+    "@context":  "https://schema.org",
+    "name":  "YAML to JSON for Kubernetes",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/yaml-to-json-kubernetes.html#webpage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/yaml-to-json-kubernetes.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/yaml-to-json-kubernetes.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "Tools",
+                                "item":  "https://hopconvert.com/#tools",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  3,
+                                "name":  "YAML to JSON for Kubernetes",
+                                "item":  "https://hopconvert.com/yaml-to-json-kubernetes.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>By task</h4>
+            <a href="json-to-csv-python.html">JSON to CSV in Python</a>
+            <a href="json-array-to-csv.html">JSON array to CSV</a>
+            <a href="json-to-csv-nested-objects.html">JSON to CSV nested objects</a>
+            <a href="json-to-csv-without-uploading.html">JSON to CSV without uploading</a>
+            <a href="json-to-csv-excel.html">JSON to CSV for Excel</a>
+            <a href="yaml-to-json-kubernetes.html" class="current">YAML to JSON for Kubernetes</a>
+            <a href="xml-to-csv-rss.html">XML to CSV for RSS</a>
+            <a href="csv-to-json-type-inference.html">CSV to JSON type inference</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero + the live converter -->
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Free tool &middot; Multi-document aware &middot; No upload
+    </span>
+    <h1>YAML to JSON for Kubernetes</h1>
+    <p class="lede">Cluster config lives in YAML, and half the tooling wants JSON. Convert a manifest - multi-document file and all - and see the exact JSON the API server would receive.</p>
+
+<div class="converter" role="region" aria-label="YAML to JSON converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter — Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop a YAML file</strong>
+          <small>or click to browse · .yaml / .yml</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".yaml,.yml,.txt,text/yaml,application/x-yaml" />
+        </label>
+        <div class="paste-zone">
+          <label for="yamlInput" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste YAML</label>
+          <textarea id="yamlInput" placeholder="…or paste YAML text" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your JSON preview will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><strong id="rowCount">0</strong> keys</span>
+          <span><strong id="indentLabel">2</strong>-space indent</span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="copyBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy JSON
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download JSON
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust" aria-label="Why trust HopConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<div class="ad-slot ad-slot--banner" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="horizontal"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- The code -->
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">Do it in code</span>
+    <h2>The commands that do it in a terminal</h2>
+<p>If you have the cluster tooling, you may not need a converter at all. These are the commands that Kubernetes users reach for first.</p>
+    <pre class="code-block"><code># One JSON document per resource, separated by newlines.
+yq -o=json '.' deployment.yaml
+
+# Every document in a multi-document manifest.
+yq -o=json -s '.' ./manifests/</code></pre>
+    <p class="code-caption">yq - the quickest way, from a file</p>
+    <pre class="code-block"><code>import json
+
+import yaml
+
+# safe_load_all handles the "---" separators in a multi-document manifest.
+with open("deployment.yaml", encoding="utf-8") as f:
+    documents = list(yaml.safe_load_all(f))
+
+print(json.dumps(documents, indent=2))</code></pre>
+    <p class="code-caption">Python - multi-document manifests without extra dependencies</p>
+    <pre class="code-block"><code># What the API server actually stores, as JSON.
+kubectl get deployment my-app -o json
+
+# As YAML instead.
+kubectl get deployment my-app -o yaml</code></pre>
+    <p class="code-caption">kubectl - straight from the cluster</p>
+<p><code>safe_load_all</code> is the piece people miss: a Kubernetes manifest with several resources separated by <code>---</code> is a multi-document YAML file, and <code>yaml.safe_load</code> raises an error on it. The converter above handles the same case and returns one JSON object per resource.</p><p>The other thing worth knowing is that <code>kubectl get -o json</code> gives you the <em>live</em> object, with every default the API server filled in - <code>creationTimestamp</code>, <code>resourceVersion</code>, <code>uid</code> - not just the fields you wrote. A YAML to JSON conversion gives you exactly what is in your file.</p>
+  </div>
+</section>
+
+<div class="ad-slot ad-slot--rect" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="rectangle"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Worked example -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 680px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Worked example</span>
+      <h2>A worked example</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">A minimal Deployment manifest, and the JSON it becomes.</p>
+    </div>
+    <div class="example-grid">
+      <div>
+        <p class="code-label">deployment.yaml</p>
+        <pre class="code-block"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27
+          ports:
+            - containerPort: 80</code></pre>
+      </div>
+      <div>
+        <p class="code-label">deployment.json</p>
+        <pre class="code-block"><code>{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "web",
+    "labels": { "app": "web" }
+  },
+  "spec": {
+    "replicas": 2,
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "name": "web",
+            "image": "nginx:1.27",
+            "ports": [ { "containerPort": 80 } ]
+          }
+        ]
+      }
+    }
+  }
+}</code></pre>
+      </div>
+    </div>
+<p style="color: var(--ink-700); margin-top: 24px;">Note what did <em>not</em> change: <code>replicas: 2</code> stays the number 2, <code>containerPort: 80</code> stays the number 80, and <code>app: web</code> stays a string. That matters in Kubernetes, because the API server rejects a manifest where a number arrived as a quoted string.</p>
+  </div>
+</section>
+
+<!-- Step by step -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>Convert a manifest in the browser</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Useful when the manifest is on your clipboard, or when you cannot reach the cluster from this machine.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste the YAML</h3>
+        <p>Paste the whole file, including the "---" separators if it holds several resources.</p>
+      </li>
+      <li class="step">
+        <h3>Read the JSON</h3>
+        <p>The output panel shows the JSON for every document, with two-space indentation so it is readable.</p>
+      </li>
+      <li class="step">
+        <h3>Check the types</h3>
+        <p>Look at the fields you care about - replicas, ports, memory limits. They keep their YAML type.</p>
+      </li>
+      <li class="step">
+        <h3>Copy it into your pipeline</h3>
+        <p>Paste it into kubectl apply, a Helm template, a CI job, or a policy check.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="ad-slot ad-slot--rect" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="rectangle"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Why this page -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why HopConvert</span>
+      <h2>Built for how manifests are actually written</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">The details that separate a YAML parser that works on manifests from one that does not.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3>Multi-document files</h3>
+        <p>A manifest with several resources separated by --- is converted completely, not just the first document.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3>Types stay intact</h3>
+        <p>Numbers remain numbers and quoted strings remain strings, which is what the API server validates against.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Anchors resolved</h3>
+        <p>YAML anchors and aliases are expanded for you, so a shared block is present in every document that uses it.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Manifests stay private</h3>
+        <p>A manifest often contains image pull secrets and internal hostnames. It is parsed in your browser and never sent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>The full YAML to JSON guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">YAML syntax, the types it produces, multi-document files and the quoting rules that catch people out.</p>
+      <p style="margin-top: 10px;">
+        <a href="yaml-to-json-guide.html" class="btn btn-secondary">
+          Read the YAML to JSON guide
+        </a>
+      </p>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--ink-700);">
+        Related tools: <a href="yaml-to-json.html">YAML to JSON converter</a> &middot; <a href="json-to-yaml.html">JSON to YAML converter</a> &middot; <a href="json-to-sql.html">JSON to SQL</a> &middot; <a href="index.html">JSON to CSV</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Multi-document files, types and the commands that already do this in a terminal.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>How do I convert a Kubernetes manifest to JSON?</summary>
+        <div class="answer">Paste it into the converter above, or use <code>yq -o=json "." deployment.yaml</code> in a terminal, or <code>kubectl get deployment my-app -o json</code> to pull the live object from the cluster.</div>
+      </details>
+      <details>
+        <summary>What about multi-document YAML files?</summary>
+        <div class="answer">A file with several resources separated by --- lines is one YAML stream with several documents. The converter parses every document and outputs one JSON object per resource. In Python, use <code>yaml.safe_load_all</code> - <code>safe_load</code> fails on a multi-document file.</div>
+      </details>
+      <details>
+        <summary>Do I need kubectl or a cluster?</summary>
+        <div class="answer">No, not for the conversion itself. The converter is client-side and works on a manifest you have on your clipboard. You only need kubectl if you want to compare the result against what the cluster is actually running.</div>
+      </details>
+      <details>
+        <summary>Which YAML values need care?</summary>
+        <div class="answer">Anything you quoted on purpose. YAML 1.1 treats unquoted yes, no, on and off as booleans, and unquoted 0755 or 1.2.3 as something other than a string. Kubernetes expects a string for most label and annotation values, so quote them explicitly.</div>
+      </details>
+      <details>
+        <summary>Does it handle anchors and aliases?</summary>
+        <div class="answer">Yes. YAML anchors (&amp;name) and aliases (*name) are resolved during parsing, so the JSON contains the expanded value at every place the alias was used.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Convert your manifest now</h2>
+      <p>Paste the YAML, get the JSON. Free, instant, and the manifest never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Convert the manifest
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>By task</h4>
+        <ul>
+          <li><a href="json-to-csv-python.html">JSON to CSV in Python</a></li>
+          <li><a href="json-array-to-csv.html">JSON array to CSV</a></li>
+          <li><a href="json-to-csv-nested-objects.html">JSON to CSV nested objects</a></li>
+          <li><a href="json-to-csv-without-uploading.html">JSON to CSV without uploading</a></li>
+          <li><a href="json-to-csv-excel.html">JSON to CSV for Excel</a></li>
+          <li><a href="yaml-to-json-kubernetes.html">YAML to JSON for Kubernetes</a></li>
+          <li><a href="xml-to-csv-rss.html">XML to CSV for RSS</a></li>
+          <li><a href="csv-to-json-type-inference.html">CSV to JSON type inference</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="indentSize">JSON indent</label>
+        <select id="indentSize">
+          <option value="2" selected>2 spaces</option>
+          <option value="4">4 spaces</option>
+          <option value="0">Minified (no indent)</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="multiDocAsArray" checked />
+          <label for="multiDocAsArray">Multi-document YAML as JSON array</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="strictYaml" />
+          <label for="strictYaml">Strict YAML 1.2 mode (rejects YAML 1.1 quirks)</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+(function() {
+  'use strict';
+
+  const state = {
+    indent: 2,
+    multiDocAsArray: true,
+    strictYaml: false,
+    lastJson: '',
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    yamlInput: $('yamlInput'),
+    fileInput: $('fileInput'),
+    uploadZone: $('uploadZone'),
+    parseStatus: $('parseStatus'),
+    loadSample: $('loadSample'),
+    results: $('results'),
+    errorBox: $('errorBox'),
+    rowCount: $('rowCount'),
+    indentLabel: $('indentLabel'),
+    downloadBtn: $('downloadBtn'),
+    copyBtn: $('copyBtn'),
+    settingsBtn: $('settingsBtn'),
+    settingsModal: $('settingsModal'),
+    closeSettings: $('closeSettings'),
+    closeSettingsFoot: $('closeSettingsFoot'),
+    applySettings: $('applySettings'),
+    indentSize: $('indentSize'),
+    multiDocAsArray: $('multiDocAsArray'),
+    strictYaml: $('strictYaml'),
+  };
+
+  const SAMPLE = `apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+  labels:
+    app: web
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+          env:
+            - name: DOMAIN
+              value: example.com
+            - name: DEBUG
+              value: "false"
+`;
+
+  function countKeys(value) {
+    if (Array.isArray(value)) return value.reduce((s, v) => s + countKeys(v), 0);
+    if (value && typeof value === 'object') return Object.keys(value).reduce((s, k) => s + 1 + countKeys(value[k]), 0);
+    return 0;
+  }
+
+  function yamlToJson(text, opts) {
+    if (!window.jsyaml) throw new Error('YAML parser not loaded. Please refresh the page.');
+    const docs = window.jsyaml.loadAll(text);
+    let result;
+    if (docs.length === 0) result = null;
+    else if (docs.length === 1) result = state.multiDocAsArray ? docs : docs[0];
+    else result = state.multiDocAsArray ? docs : docs[0];
+    const indent = state.indent === 0 ? undefined : state.indent;
+    return JSON.stringify(result, null, indent);
+  }
+
+  function renderPreview(json) {
+    if (!json) {
+      els.results.classList.remove('visible');
+      els.results.innerHTML = '<div class="results-empty">Your JSON preview will appear here.</div>';
+      els.rowCount.textContent = '0';
+      return;
+    }
+    const preview = json.length > 8000 ? json.slice(0, 8000) + '\n…' : json;
+    els.results.innerHTML = '<pre>' + escapeHtml(preview) + '</pre>';
+    els.results.classList.add('visible');
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function showError(msg) { els.errorBox.textContent = msg; els.errorBox.classList.add('visible'); }
+  function clearError() { els.errorBox.textContent = ''; els.errorBox.classList.remove('visible'); }
+
+  function processInput(text) {
+    clearError();
+    if (!text || !text.trim()) {
+      state.lastJson = '';
+      renderPreview('');
+      els.rowCount.textContent = '0';
+      els.parseStatus.textContent = 'Awaiting input';
+      return;
+    }
+    try {
+      const json = yamlToJson(text, {});
+      state.lastJson = json;
+      renderPreview(json);
+      let parsed;
+      try { parsed = JSON.parse(json); } catch (e) {}
+      const k = parsed ? countKeys(parsed) : 0;
+      els.rowCount.textContent = k.toLocaleString();
+      els.parseStatus.textContent = 'Converted ' + k + ' key' + (k === 1 ? '' : 's');
+    } catch (e) {
+      showError(e.message);
+      els.parseStatus.textContent = 'Error';
+    }
+  }
+
+  let inputTimer;
+  els.yamlInput.addEventListener('input', () => {
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(() => processInput(els.yamlInput.value), 250);
+  });
+
+  els.uploadZone.addEventListener('click', () => els.fileInput.click());
+  els.uploadZone.addEventListener('dragover', e => { e.preventDefault(); els.uploadZone.classList.add('dragover'); });
+  els.uploadZone.addEventListener('dragleave', () => els.uploadZone.classList.remove('dragover'));
+  els.uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    els.uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+  els.fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file) {
+    if (file.size > 200 * 1024 * 1024) { showError('File is larger than 200 MB. Try splitting it.'); return; }
+    const reader = new FileReader();
+    reader.onload = e => { els.yamlInput.value = e.target.result; processInput(els.yamlInput.value); };
+    reader.onerror = () => showError('Could not read file.');
+    reader.readAsText(file);
+  }
+
+  els.loadSample.addEventListener('click', () => { els.yamlInput.value = SAMPLE; processInput(els.yamlInput.value); });
+
+  els.downloadBtn.addEventListener('click', () => {
+    if (!state.lastJson) { showError('Nothing to download — paste or upload YAML first.'); return; }
+    const blob = new Blob([state.lastJson], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'converted.json';
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  });
+
+  els.copyBtn.addEventListener('click', async () => {
+    if (!state.lastJson) { showError('Nothing to copy — paste or upload YAML first.'); return; }
+    try {
+      await navigator.clipboard.writeText(state.lastJson);
+      const orig = els.copyBtn.innerHTML;
+      els.copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      setTimeout(() => { els.copyBtn.innerHTML = orig; }, 1500);
+    } catch (e) {
+      showError('Could not copy to clipboard.');
+    }
+  });
+
+  function openSettings() { els.settingsModal.classList.add('visible'); }
+  function closeSettings() { els.settingsModal.classList.remove('visible'); }
+  els.settingsBtn.addEventListener('click', openSettings);
+  els.closeSettings.addEventListener('click', closeSettings);
+  els.closeSettingsFoot.addEventListener('click', closeSettings);
+  els.settingsModal.addEventListener('click', e => { if (e.target === els.settingsModal) closeSettings(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && els.settingsModal.classList.contains('visible')) closeSettings(); });
+
+  els.applySettings.addEventListener('click', () => {
+    state.indent = parseInt(els.indentSize.value, 10);
+    els.indentLabel.textContent = state.indent === 0 ? '0' : state.indent;
+    state.multiDocAsArray = els.multiDocAsArray.checked;
+    state.strictYaml = els.strictYaml.checked;
+    closeSettings();
+    processInput(els.yamlInput.value);
+  });
+})();
+
+</script>
+</body>
+</html>

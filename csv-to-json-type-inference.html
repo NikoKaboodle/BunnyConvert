@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563EB" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="googlebot" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>CSV to JSON with Type Inference - Numbers, Booleans, Nulls | HopConvert</title>
+<meta name="description" content="Convert CSV to JSON with type inference. See exactly how numbers, booleans, nulls and empty cells are detected, keep leading zeros as text, and use the free browser converter." />
+<meta name="keywords" content="csv to json type inference, csv to json types, csv to json convert numbers, csv to json boolean null, csv types to json" />
+<meta name="author" content="HopConvert" />
+<link rel="canonical" href="https://hopconvert.com/csv-to-json-type-inference.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='35' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Cellipse cx='65' cy='25' rx='8' ry='20' fill='url(%23b)'/%3E%3Ccircle cx='50' cy='60' r='25' fill='url(%23b)'/%3E%3Cellipse cx='35' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='12' fill='%23DBEAFE'/%3E%3Ccircle cx='42' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%231E3A8A'/%3E%3Cellipse cx='50' cy='66' rx='2' ry='1.5' fill='%231E3A8A'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://hopconvert.com/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HopConvert" />
+<meta property="og:title" content="CSV to JSON with type inference" />
+<meta property="og:description" content="How CSV values become JSON numbers, booleans and nulls - and how to keep the ones that should stay text." />
+<meta property="og:url" content="https://hopconvert.com/csv-to-json-type-inference.html" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CSV to JSON with type inference" />
+<meta name="twitter:description" content="How CSV values become JSON numbers, booleans and nulls - and how to keep the ones that should stay text." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=20261112-4" />
+<script src="nav.js" defer></script>
+<script src="hop-common.js?v=20261112-3"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033283931778605" crossorigin="anonymous"></script>
+
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/csv-to-json-type-inference.html",
+    "featureList":  [
+                        "Free - no sign-up",
+                        "Detects numbers, booleans and nulls",
+                        "Keeps leading zeros as text",
+                        "Show every value as a string if you want",
+                        "Never uploads the file"
+                    ],
+    "description":  "Convert CSV to JSON with sensible type detection - free and entirely in your browser.",
+    "@type":  "SoftwareApplication",
+    "applicationSubCategory":  "Data Conversion Tool",
+    "browserRequirements":  "Requires JavaScript. Requires HTML5.",
+    "@context":  "https://schema.org",
+    "name":  "CSV to JSON with Type Inference Converter",
+    "offers":  {
+                   "price":  "0",
+                   "priceCurrency":  "USD",
+                   "availability":  "https://schema.org/InStock",
+                   "@type":  "Offer"
+               },
+    "applicationCategory":  "UtilitiesApplication",
+    "operatingSystem":  "Any (Web Browser)"
+}
+</script>
+
+<!-- Schema.org: HowTo -->
+<script type="application/ld+json">
+{
+    "step":  [
+                 {
+                     "position":  1,
+                     "name":  "Read the rows",
+                     "@type":  "HowToStep",
+                     "text":  "The csv module handles quoted fields, embedded commas and newlines for you."
+                 },
+                 {
+                     "position":  2,
+                     "name":  "Detect the type",
+                     "@type":  "HowToStep",
+                     "text":  "Empty is null, true and false are booleans, a plain integer or decimal is a number, everything else is a string."
+                 },
+                 {
+                     "position":  3,
+                     "name":  "Protect the exceptions",
+                     "@type":  "HowToStep",
+                     "text":  "Codes with leading zeros and identifiers that look numeric stay text."
+                 },
+                 {
+                     "position":  4,
+                     "name":  "Write the JSON",
+                     "@type":  "HowToStep",
+                     "text":  "json.dump writes the array, and the result drops straight into an API call."
+                 }
+             ],
+    "tool":  [
+                 {
+                     "name":  "Web browser",
+                     "@type":  "HowToTool"
+                 },
+                 {
+                     "name":  "HopConvert (free, no sign-up)",
+                     "@type":  "HowToTool"
+                 }
+             ],
+    "@type":  "HowTo",
+    "name":  "How to convert CSV to JSON with type inference",
+    "description":  "Detect the type of every cell and write it out as JSON.",
+    "totalTime":  "PT1M",
+    "@context":  "https://schema.org",
+    "estimatedCost":  {
+                          "currency":  "USD",
+                          "value":  "0",
+                          "@type":  "MonetaryAmount"
+                      }
+}
+</script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "mainEntity":  [
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Four: null for an empty cell, true and false as booleans, integers and decimals as numbers, and everything else as a string. The order matters - a value is tried as a boolean before it is tried as a number.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What types does it detect?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "The value was a number, so the leading zero was dropped as part of the conversion. Numbers that begin with a zero are treated as identifiers and kept as text, but a code like \u003ccode\u003e00123\u003c/code\u003e inside a larger value can still look numeric. Turning type inference off in the settings keeps every value exactly as the CSV had it.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "Why did my leading zeros disappear?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "An empty cell becomes null, not an empty string. The distinction matters when the JSON is compared against a schema or posted to an API that treats null and \"\" differently.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How are empty cells handled?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Turn off type inference in the settings, or skip the inference step in your own code. Every value then comes out exactly as the CSV cell held it, including leading zeros, trailing spaces and capitalisation.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "How do I keep everything as a string?",
+                           "@type":  "Question"
+                       },
+                       {
+                           "acceptedAnswer":  {
+                                                  "text":  "Inference follows the value, not the column. A cell reading 10099 becomes a number while the cell reading 01234 stays a string in the same column - which is usually what you want, and occasionally a warning sign that the column should be text everywhere.",
+                                                  "@type":  "Answer"
+                                              },
+                           "name":  "What about a column that mixes numbers and text?",
+                           "@type":  "Question"
+                       }
+                   ],
+    "@type":  "FAQPage"
+}
+</script>
+
+<!-- Schema.org: WebPage -->
+<script type="application/ld+json">
+{
+    "url":  "https://hopconvert.com/csv-to-json-type-inference.html",
+    "datePublished":  "2026-11-12",
+    "@type":  "WebPage",
+    "dateModified":  "2026-11-12",
+    "@context":  "https://schema.org",
+    "name":  "CSV to JSON with type inference",
+    "isPartOf":  {
+                     "url":  "https://hopconvert.com/",
+                     "name":  "HopConvert",
+                     "@type":  "WebSite"
+                 },
+    "inLanguage":  "en-US",
+    "@id":  "https://hopconvert.com/csv-to-json-type-inference.html#webpage"
+}
+</script>
+
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://hopconvert.com/og/csv-to-json-type-inference.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<meta name="twitter:image" content="https://hopconvert.com/og/csv-to-json-type-inference.png" />
+<meta name="twitter:image:alt" content="HopConvert - free JSON, CSV, XML, YAML and SQL converters" />
+<link rel="sitemap" type="application/xml" href="https://hopconvert.com/sitemap.xml" />
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "itemListElement":  [
+                            {
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://hopconvert.com/",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  2,
+                                "name":  "Tools",
+                                "item":  "https://hopconvert.com/#tools",
+                                "@type":  "ListItem"
+                            },
+                            {
+                                "position":  3,
+                                "name":  "CSV to JSON type inference",
+                                "item":  "https://hopconvert.com/csv-to-json-type-inference.html",
+                                "@type":  "ListItem"
+                            }
+                        ],
+    "@type":  "BreadcrumbList"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="HopConvert home">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+      <span>HopConvert</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Converters
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-group">
+            <h4>Converters</h4>
+            <a href="index.html">JSON to CSV</a>
+            <a href="csv-to-json.html">CSV to JSON</a>
+            <a href="xml-to-csv.html">XML to CSV</a>
+            <a href="json-to-yaml.html">JSON to YAML</a>
+            <a href="yaml-to-json.html">YAML to JSON</a>
+            <a href="jsonl-to-csv.html">JSONL to CSV</a>
+            <a href="json-to-sql.html">JSON to SQL</a>
+            <a href="json-to-markdown.html">JSON to Markdown</a>
+            <a href="json-to-excel.html">JSON to Excel</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>Guides</h4>
+            <a href="json-to-csv-guide.html">JSON to CSV guide</a>
+            <a href="csv-to-json-guide.html">CSV to JSON guide</a>
+            <a href="xml-to-csv-guide.html">XML to CSV guide</a>
+            <a href="json-to-yaml-guide.html">JSON to YAML guide</a>
+            <a href="yaml-to-json-guide.html">YAML to JSON guide</a>
+            <a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a>
+            <a href="json-to-sql-guide.html">JSON to SQL guide</a>
+            <a href="json-to-markdown-guide.html">JSON to Markdown guide</a>
+            <a href="json-to-excel-guide.html">JSON to Excel guide</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h4>By task</h4>
+            <a href="json-to-csv-python.html">JSON to CSV in Python</a>
+            <a href="json-array-to-csv.html">JSON array to CSV</a>
+            <a href="json-to-csv-nested-objects.html">JSON to CSV nested objects</a>
+            <a href="json-to-csv-without-uploading.html">JSON to CSV without uploading</a>
+            <a href="json-to-csv-excel.html">JSON to CSV for Excel</a>
+            <a href="yaml-to-json-kubernetes.html">YAML to JSON for Kubernetes</a>
+            <a href="xml-to-csv-rss.html">XML to CSV for RSS</a>
+            <a href="csv-to-json-type-inference.html" class="current">CSV to JSON type inference</a>
+          </div>
+        </div>
+      </div>
+      <a href="#faq">FAQ</a>
+      <a href="#convert" class="nav-cta">Try the Converter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero + the live converter -->
+<section class="hero" id="convert" style="padding-top: 56px; padding-bottom: 64px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Free tool &middot; Type-aware &middot; No upload
+    </span>
+    <h1>CSV to JSON with type inference</h1>
+    <p class="lede">A CSV cell is just text. Converting it to JSON means deciding what each cell really is - and getting that wrong is how a zip code becomes a number.</p>
+
+<div class="converter" role="region" aria-label="CSV to JSON converter">
+      <div class="converter-bar">
+        <div class="converter-bar-title">
+          <span class="dot" aria-hidden="true"></span>
+          Converter — Ready
+        </div>
+        <div class="converter-bar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="upload-zone" id="uploadZone" for="fileInput">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>Drop a CSV file</strong>
+          <small>or click to browse · .csv / .tsv / .txt</small>
+          <input type="file" id="fileInput" class="upload-input" accept=".csv,.tsv,.txt,text/csv" />
+        </label>
+        <div class="paste-zone">
+          <label for="csvInput" style="position:absolute;width:1px;height:1px;overflow:hidden;">Paste CSV</label>
+          <textarea id="csvInput" placeholder="…or paste CSV text" spellcheck="false" autocomplete="off"></textarea>
+          <div class="paste-hint">
+            <span id="parseStatus">Awaiting input</span>
+            <button type="button" id="loadSample">Load sample</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorBox" class="error-msg" role="alert" aria-live="polite"></div>
+
+      <div id="results" class="results" aria-live="polite" aria-label="Conversion preview">
+        <div id="resultsEmpty" class="results-empty">Your JSON preview will appear here.</div>
+      </div>
+
+      <div class="converter-foot">
+        <div class="meta">
+          <span><strong id="rowCount">0</strong> records</span>
+          <span><strong id="colCount">0</strong> columns</span>
+          <span><strong id="delimiterLabel">Auto</strong> delimiter</span>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="copyBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy JSON
+          </button>
+          <button class="btn btn-primary" id="downloadBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download JSON
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust" aria-label="Why trust HopConvert">
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Browser-only processing</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No file upload to server</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Instant conversion</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 100% free forever</div>
+</div>
+
+<div class="ad-slot ad-slot--banner" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="horizontal"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- The code -->
+<section>
+  <div class="container content-block">
+    <span class="section-eyebrow">Do it in code</span>
+    <h2>Writing the inference yourself</h2>
+<p>Type inference is the part people get wrong, so it is worth seeing it spelled out. The rule is simple: try the most specific type first, and fall back to a string. The important detail is the last one - anything that looks like a number but is not meant to be one has to stay text.</p>
+    <pre class="code-block"><code>import csv
+import json
+
+
+def infer(value):
+    """Guess the type of one CSV cell."""
+    s = value.strip()
+
+    if s == "":
+        return None                      # an empty cell is null
+    if s.lower() in ("true", "false"):
+        return s.lower() == "true"       # a real boolean
+    if s.lower() == "null":
+        return None
+
+    # Only a clean integer or decimal becomes a number.
+    try:
+        return int(s)
+    except ValueError:
+        pass
+    try:
+        return float(s)
+    except ValueError:
+        pass
+
+    # Everything else - including "00123" - stays a string.
+    return s
+
+
+with open("data.csv", newline="", encoding="utf-8") as f:
+    rows = [{k: infer(v) for k, v in row.items()} for row in csv.DictReader(f)]
+
+print(json.dumps(rows, indent=2))</code></pre>
+    <p class="code-caption">Empty becomes null, true/false become booleans, plain numbers become numbers, everything else stays text</p>
+<p>Note that <code>int("00123")</code> succeeds and quietly returns <code>123</code>. That is why the function tries <code>int()</code> but the fallback keeps the original string - a leading zero is a strong signal that the value is an identifier, not a quantity. If you would rather have every value as a string, skip <code>infer</code> altogether and pass the raw cell through.</p><p>The converter above has the same switch: leave type inference on for a clean JSON array, or turn it off to keep the source text exactly as it was.</p>
+  </div>
+</section>
+
+<div class="ad-slot ad-slot--rect" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="rectangle"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Worked example -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 680px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Worked example</span>
+      <h2>A worked example</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Six cells, six different outcomes - including the one that trips people up.</p>
+    </div>
+    <div class="example-grid">
+      <div>
+        <p class="code-label">data.csv</p>
+        <pre class="code-block"><code>id,zip,price,active,notes,
+1,01234,42.50,true,"Ships, fast",
+2,10099,17,true,""</code></pre>
+      </div>
+      <div>
+        <p class="code-label">data.json</p>
+        <pre class="code-block"><code>[
+  {
+    "id": 1,
+    "zip": "01234",
+    "price": 42.5,
+    "active": true,
+    "notes": "Ships, fast"
+  },
+  {
+    "id": 2,
+    "zip": 10099,
+    "price": 17,
+    "active": true,
+    "notes": null
+  }
+]</code></pre>
+      </div>
+    </div>
+<p style="color: var(--ink-700); margin-top: 24px;">Look at <code>zip</code>: the first value keeps its leading zero as text, the second is a plain number. Both came out of the same column, and both are correct - the inference follows the value, not the column. If you want the whole column to be a string, turn type inference off.</p>
+  </div>
+</section>
+
+<!-- Step by step -->
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Step by step</span>
+      <h2>Convert the file in the browser</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Same file, same rules, and you can watch the types change.</p>
+    </div>
+    <ol class="steps" aria-label="Conversion steps">
+      <li class="step">
+        <h3>Paste the CSV</h3>
+        <p>Or drop a .csv file onto the box. The delimiter is detected automatically - comma, tab, semicolon or pipe.</p>
+      </li>
+      <li class="step">
+        <h3>Check the header row</h3>
+        <p>The first row is used as the keys. If your file has no header, switch to the "no header" mode in the settings and the columns get numbered.</p>
+      </li>
+      <li class="step">
+        <h3>Decide about types</h3>
+        <p>Type inference is on by default. Turn it off in the settings if every value should stay a string.</p>
+      </li>
+      <li class="step">
+        <h3>Download the JSON</h3>
+        <p>Get the array as pretty-printed JSON, ready to paste into a request body.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="ad-slot ad-slot--rect" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2033283931778605"
+       data-ad-format="rectangle"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<!-- Recommended AdSense unit: Display ad, responsive, "In-article" placement -->
+
+<!-- Why this page -->
+<section style="background: var(--ink-50);">
+  <div class="container">
+    <div style="text-align:center; max-width: 640px; margin: 0 auto 40px;">
+      <span class="section-eyebrow">Why HopConvert</span>
+      <h2>Getting the types right</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">A JSON array is only as useful as the types inside it. These are the decisions that matter.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3>Leading zeros survive</h3>
+        <p>A value like 01234 is kept as a string, because a code that starts with zero is an identifier, not a quantity.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3>Out-of-range numbers stay text</h3>
+        <p>An integer too large for a 64-bit number is left as a string instead of being rounded in the display.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Real booleans and nulls</h3>
+        <p>true and false become JSON booleans, and an empty cell becomes null rather than an empty string.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Turn it off when you want</h3>
+        <p>One switch in the settings keeps every value exactly as the CSV held it, which is what you want for opaque IDs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide -->
+<section id="guide">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 32px;">
+      <span class="section-eyebrow">The complete guide</span>
+      <h2>The full CSV to JSON guide</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">Header handling, quoting, delimiters and the type rules - the whole conversion explained.</p>
+      <p style="margin-top: 10px;">
+        <a href="csv-to-json-guide.html" class="btn btn-secondary">
+          Read the CSV to JSON guide
+        </a>
+      </p>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--ink-700);">
+        Related tools: <a href="csv-to-json.html">CSV to JSON converter</a> &middot; <a href="index.html">JSON to CSV converter</a> &middot; <a href="json-to-sql.html">JSON to SQL</a> &middot; <a href="json-to-excel.html">JSON to Excel</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--ink-50);">
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <p style="color: var(--ink-700); font-size: 1.05rem;">The rules that decide what each cell becomes.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>What types does it detect?</summary>
+        <div class="answer">Four: null for an empty cell, true and false as booleans, integers and decimals as numbers, and everything else as a string. The order matters - a value is tried as a boolean before it is tried as a number.</div>
+      </details>
+      <details>
+        <summary>Why did my leading zeros disappear?</summary>
+        <div class="answer">The value was a number, so the leading zero was dropped as part of the conversion. Numbers that begin with a zero are treated as identifiers and kept as text, but a code like <code>00123</code> inside a larger value can still look numeric. Turning type inference off in the settings keeps every value exactly as the CSV had it.</div>
+      </details>
+      <details>
+        <summary>How are empty cells handled?</summary>
+        <div class="answer">An empty cell becomes null, not an empty string. The distinction matters when the JSON is compared against a schema or posted to an API that treats null and "" differently.</div>
+      </details>
+      <details>
+        <summary>How do I keep everything as a string?</summary>
+        <div class="answer">Turn off type inference in the settings, or skip the inference step in your own code. Every value then comes out exactly as the CSV cell held it, including leading zeros, trailing spaces and capitalisation.</div>
+      </details>
+      <details>
+        <summary>What about a column that mixes numbers and text?</summary>
+        <div class="answer">Inference follows the value, not the column. A cell reading 10099 becomes a number while the cell reading 01234 stays a string in the same column - which is usually what you want, and occasionally a warning sign that the column should be text everywhere.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Convert your CSV with the right types</h2>
+      <p>Numbers where they belong, text where it matters. Free, instant, and the file never leaves your browser.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#convert" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Convert to JSON
+        </a>
+        <a href="#faq" class="btn btn-secondary">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo" style="color: white;" aria-label="HopConvert home">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="35" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="20" fill="url(#logoGrad)"/>
+  <circle cx="50" cy="60" r="25" fill="url(#logoGrad)"/>
+  <ellipse cx="35" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <ellipse cx="65" cy="25" rx="3" ry="12" fill="#1E293B"/>
+  <circle cx="42" cy="58" r="2.5" fill="#1E3A8A"/>
+  <circle cx="58" cy="58" r="2.5" fill="#1E3A8A"/>
+  <ellipse cx="50" cy="66" rx="2" ry="1.5" fill="#1E3A8A"/>
+</svg>
+          <span style="color: white;">HopConvert</span>
+        </a>
+        <p>Free online tools for converting JSON, CSV, XML, YAML, and SQL. Built for developers, analysts, and data teams who care about speed and privacy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Converters</h4>
+        <ul>
+          <li><a href="index.html">JSON to CSV</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON</a></li>
+          <li><a href="xml-to-csv.html">XML to CSV</a></li>
+          <li><a href="json-to-yaml.html">JSON to YAML</a></li>
+          <li><a href="yaml-to-json.html">YAML to JSON</a></li>
+          <li><a href="jsonl-to-csv.html">JSONL to CSV</a></li>
+          <li><a href="json-to-sql.html">JSON to SQL</a></li>
+          <li><a href="json-to-markdown.html">JSON to Markdown</a></li>
+          <li><a href="json-to-excel.html">JSON to Excel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="json-to-csv-guide.html">JSON to CSV guide</a></li>
+          <li><a href="csv-to-json-guide.html">CSV to JSON guide</a></li>
+          <li><a href="xml-to-csv-guide.html">XML to CSV guide</a></li>
+          <li><a href="json-to-yaml-guide.html">JSON to YAML guide</a></li>
+          <li><a href="yaml-to-json-guide.html">YAML to JSON guide</a></li>
+          <li><a href="jsonl-to-csv-guide.html">JSONL to CSV guide</a></li>
+          <li><a href="json-to-sql-guide.html">JSON to SQL guide</a></li>
+          <li><a href="json-to-markdown-guide.html">JSON to Markdown guide</a></li>
+          <li><a href="json-to-excel-guide.html">JSON to Excel guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>By task</h4>
+        <ul>
+          <li><a href="json-to-csv-python.html">JSON to CSV in Python</a></li>
+          <li><a href="json-array-to-csv.html">JSON array to CSV</a></li>
+          <li><a href="json-to-csv-nested-objects.html">JSON to CSV nested objects</a></li>
+          <li><a href="json-to-csv-without-uploading.html">JSON to CSV without uploading</a></li>
+          <li><a href="json-to-csv-excel.html">JSON to CSV for Excel</a></li>
+          <li><a href="yaml-to-json-kubernetes.html">YAML to JSON for Kubernetes</a></li>
+          <li><a href="xml-to-csv-rss.html">XML to CSV for RSS</a></li>
+          <li><a href="csv-to-json-type-inference.html">CSV to JSON type inference</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024&ndash;2026 HopConvert. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Conversion settings</h3>
+      <button class="icon-btn" id="closeSettings" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="delimiter">Delimiter</label>
+        <select id="delimiter">
+          <option value="auto" selected>Auto-detect (recommended)</option>
+          <option value=",">Comma — standard CSV</option>
+          <option value="\t">Tab — TSV / Excel paste</option>
+          <option value=";">Semicolon — common in EU locales</option>
+          <option value="|">Pipe — useful when data has commas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="headerMode">Header row</label>
+        <select id="headerMode">
+          <option value="auto" selected>First row is header (default)</option>
+          <option value="generate">Auto-generate (col1, col2, …)</option>
+          <option value="none">No header, use column numbers as keys</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="outputFormat">Output format</label>
+        <select id="outputFormat">
+          <option value="pretty" selected>Pretty-printed (2-space indent)</option>
+          <option value="minified">Minified (single line)</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="inferTypes" checked />
+          <label for="inferTypes">Infer types (numbers, booleans, null)</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-check">
+          <input type="checkbox" id="trimKeys" />
+          <label for="trimKeys">Trim and lowercase header names</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="closeSettingsFoot" type="button">Close</button>
+      <button class="btn btn-primary" id="applySettings" type="button">Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+(function() {
+  'use strict';
+
+  const state = {
+    delimiter: 'auto',
+    delimiterLabel: 'Auto',
+    headerMode: 'auto',
+    outputFormat: 'pretty',
+    inferTypes: true,
+    trimKeys: false,
+    lastJson: '',
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    csvInput: $('csvInput'),
+    fileInput: $('fileInput'),
+    uploadZone: $('uploadZone'),
+    parseStatus: $('parseStatus'),
+    loadSample: $('loadSample'),
+    results: $('results'),
+    errorBox: $('errorBox'),
+    rowCount: $('rowCount'),
+    colCount: $('colCount'),
+    delimiterLabel: $('delimiterLabel'),
+    downloadBtn: $('downloadBtn'),
+    copyBtn: $('copyBtn'),
+    resetBtn: null,
+    settingsBtn: $('settingsBtn'),
+    settingsModal: $('settingsModal'),
+    closeSettings: $('closeSettings'),
+    closeSettingsFoot: $('closeSettingsFoot'),
+    applySettings: $('applySettings'),
+    delimiter: $('delimiter'),
+    headerMode: $('headerMode'),
+    outputFormat: $('outputFormat'),
+    inferTypes: $('inferTypes'),
+    trimKeys: $('trimKeys'),
+  };
+
+  const SAMPLE = 'name,role,city,skills\nAlice Chen,Engineer,New York,"SQL, Python"\nBob Singh,Designer,London,Figma\nCarla Rossi,PM,Milan,Agile';
+
+  // ============ CSV PARSER ============
+  function detectDelimiter(text) {
+    // Skip blank leading lines, otherwise the first line carries no signal.
+    const firstLine = String(text || '').split(/\r?\n/).find(l => l.trim() !== '') || '';
+    const candidates = [',', '\t', ';', '|'];
+    let best = ',', bestCount = 0;
+    for (const d of candidates) {
+      let count = 0, inQuote = false;
+      for (const c of firstLine) {
+        if (c === '"') inQuote = !inQuote;
+        else if (!inQuote && c === d) count++;
+      }
+      if (count > bestCount) { bestCount = count; best = d; }
+    }
+    return best;
+  }
+
+  function parseCsv(text, delimiter) {
+    const rows = [];
+    let row = [];
+    let cur = '';
+    let inQuote = false;
+    let i = 0;
+    const n = text.length;
+    // Strip BOM
+    if (text.charCodeAt(0) === 0xFEFF) i = 1;
+    while (i < n) {
+      const c = text[i];
+      if (inQuote) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { cur += '"'; i += 2; continue; }
+          inQuote = false; i++; continue;
+        }
+        cur += c; i++;
+      } else {
+        if (c === '"' && cur === '') { inQuote = true; i++; continue; }
+        if (c === delimiter) { row.push(cur); cur = ''; i++; continue; }
+        if (c === '\r') { i++; continue; }
+        if (c === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; i++; continue; }
+        cur += c; i++;
+      }
+    }
+    if (cur !== '' || row.length > 0) { row.push(cur); rows.push(row); }
+    // Trim trailing empty rows - but only a genuinely empty final line.
+    // A row of empty fields (",") is real data and must be kept.
+    while (rows.length > 0) {
+      const last = rows[rows.length - 1];
+      if (last.length === 1 && last[0] === '') rows.pop();
+      else break;
+    }
+    return rows;
+  }
+
+  function inferValue(s) {
+    if (s === '' || s == null) return null;
+    const t = s.trim();
+    if (t === '') return '';
+    // Leading zeros mean an identifier (a ZIP code, a phone number, an ID),
+    // not a number - keep them as text.
+    if (/^-?0\d+/.test(t)) return s;
+    if (/^-?\d+$/.test(t)) {
+      const n = parseInt(t, 10);
+      // Integers JavaScript cannot represent exactly stay as text.
+      return Number.isSafeInteger(n) ? n : s;
+    }
+    if (/^-?\d*\.\d+([eE][-+]?\d+)?$/.test(t) || /^-?\d+[eE][-+]?\d+$/.test(t)) return parseFloat(t);
+    const tl = t.toLowerCase();
+    if (tl === 'true' || tl === 'yes') return true;
+    if (tl === 'false' || tl === 'no') return false;
+    if (tl === 'null') return null;
+    return s;
+  }
+
+  function csvToJson(text, opts) {
+    const delimiter = opts.delimiter === 'auto' ? detectDelimiter(text) : opts.delimiter;
+    const rows = parseCsv(text, delimiter);
+    if (rows.length === 0) return { json: '[]', records: 0, columns: 0, delimiter };
+
+    // Skip leading blank lines so that an empty first line does not become
+    // the header row.
+    let firstData = 0;
+    while (firstData < rows.length && rows[firstData].every(c => c === '')) firstData++;
+    if (firstData >= rows.length) return { json: '[]', records: 0, columns: 0, delimiter };
+    const body = rows.slice(firstData);
+
+    let headers;
+    let dataStart;
+    if (opts.headerMode === 'auto') {
+      headers = body[0].map(h => h);
+      dataStart = 1;
+    } else if (opts.headerMode === 'generate') {
+      headers = body[0].map((_, i) => 'col' + (i + 1));
+      dataStart = 0;
+    } else {
+      // "No header, use column numbers as keys" - the first row is data.
+      headers = body[0].map((_, i) => String(i + 1));
+      dataStart = 0;
+    }
+
+    // Trim and lowercase if requested
+    if (opts.trimKeys) headers = headers.map(h => h.trim().toLowerCase().replace(/\s+/g, '_'));
+
+    // Disambiguate duplicates. Object.create(null) keeps inherited keys such
+    // as "constructor" from being mistaken for a duplicate.
+    const seen = Object.create(null);
+    headers = headers.map(h => {
+      if (!h) h = 'column';
+      if (seen[h] == null) { seen[h] = 0; return h; }
+      seen[h]++;
+      return h + '_' + seen[h];
+    });
+
+    // A row can be wider than the header row. Widen the header set so those
+    // extra values are kept instead of being silently dropped.
+    let maxCols = headers.length;
+    for (let r = dataStart; r < body.length; r++) {
+      if (body[r].length > maxCols) maxCols = body[r].length;
+    }
+    for (let c = headers.length; c < maxCols; c++) headers.push('column_' + (c + 1));
+
+    const records = [];
+    for (let r = dataStart; r < body.length; r++) {
+      const obj = {};
+      for (let c = 0; c < headers.length; c++) {
+        let v = body[r][c] || '';
+        if (opts.inferTypes) v = inferValue(v);
+        obj[headers[c]] = v;
+      }
+      records.push(obj);
+    }
+
+    const indent = opts.outputFormat === 'minified' ? 0 : 2;
+    const json = JSON.stringify(records, null, indent);
+    return { json, records: records.length, columns: headers.length, delimiter };
+  }
+
+  // ============ RENDER ============
+  function renderPreview(json, records, columns, delimiter) {
+    if (records === 0) {
+      els.results.classList.remove('visible');
+      els.results.innerHTML = '<div class="results-empty">Your JSON preview will appear here.</div>';
+      els.rowCount.textContent = '0';
+      els.colCount.textContent = '0';
+      return;
+    }
+    const preview = json.length > 8000 ? json.slice(0, 8000) + '\n…' : json;
+    els.results.innerHTML = '<pre>' + escapeHtml(preview) + '</pre>';
+    els.results.classList.add('visible');
+    els.rowCount.textContent = records.toLocaleString();
+    els.colCount.textContent = columns;
+    const labels = { ',': 'Comma', '\t': 'Tab', ';': 'Semicolon', '|': 'Pipe' };
+    els.delimiterLabel.textContent = labels[delimiter] || 'Auto';
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function showError(msg) {
+    els.errorBox.textContent = msg;
+    els.errorBox.classList.add('visible');
+  }
+  function clearError() {
+    els.errorBox.textContent = '';
+    els.errorBox.classList.remove('visible');
+  }
+
+  // ============ HANDLERS ============
+  function processInput(text) {
+    clearError();
+    if (!text || !text.trim()) {
+      state.lastJson = '';
+      renderPreview('', 0, 0, state.delimiter);
+      els.parseStatus.textContent = 'Awaiting input';
+      return;
+    }
+    try {
+      const result = csvToJson(text, {
+        delimiter: state.delimiter,
+        headerMode: state.headerMode,
+        outputFormat: state.outputFormat,
+        inferTypes: state.inferTypes,
+        trimKeys: state.trimKeys,
+      });
+      state.lastJson = result.json;
+      state.lastDelimiter = result.delimiter;
+      renderPreview(result.json, result.records, result.columns, result.delimiter);
+      els.parseStatus.textContent = 'Converted ' + result.records + ' record' + (result.records === 1 ? '' : 's');
+    } catch (e) {
+      showError('Conversion error: ' + e.message);
+      els.parseStatus.textContent = 'Error';
+    }
+  }
+
+  let inputTimer;
+  els.csvInput.addEventListener('input', () => {
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(() => processInput(els.csvInput.value), 220);
+  });
+
+  els.uploadZone.addEventListener('click', () => els.fileInput.click());
+  els.uploadZone.addEventListener('dragover', e => { e.preventDefault(); els.uploadZone.classList.add('dragover'); });
+  els.uploadZone.addEventListener('dragleave', () => els.uploadZone.classList.remove('dragover'));
+  els.uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    els.uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+  els.fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file) {
+    if (file.size > 200 * 1024 * 1024) { showError('File is larger than 200 MB. Try splitting it into smaller chunks.'); return; }
+    const reader = new FileReader();
+    reader.onload = e => { els.csvInput.value = e.target.result; processInput(els.csvInput.value); };
+    reader.onerror = () => showError('Could not read file.');
+    reader.readAsText(file);
+  }
+
+  els.loadSample.addEventListener('click', () => {
+    els.csvInput.value = SAMPLE;
+    processInput(els.csvInput.value);
+  });
+
+  // Reset button (find it by text in converter foot)
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'resetBtn' || (e.target.closest && e.target.closest('#resetBtn'))) {
+      els.csvInput.value = '';
+      els.fileInput.value = '';
+      state.lastJson = '';
+      clearError();
+      renderPreview('', 0, 0, state.delimiter);
+      els.parseStatus.textContent = 'Awaiting input';
+    }
+  });
+
+  els.downloadBtn.addEventListener('click', () => {
+    if (!state.lastJson) { showError('Nothing to download — paste or upload CSV first.'); return; }
+    const blob = new Blob([state.lastJson], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'converted.json';
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  });
+
+  els.copyBtn.addEventListener('click', async () => {
+    if (!state.lastJson) { showError('Nothing to copy — paste or upload CSV first.'); return; }
+    try {
+      await navigator.clipboard.writeText(state.lastJson);
+      const orig = els.copyBtn.innerHTML;
+      els.copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      setTimeout(() => { els.copyBtn.innerHTML = orig; }, 1500);
+    } catch (e) {
+      showError('Could not copy to clipboard. Try downloading instead.');
+    }
+  });
+
+  function openSettings() { els.settingsModal.classList.add('visible'); }
+  function closeSettings() { els.settingsModal.classList.remove('visible'); }
+  els.settingsBtn.addEventListener('click', openSettings);
+  els.closeSettings.addEventListener('click', closeSettings);
+  els.closeSettingsFoot.addEventListener('click', closeSettings);
+  els.settingsModal.addEventListener('click', e => { if (e.target === els.settingsModal) closeSettings(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && els.settingsModal.classList.contains('visible')) closeSettings(); });
+
+  els.applySettings.addEventListener('click', () => {
+    state.delimiter = els.delimiter.value === '\\t' ? '\t' : els.delimiter.value;
+    const labels = { ',': 'Comma', '\t': 'Tab', ';': 'Semicolon', '|': 'Pipe', 'auto': 'Auto' };
+    state.delimiterLabel = labels[state.delimiter] || 'Custom';
+    els.delimiterLabel.textContent = state.delimiterLabel;
+    state.headerMode = els.headerMode.value;
+    state.outputFormat = els.outputFormat.value;
+    state.inferTypes = els.inferTypes.checked;
+    state.trimKeys = els.trimKeys.checked;
+    closeSettings();
+    processInput(els.csvInput.value);
+  });
+})();
+
+</script>
+</body>
+</html>

@@ -5,9 +5,20 @@ Every page loads the shared runtime as:
 
   <script src="hop-common.js?v=20261112-3"></script>
 
-When hop-common.js changes, bump the version on all 20 pages in the same
+When hop-common.js changes, bump the version on all 28 pages in the same
 commit, otherwise visitors keep running the previous copy for up to four
 hours - which matters most for the privacy verifier, the one file whose
 logic decides whether the site claims your data stayed local.
 
 Current version: 20261112-3
+
+style.css cache version
+
+The same four-hour browser cache applies to the stylesheet, and the ad slot
+rules live there, so the stylesheet is versioned the same way:
+
+  <link rel="stylesheet" href="style.css?v=20261112-4" />
+
+Bump it in the same commit as any change to style.css.
+
+Current version: 20261112-4

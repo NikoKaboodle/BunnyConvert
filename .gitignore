@@ -56,3 +56,11 @@ patch-cache.ps1
 patch-ver2.ps1
 patch-ver3.ps1
 patch-filter-ignore.ps1
+patch-ads.ps1
+patch-nav.ps1
+patch-links.ps1
+landing.ps1
+spec-landing.ps1
+build-landing.ps1
+patch-examples.ps1
+patch-xml-attrs.ps1
