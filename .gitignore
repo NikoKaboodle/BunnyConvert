@@ -54,4 +54,5 @@ patch-rest.ps1
 patch-csv2.ps1
 patch-cache.ps1
 patch-ver2.ps1
+patch-ver3.ps1
 patch-filter-ignore.ps1
