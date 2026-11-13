@@ -436,36 +436,41 @@ section .lede { color: var(--ink-700); font-size: 1.05rem; max-width: 640px; mar
    ad can never push the page content down (cumulative layout shift). One
    rule per slot type.
 
-   The reservation uses min-height, not height: the ad network sets
-   "height: auto !important" on the container while it measures and fills
-   the slot, which would cancel a fixed height but leaves min-height in
-   force. The reserved box is therefore always there, and it grows only if
-   the network genuinely serves a taller unit. */
+   The reservation is padding, not height or min-height. The ad network
+   rewrites the slot while it fills the unit, setting
+   "height: auto !important; min-height: 0px !important" on it, and an
+   important inline declaration beats an important rule in the stylesheet.
+   Padding is a different property, so it survives that rewrite and the
+   space stays reserved.
+
+   The ad sits in an absolutely positioned box, so it does not add to the
+   slot's height. The reserved space is therefore exactly one box tall
+   whatever arrives, and the page never moves. */
 .ad-slot {
   margin: 28px auto;
   max-width: 100%;
   text-align: center;
   display: block;
+  position: relative;
 }
 .ad-slot ins.adsbygoogle { display: block; }
+.ad-slot__box { position: absolute; top: 0; left: 0; right: 0; display: block; }
 
 /* Slot type 1 - wide horizontal strip, used directly under the trust strip.
    The container is capped at 728px so the unit stays a leaderboard
    (728x90 on desktop, 320x50 on mobile), which fits the reserved box. */
 .ad-slot--banner {
   max-width: 728px;
-  min-height: 100px;
+  padding-bottom: 100px;
 }
-.ad-slot--banner ins.adsbygoogle { min-height: 100px; }
 
 /* Slot type 2 - in-content rectangle between content blocks.
    Column width keeps the unit in the 250-280px band (336x280 desktop,
-   300x250 mobile), which fits the reserved height. */
+   300x250 mobile), which fits the reserved box. */
 .ad-slot--rect {
   max-width: 336px;
-  min-height: 280px;
+  padding-bottom: 280px;
 }
-.ad-slot--rect ins.adsbygoogle { min-height: 280px; }
 
 /* FAQ */
 .faq { display: flex; flex-direction: column; gap: 10px; }
