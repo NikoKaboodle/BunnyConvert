@@ -64,3 +64,4 @@ spec-landing.ps1
 build-landing.ps1
 patch-examples.ps1
 patch-xml-attrs.ps1
+patch-adbox.ps1
