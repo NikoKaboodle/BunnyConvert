@@ -47,6 +47,7 @@ _server.err
 
 # Local test harnesses and one-shot patch scripts (not part of the site)
 adversarial.html
+_adtest.html
 regress.html
 privacydiag.html
 patch-index.ps1
